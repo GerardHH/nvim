@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-surround'
 
 if exists('g:vscode')

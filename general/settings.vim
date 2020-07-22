@@ -22,10 +22,3 @@ set list
 set path+=**
 " Display all matching files when we tab complete
 set wildmenu
-
-if !exists('g:vscode')
-    " Enable spellcheck
-    set spell
-    " Enable syntax highlighting
-    syntax on
-endif

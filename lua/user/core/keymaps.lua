@@ -26,8 +26,11 @@ keymap("n", "<S-h>", ":bprevious<CR>", {})
 keymap("n", "<A-j>", ":m .+1<CR>==", {})
 keymap("n", "<A-k>", ":m .-2<CR>==", {})
 
+-- Meta actions
+keymap("n", "<leader>ch", ":checkhealth<CR>", { desc = "Check Health" })
+
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", {})
 keymap("i", "kj", "<ESC>", {})
 

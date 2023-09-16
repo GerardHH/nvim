@@ -23,3 +23,7 @@ require("lazy").setup({import = "user.plugins"}, {
         notify = false,
     },
 })
+
+local keymap = vim.keymap.set
+
+keymap("n", "<leader>lh", ":Lazy<CR>", { desc = "Lazy Home" })

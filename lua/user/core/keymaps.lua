@@ -18,9 +18,20 @@ keymap("n", "<C-Down>", ":resize +2<CR>", {})
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", {})
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", {})
 
--- Navigate buffers
+-- Buffers
 keymap("n", "<S-l>", ":bnext<CR>", {})
 keymap("n", "<S-h>", ":bprevious<CR>", {})
+
+keymap("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+keymap("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+
+keymap("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
+keymap("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
+keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
+keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 -- Move text up and down
 keymap("n", "<A-j>", ":m .+1<CR>==", {})

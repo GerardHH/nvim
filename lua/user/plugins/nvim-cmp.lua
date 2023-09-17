@@ -8,6 +8,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"f3fora/cmp-spell", -- spelling
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -72,7 +73,8 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				{ name = "spell" }, -- spelling
+				{ name = "nvim_lsp" }, -- LSP
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths

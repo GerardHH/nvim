@@ -5,6 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		"folke/which-key.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -25,12 +26,19 @@ return {
 
 		telescope.load_extension("fzf")
 
-		-- set keymaps
-		local keymap = vim.keymap.set -- for conciseness
-
-		keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-		keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-		keymap("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-		keymap("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+		local wk = require("which-key")
+		wk.register({
+			s = {
+				name = "Search",
+				c = { "<cmd>Telescope grep_string<cr>", "Search Current word" },
+				d = { "<cmd>Telescope diagnostics<cr>", "Search Diagnostics" },
+				f = { "<cmd>Telescope find_files<cr>", "Search File" },
+				g = { "<cmd>Telescope git_files<cr>", "Search Git files" },
+				h = { "<cmd>Telescope help_tags<cr>", "Search Help" },
+				k = { "<cmd>Telescope keymaps<cr>", "Search Keymaps" },
+				r = { "<cmd>Telescope oldfiles<cr>", "Search Recent file" },
+				s = { "<cmd>Telescope live_grep<cr>", "Search String" },
+			},
+		}, { prefix = "<leader>" })
 	end,
 }

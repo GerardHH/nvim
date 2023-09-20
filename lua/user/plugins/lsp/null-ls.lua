@@ -21,6 +21,7 @@ return {
 			-- setup formatters & linters
 			sources = {
 				formatting.stylua, -- lua formatter
+				formatting.beautysh, -- shell formatter
 			},
 			-- configure format on save
 			on_attach = function(current_client, bufnr)

@@ -2,7 +2,7 @@ return {
 	"williamboman/mason.nvim",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
-		-- "jayp0521/mason-null-ls.nvim",
+		"jayp0521/mason-null-ls.nvim",
 	},
 	config = function()
 		-- import mason
@@ -12,7 +12,7 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 
 		-- import mason-null-ls
-		-- local mason_null_ls = require("mason-null-ls")
+		local mason_null_ls = require("mason-null-ls")
 
 		-- enable mason and configure icons
 		mason.setup({
@@ -34,15 +34,14 @@ return {
 			automatic_installation = true, -- not the same as ensure_installed
 		})
 
-		-- mason_null_ls.setup({
-		--   -- list of formatters & linters for mason to install
-		--   ensure_installed = {
-		--     "stylua", -- lua formatter
-		--   },
-		--   -- auto-install configured servers (with lspconfig)
-		--   automatic_installation = true,
-		-- })
-		--
+		mason_null_ls.setup({
+			-- list of formatters & linters for mason to install
+			ensure_installed = {
+				"stylua", -- lua formatter
+			},
+			-- auto-install configured servers (with lspconfig)
+			automatic_installation = true,
+		})
 
 		-- set keybinds
 		local keymap = vim.keymap.set -- for conciseness

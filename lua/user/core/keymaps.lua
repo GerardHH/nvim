@@ -19,8 +19,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", {})
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", {})
 
 -- Buffers
-keymap("n", "<S-l>", ":bnext<CR>", {})
-keymap("n", "<S-h>", ":bprevious<CR>", {})
+keymap("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
+keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
 
 keymap("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })

@@ -44,15 +44,5 @@ return {
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,
 		})
-
-		-- set keybinds
-		local keymap = vim.keymap.set -- for conciseness
-		local opts = { noremap = true, silent = true }
-
-		opts.desc = "Mason Home"
-		keymap("n", "<leader>mh", ":Mason<CR>", opts)
-
-		opts.desc = "Mason Log"
-		keymap("n", "<leader>ml", ":MasonLog<CR>", opts)
 	end,
 }

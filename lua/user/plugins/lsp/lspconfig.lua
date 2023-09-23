@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"folke/which-key.nvim",
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -12,51 +13,28 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local keymap = vim.keymap.set -- for conciseness
-
-		local opts = { noremap = true, silent = true }
-		local on_attach = function(client, bufnr)
-			opts.buffer = bufnr
-
-			-- set keybinds
-			opts.desc = "Show LSP references"
-			keymap("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-
-			opts.desc = "Go to declaration"
-			keymap("n", "gD", vim.lsp.buf.declaration, opts)
-
-			opts.desc = "Show LSP definitions"
-			keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-
-			opts.desc = "Show LSP implementations"
-			keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-
-			opts.desc = "Show LSP type definitions"
-			keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-
-			opts.desc = "See available code actions"
-			keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-
-			opts.desc = "Smart rename"
-			keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-			opts.desc = "Show buffer diagnostics"
-			keymap("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-
-			opts.desc = "Show line diagnostics"
-			keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
-
-			opts.desc = "Go to previous diagnostic"
-			keymap("n", "[d", vim.diagnostic.goto_prev, opts)
-
-			opts.desc = "Go to next diagnostic"
-			keymap("n", "]d", vim.diagnostic.goto_next, opts)
-
-			opts.desc = "Show documentation for what is under cursor"
-			keymap("n", "K", vim.lsp.buf.hover, opts)
-
-			opts.desc = "Restart LSP"
-			keymap("n", "<leader>rs", ":LspRestart<CR>", opts)
+		local on_attach = function(_, bufnr)
+			require("which-key").register({
+				l = {
+					name = "LSP",
+					D = { vim.lsp.buf.declaration, "LSP declaration", buffer = bufnr },
+					K = { vim.lsp.buf.hover, "LSP documentation", buffer = bufnr },
+					R = { "<cmd>Telescope lsp_references<CR>", "LSP references", buffer = bufnr },
+					a = { vim.lsp.buf.code_action, "LSP action", buffer = bufnr },
+					d = { "<cmd>Telescope lsp_definitions<CR>", "LSP definitions", buffer = bufnr },
+					i = { "<cmd>Telescope lsp_implementations<CR>", "LSP implementations", buffer = bufnr },
+					r = { vim.lsp.buf.rename, "LSP rename", buffer = bufnr },
+					rs = { "<cmd>LspRestart<CR>", "LSP restart", buffer = bufnr },
+					t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions", buffer = bufnr },
+				},
+				d = {
+					name = "Diagnostics",
+					b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer", buffer = bufnr },
+					l = { vim.diagnostic.open_float, "Diagnostics line", buffer = bufnr },
+					n = { vim.diagnostic.goto_next, "Diagnostics next", buffer = bufnr },
+					p = { vim.diagnostic.goto_prev, "Diagnostics previous", buffer = bufnr },
+				},
+			}, { prefix = "<leader>" })
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)

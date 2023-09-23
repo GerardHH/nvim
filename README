@@ -1,0 +1,7 @@
+TODO:
+- Diagnostics doesn't show up on which-key
+- clangd doesn't find system headers
+- Add c++ debugger
+- Add python stuff
+- Add floating CMD popup
+

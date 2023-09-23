@@ -22,6 +22,7 @@ return {
 			sources = {
 				formatting.stylua, -- lua formatter
 				formatting.beautysh, -- shell formatter
+				formatting.clang_format, -- c/c++ formatter
 			},
 			-- configure format on save
 			on_attach = function(current_client, bufnr)

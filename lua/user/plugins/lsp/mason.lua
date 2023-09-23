@@ -30,6 +30,7 @@ return {
 			ensure_installed = {
 				"lua_ls", -- lua
 				"bashls", -- shell
+				"clangd", -- c/c++
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -40,6 +41,7 @@ return {
 			ensure_installed = {
 				"stylua", -- lua formatter
 				"beautysh", -- shell formatter
+				"clang-format", -- c/c++ formatter
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,

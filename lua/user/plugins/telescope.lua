@@ -30,14 +30,14 @@ return {
 		wk.register({
 			s = {
 				name = "Search",
-				c = { "<cmd>Telescope grep_string<cr>", "Search Current word" },
-				d = { "<cmd>Telescope diagnostics<cr>", "Search Diagnostics" },
-				f = { "<cmd>Telescope find_files<cr>", "Search File" },
-				g = { "<cmd>Telescope git_files<cr>", "Search Git files" },
-				h = { "<cmd>Telescope help_tags<cr>", "Search Help" },
-				k = { "<cmd>Telescope keymaps<cr>", "Search Keymaps" },
-				r = { "<cmd>Telescope oldfiles<cr>", "Search Recent file" },
-				s = { "<cmd>Telescope live_grep<cr>", "Search String" },
+				c = { "<cmd>Telescope grep_string<cr>", "Search current word" },
+				d = { "<cmd>Telescope diagnostics<cr>", "Search diagnostics" },
+				f = { "<cmd>Telescope find_files<cr>", "Search file" },
+				g = { "<cmd>Telescope git_files<cr>", "Search git files" },
+				h = { "<cmd>Telescope help_tags<cr>", "Search help" },
+				k = { "<cmd>Telescope keymaps<cr>", "Search keymaps" },
+				r = { "<cmd>Telescope oldfiles<cr>", "Search recent file" },
+				s = { "<cmd>Telescope live_grep<cr>", "Search string" },
 			},
 		}, { prefix = "<leader>" })
 	end,

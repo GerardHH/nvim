@@ -17,24 +17,24 @@ return {
 			require("which-key").register({
 				l = {
 					name = "LSP",
-					D = { vim.lsp.buf.declaration, "LSP declaration", buffer = bufnr },
-					K = { vim.lsp.buf.hover, "LSP documentation", buffer = bufnr },
-					R = { "<cmd>Telescope lsp_references<CR>", "LSP references", buffer = bufnr },
-					a = { vim.lsp.buf.code_action, "LSP action", buffer = bufnr },
-					d = { "<cmd>Telescope lsp_definitions<CR>", "LSP definitions", buffer = bufnr },
-					i = { "<cmd>Telescope lsp_implementations<CR>", "LSP implementations", buffer = bufnr },
-					r = { vim.lsp.buf.rename, "LSP rename", buffer = bufnr },
-					rs = { "<cmd>LspRestart<CR>", "LSP restart", buffer = bufnr },
-					t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions", buffer = bufnr },
+					D = { vim.lsp.buf.declaration, "LSP declaration" },
+					K = { vim.lsp.buf.hover, "LSP documentation" },
+					R = { "<cmd>Telescope lsp_references<CR>", "LSP references" },
+					a = { vim.lsp.buf.code_action, "LSP action" },
+					d = { "<cmd>Telescope lsp_definitions<CR>", "LSP definitions" },
+					i = { "<cmd>Telescope lsp_implementations<CR>", "LSP implementations" },
+					r = { vim.lsp.buf.rename, "LSP rename" },
+					rs = { "<cmd>LspRestart<CR>", "LSP restart" },
+					t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions" },
 				},
 				d = {
 					name = "Diagnostics",
-					b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer", buffer = bufnr },
-					l = { vim.diagnostic.open_float, "Diagnostics line", buffer = bufnr },
-					n = { vim.diagnostic.goto_next, "Diagnostics next", buffer = bufnr },
-					p = { vim.diagnostic.goto_prev, "Diagnostics previous", buffer = bufnr },
+					b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer" },
+					l = { vim.diagnostic.open_float, "Diagnostics line" },
+					n = { vim.diagnostic.goto_next, "Diagnostics next" },
+					p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
 				},
-			}, { prefix = "<leader>" })
+			}, { prefix = "<leader>", buffer = bufnr })
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)

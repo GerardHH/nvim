@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"jayp0521/mason-null-ls.nvim",
+		"jay-babu/mason-nvim-dap.nvim",
 	},
 	config = function()
 		-- import mason
@@ -13,6 +14,9 @@ return {
 
 		-- import mason-null-ls
 		local mason_null_ls = require("mason-null-ls")
+
+		-- import mason-nvim-dap
+		local mason_nvim_dap = require("mason-nvim-dap")
 
 		-- enable mason and configure icons
 		mason.setup({
@@ -33,7 +37,6 @@ return {
 				"lua_ls", -- lua LSP
 				"pyright", -- python LSP
 			},
-			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
 		})
 
@@ -47,7 +50,14 @@ return {
 				"ruff", -- python linter
 				"stylua", -- lua formatter
 			},
-			-- auto-install configured servers (with lspconfig)
+			automatic_installation = true,
+		})
+
+		mason_nvim_dap.setup({
+			-- list of debuggers for mason to install
+			ensure_installed = {
+				"python", -- python debugger
+			},
 			automatic_installation = true,
 		})
 	end,

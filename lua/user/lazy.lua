@@ -11,18 +11,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "user.plugins" }, { import = "user.plugins.lsp" } }, {
-	install = {
-		colorscheme = { "melange" },
-	},
-	checker = {
-		enabled = true,
-		notify = false,
-	},
-	change_detection = {
-		notify = false,
-	},
-})
+require("lazy").setup(
+	{ { import = "user.plugins" }, { import = "user.plugins.lsp" }, { import = "user.plugins.dap" } },
+	{
+		install = {
+			colorscheme = { "melange" },
+		},
+		checker = {
+			enabled = true,
+			notify = false,
+		},
+		change_detection = {
+			notify = false,
+		},
+	}
+)
 
 local keymap = vim.keymap.set
 

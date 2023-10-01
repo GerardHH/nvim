@@ -28,9 +28,9 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				"lua_ls", -- lua
-				"bashls", -- shell
-				"clangd", -- c/c++
+				"bashls", -- shell LSP
+				"clangd", -- c/c++ LSP
+				"lua_ls", -- lua LSP
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -39,9 +39,9 @@ return {
 		mason_null_ls.setup({
 			-- list of formatters & linters for mason to install
 			ensure_installed = {
-				"stylua", -- lua formatter
 				"beautysh", -- shell formatter
 				"clang-format", -- c/c++ formatter
+				"stylua", -- lua formatter
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,

@@ -31,6 +31,7 @@ return {
 				"bashls", -- shell LSP
 				"clangd", -- c/c++ LSP
 				"lua_ls", -- lua LSP
+				"pyright", -- python LSP
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -40,7 +41,10 @@ return {
 			-- list of formatters & linters for mason to install
 			ensure_installed = {
 				"beautysh", -- shell formatter
+				"black", -- python formatter
 				"clang-format", -- c/c++ formatter
+				"mypy", -- python static analyzer
+				"ruff", -- python linter
 				"stylua", -- lua formatter
 			},
 			-- auto-install configured servers (with lspconfig)

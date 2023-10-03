@@ -4,4 +4,5 @@ TODO:
 - Add c++ debugger
 - Add python stuff
 - Add floating CMD popup
+- Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
 

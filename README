@@ -5,4 +5,5 @@ TODO:
 - Add python stuff
 - Add floating CMD popup
 - Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
+- Use vscode like tasks such as overseer.nvim or vs-tasks.nvim
 

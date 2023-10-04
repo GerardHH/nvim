@@ -1,9 +1,8 @@
 TODO:
-- Diagnostics doesn't show up on which-key
 - clangd doesn't find system headers
 - Add c++ debugger
-- Add python stuff
 - Add floating CMD popup
 - Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
 - Use vscode like tasks such as overseer.nvim or vs-tasks.nvim
+- Movement over cammel-case/snake_case (vim-wordmotion, CamelCaseMotion.vim)
 

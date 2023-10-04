@@ -25,6 +25,7 @@ return {
 					i = { "<cmd>Telescope lsp_implementations<CR>", "LSP implementations" },
 					r = { vim.lsp.buf.rename, "LSP rename" },
 					rs = { "<cmd>LspRestart<CR>", "LSP restart" },
+					s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
 					t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions" },
 				},
 				d = {

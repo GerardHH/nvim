@@ -1,8 +1,11 @@
 local opt = vim.opt -- for conciseness
 
+opt.fileencoding = "utf-8" -- the encoding written to a file
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+opt.cursorline = true -- highlight the current line
 
 -- tabs & indentation
 opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
@@ -13,6 +16,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.hlsearch = true -- highlight all matches on previous search pattern
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
@@ -28,5 +32,13 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Spelling
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us" }
+opt.spell = true
+opt.spelllang = { "en_us" }
+
+-- Command line
+opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+opt.showcmd = false -- don't show command in the last line of the screen
+
+-- Scrolling
+opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor.
+opt.sidescrolloff = 8 -- minimal number of screen lines to keep left and right of the cursor.

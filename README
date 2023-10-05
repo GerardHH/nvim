@@ -6,8 +6,9 @@ TODO:
 - Movement over cammel-case/snake_case (vim-wordmotion, CamelCaseMotion.vim)
 - vim-illuminate
 - nvim-navic
-- Add floating CMD popup (cmdpalette.nvim)
+- Add floating CMD popup (noice.nvim, cmdpalette.nvim)
 - vim-visual-multi
+- leap.nvim with flit.nvim
 - Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
 - Use nvim-treesitter-textobjects.nvim (see https://www.youtube.com/watch?v=CEMPq_r8UYQ)
 - trouble.nvim?

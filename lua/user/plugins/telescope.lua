@@ -38,6 +38,7 @@ return {
 				k = { "<cmd>Telescope keymaps<cr>", "Search keymaps" },
 				r = { "<cmd>Telescope oldfiles<cr>", "Search recent file" },
 				s = { "<cmd>Telescope live_grep<cr>", "Search string" },
+				n = { "<cmd>Telescope notify<CR>", "Search notifycations" },
 			},
 		}, { prefix = "<leader>" })
 	end,

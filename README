@@ -4,11 +4,11 @@ TODO:
 
 - Use vscode like tasks such as overseer.nvim or vs-tasks.nvim
 - Movement over cammel-case/snake_case (vim-wordmotion, CamelCaseMotion.vim)
-- vim-illuminate
-- nvim-navic
+- vim-illuminate highlighting words
+- nvim-navic statusline/winbar using LSP to show code context
 - Add floating CMD popup (noice.nvim, cmdpalette.nvim)
-- vim-visual-multi
-- leap.nvim with flit.nvim
+- vim-visual-multi actions on multiple lines
+- leap.nvim with flit.nvim for improved movements
 - Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
-- Use nvim-treesitter-textobjects.nvim (see https://www.youtube.com/watch?v=CEMPq_r8UYQ)
-- trouble.nvim?
+- nvim-treesitter-textobjects.nvim for improved "block" movements(see https://www.youtube.com/watch?v=CEMPq_r8UYQ)
+- trouble.nvim? pretty list for diagnostics, references, telescope results, etc

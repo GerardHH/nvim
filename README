@@ -9,4 +9,5 @@ TODO:
 - Add floating CMD popup (cmdpalette.nvim)
 - vim-visual-multi
 - Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
+- Use nvim-treesitter-textobjects.nvim (see https://www.youtube.com/watch?v=CEMPq_r8UYQ)
 - trouble.nvim?

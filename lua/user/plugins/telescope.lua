@@ -26,18 +26,17 @@ return {
 
 		telescope.load_extension("fzf")
 
-		local wk = require("which-key")
-		wk.register({
+		require("which-key").register({
 			s = {
 				name = "Search",
-				c = { "<cmd>Telescope grep_string<cr>", "Search current word" },
-				d = { "<cmd>Telescope diagnostics<cr>", "Search diagnostics" },
-				f = { "<cmd>Telescope find_files<cr>", "Search file" },
-				g = { "<cmd>Telescope git_files<cr>", "Search git files" },
-				h = { "<cmd>Telescope help_tags<cr>", "Search help" },
-				k = { "<cmd>Telescope keymaps<cr>", "Search keymaps" },
-				r = { "<cmd>Telescope oldfiles<cr>", "Search recent file" },
-				s = { "<cmd>Telescope live_grep<cr>", "Search string" },
+				c = { "<cmd>Telescope grep_string<CR>", "Search current word" },
+				d = { "<cmd>Telescope diagnostics<CR>", "Search diagnostics" },
+				f = { "<cmd>Telescope find_files<CR>", "Search file" },
+				g = { "<cmd>Telescope git_files<CR>", "Search git files" },
+				h = { "<cmd>Telescope help_tags<CR>", "Search help" },
+				k = { "<cmd>Telescope keymaps<CR>", "Search keymaps" },
+				r = { "<cmd>Telescope oldfiles<CR>", "Search recent file" },
+				s = { "<cmd>Telescope live_grep<CR>", "Search string" },
 				n = { "<cmd>Telescope notify<CR>", "Search notifycations" },
 			},
 		}, { prefix = "<leader>" })

@@ -27,17 +27,17 @@ return {
 		telescope.load_extension("fzf")
 
 		require("which-key").register({
-			s = {
-				name = "Search",
-				c = { "<cmd>Telescope grep_string<CR>", "Search current word" },
-				d = { "<cmd>Telescope diagnostics<CR>", "Search diagnostics" },
-				f = { "<cmd>Telescope find_files<CR>", "Search file" },
-				g = { "<cmd>Telescope git_files<CR>", "Search git files" },
-				h = { "<cmd>Telescope help_tags<CR>", "Search help" },
-				k = { "<cmd>Telescope keymaps<CR>", "Search keymaps" },
-				r = { "<cmd>Telescope oldfiles<CR>", "Search recent file" },
-				s = { "<cmd>Telescope live_grep<CR>", "Search string" },
-				n = { "<cmd>Telescope notify<CR>", "Search notifycations" },
+			t = {
+				name = "Telescope",
+				c = { "<cmd>Telescope grep_string<CR>", "Telescope current word" },
+				d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
+				f = { "<cmd>Telescope find_files<CR>", "Telescope file" },
+				g = { "<cmd>Telescope git_files<CR>", "Telescope git files" },
+				h = { "<cmd>Telescope help_tags<CR>", "Telescope help" },
+				k = { "<cmd>Telescope keymaps<CR>", "Telescope keymaps" },
+				r = { "<cmd>Telescope oldfiles<CR>", "Telescope recent file" },
+				s = { "<cmd>Telescope live_grep<CR>", "Telescope string" },
+				n = { "<cmd>Telescope notify<CR>", "Telescope notifycations" },
 			},
 		}, { prefix = "<leader>" })
 	end,

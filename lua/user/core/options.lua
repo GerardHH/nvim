@@ -1,6 +1,7 @@
 local opt = vim.opt -- for conciseness
 
 opt.fileencoding = "utf-8" -- the encoding written to a file
+opt.swapfile = false -- turn off swapfile
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers

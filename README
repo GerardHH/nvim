@@ -2,10 +2,6 @@ TODO:
 - Add c++ debugger
 - clangd doesn't find system headers
 
-- telescope-tasks.nvim for generating tasks
-- Use vscode like tasks such as overseer.nvim , vs-tasks.nvim , asynctasks.vim,
--- easypick.nvim for creating a string picker?
--- vim.ui.input and vim.ui.inputlist for user input (i.e. the string picker)
 - Movement over cammel-case/snake_case (vim-wordmotion, CamelCaseMotion.vim)
 - vim-illuminate highlighting words
 - nvim-navic statusline/winbar using LSP to show code context

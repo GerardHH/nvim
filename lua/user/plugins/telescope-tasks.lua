@@ -2,7 +2,6 @@ return {
 	"lpoto/telescope-tasks.nvim",
 	dependency = {
 		"nvim-telescope/telescope.nvim",
-		"folke/which-key.nvim",
 	},
 	event = "VeryLazy",
 	config = function()
@@ -13,12 +12,6 @@ return {
 		local default = telescope.extensions.tasks.generators.default
 		default.lua()
 		default.python()
-
-		require("which-key").register({
-			t = {
-				t = { "<cmd>Telescope tasks<CR>", "Telescope tasks" },
-			},
-		}, { prefix = "<leader>" })
 
 		-- Custom tasks
 		local custom = telescope.extensions.tasks.generators.custom

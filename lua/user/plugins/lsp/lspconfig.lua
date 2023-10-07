@@ -5,7 +5,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"folke/neodev.nvim",
-		"folke/which-key.nvim",
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -14,30 +13,7 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local on_attach = function(_, bufnr)
-			require("which-key").register({
-				l = {
-					name = "LSP",
-					D = { vim.lsp.buf.declaration, "LSP declaration" },
-					K = { vim.lsp.buf.hover, "LSP documentation" },
-					R = { "<cmd>Telescope lsp_references<CR>", "LSP references" },
-					a = { vim.lsp.buf.code_action, "LSP action" },
-					d = { "<cmd>Telescope lsp_definitions<CR>", "LSP definitions" },
-					i = { "<cmd>Telescope lsp_implementations<CR>", "LSP implementations" },
-					r = { vim.lsp.buf.rename, "LSP rename" },
-					rs = { "<cmd>LspRestart<CR>", "LSP restart" },
-					s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
-					t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions" },
-				},
-				d = {
-					name = "Diagnostics",
-					b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer" },
-					l = { vim.diagnostic.open_float, "Diagnostics line" },
-					n = { vim.diagnostic.goto_next, "Diagnostics next" },
-					p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
-				},
-			}, { prefix = "<leader>", buffer = bufnr })
-		end
+		local on_attach = function() end
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()

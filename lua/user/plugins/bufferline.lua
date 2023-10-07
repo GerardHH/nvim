@@ -3,12 +3,15 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons", "moll/vim-bbye", "folke/which-key.nvim" },
 	version = "*",
 	config = function()
+		---@diagnostic disable:missing-fields
 		require("bufferline").setup({
+			highlights = {},
 			options = {
 				close_command = "Bdelete! %d",
 				right_mouse_command = "Bdelete! %d",
 			},
 		})
+		---@diagnostic enable:missing-fields
 
 		local wk = require("which-key")
 		wk.register({

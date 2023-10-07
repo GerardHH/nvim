@@ -25,6 +25,7 @@ return {
 			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 		end
 
+		---@diagnostic disable:missing-fields
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
@@ -87,5 +88,6 @@ return {
 				}),
 			},
 		})
+		---@diagnostic enable:missing-fields
 	end,
 }

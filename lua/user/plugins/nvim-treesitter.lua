@@ -11,6 +11,7 @@ return {
 			local treesitter = require("nvim-treesitter.configs")
 
 			-- configure treesitter
+			---@diagnostic disable:missing-fields
 			treesitter.setup({ -- enable syntax highlighting
 				highlight = {
 					enable = true,
@@ -45,6 +46,7 @@ return {
 				-- auto install above language parsers
 				auto_install = true,
 			})
+			---@diagnostic enable:missing-fields
 		end,
 	},
 }

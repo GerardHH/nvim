@@ -16,4 +16,5 @@ return {
 			},
 		}, { prefix = "<leader>", silent = false })
 	end,
+	event = "VeryLazy",
 }

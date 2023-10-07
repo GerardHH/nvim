@@ -4,6 +4,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		"folke/which-key.nvim",
 	},
+	event = "VeryLazy",
 	config = function()
 		local telescope = require("telescope")
 		telescope.load_extension("tasks")

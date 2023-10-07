@@ -7,6 +7,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"folke/which-key.nvim",
 	},
+	events = "VeryLazy",
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")

@@ -3,7 +3,6 @@ TODO:
 - clangd doesn't find system headers
 
 - Movement over cammel-case/snake_case (vim-wordmotion, CamelCaseMotion.vim)
-- vim-illuminate highlighting words
 - nvim-navic statusline/winbar using LSP to show code context
 - Add floating CMD popup (noice.nvim, cmdpalette.nvim)
 - vim-visual-multi actions on multiple lines

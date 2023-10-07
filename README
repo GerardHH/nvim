@@ -5,7 +5,6 @@ TODO:
 - Movement over cammel-case/snake_case (vim-wordmotion, CamelCaseMotion.vim)
 - nvim-navic statusline/winbar using LSP to show code context
 - Add floating CMD popup (noice.nvim, cmdpalette.nvim)
-- vim-visual-multi actions on multiple lines
 - leap.nvim with flit.nvim for improved movements
 - Replace null-ls with conform.nvim, nvim-lint and Mason-tool-installer. See https://youtu.be/ybUE4D80XSk?si=2pUY1XmNaXt9Qu1m
 - nvim-treesitter-textobjects.nvim for improved "block" movements(see https://www.youtube.com/watch?v=CEMPq_r8UYQ)

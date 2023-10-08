@@ -6,10 +6,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Normal --
-keymap("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
-keymap("n", "<C-j>", "<C-w>j", { desc = "Navigate to down window" })
-keymap("n", "<C-k>", "<C-w>k", { desc = "Navigate to up window" })
-keymap("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
+keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "Navigate to left nvim/tmux window" })
+keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Navigate to down nvim/tmux window" })
+keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Navigate to up nvim/tmux window" })
+keymap("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "Navigate to right nvim/tmux window" })
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", { desc = "Expand current view horizontally" })

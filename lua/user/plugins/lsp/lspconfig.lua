@@ -47,6 +47,11 @@ return {
 		lspconfig["clangd"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			cmd = {
+				"clangd",
+				"--compile-commands-dir=/home/gerard/salsa_ws/unittest/build/",
+				"--offset-encoding=utf-16",
+			},
 		})
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,

@@ -8,3 +8,5 @@ TODO:
 - nvim-treesitter-textobjects.nvim for improved "block" movements(see https://www.youtube.com/watch?v=CEMPq_r8UYQ)
 - trouble.nvim? pretty list for diagnostics, references, telescope results, etc
 - nvim-navic statusline/winbar using LSP to show code context
+
+- neorg notetaking/journaling

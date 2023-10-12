@@ -70,9 +70,9 @@ return {
 				s = { "<cmd>Telescope live_grep<CR>", "Telescope string" },
 				t = { "<cmd>Telescope tasks<CR>", "Telescope tasks" },
 			},
-			T = {
-				name = "Toggle",
-				e = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
+			v = {
+				name = "View",
+				e = { "<cmd>NvimTreeToggle<CR>", "View file explorer" },
 			},
 		}, { prefix = "<leader>" })
 	end,

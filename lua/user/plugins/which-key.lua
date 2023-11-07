@@ -49,6 +49,12 @@ return {
 				n = { vim.diagnostic.goto_next, "Diagnostics next" },
 				p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
 			},
+			S = {
+				name = "Session",
+				s = { "<cmd>SessionSave<CR>", "Session save" },
+				d = { "<cmd>SessionDelete<CR>", "Session delete" },
+				f = { "<cmd>SearchSession<CR>", "Session find" },
+			},
 			s = {
 				name = "Split",
 				c = { "<cmd>close<CR>", "Split close current" },

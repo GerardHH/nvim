@@ -40,11 +40,12 @@ return {
 					"python",
 					"qmldir",
 					"qmljs",
+					"regex",
 					"vim",
 					"vimdoc",
 					"xml",
 					"yaml",
-					"regex",
+					"kdl",
 				},
 				-- auto install above language parsers
 				auto_install = true,

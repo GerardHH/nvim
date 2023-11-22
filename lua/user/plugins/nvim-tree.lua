@@ -54,7 +54,7 @@ return {
 				},
 			},
 			view = {
-				width = 35,
+				width = 70,
 				relativenumber = true,
 			},
 			on_attach = function(bufnr)

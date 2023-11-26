@@ -5,7 +5,6 @@ return {
 		"jayp0521/mason-null-ls.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
 	},
-	event = "VeryLazy",
 	config = function()
 		-- import mason
 		local mason = require("mason")

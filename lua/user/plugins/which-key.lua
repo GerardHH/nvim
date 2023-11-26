@@ -50,6 +50,14 @@ return {
 				n = { vim.diagnostic.goto_next, "Diagnostics next" },
 				p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
 			},
+			h = {
+				name = "Highlight",
+				s = { "<cmd>Hi +<CR>", "Highlight set" },
+				e = { "<cmd>Hi -<CR>", "Highlight erase" },
+				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
+				p = { "<cmd>Hi{<CR>", "Highlight jump previous" },
+				n = { "<cmd>Hi}<CR>", "Highlight jump next" },
+			},
 			S = {
 				name = "Session",
 				s = { "<cmd>SessionSave<CR>", "Session save" },

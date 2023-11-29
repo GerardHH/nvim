@@ -52,11 +52,13 @@ return {
 			},
 			h = {
 				name = "Highlight",
-				s = { "<cmd>Hi +<CR>", "Highlight set" },
-				e = { "<cmd>Hi -<CR>", "Highlight erase" },
 				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
-				p = { "<cmd>Hi{<CR>", "Highlight jump previous" },
+				e = { "<cmd>Hi -<CR>", "Highlight erase" },
 				n = { "<cmd>Hi}<CR>", "Highlight jump next" },
+				p = { "<cmd>Hi{<CR>", "Highlight jump previous" },
+				s = { "<cmd>Hi +<CR>", "Highlight set" },
+				S = { "<cmd>Hi =<CR>", "Highlight single buffer" },
+				a = { "<cmd>Hi ==<CR>", "Highlight all buffers" },
 			},
 			S = {
 				name = "Session",

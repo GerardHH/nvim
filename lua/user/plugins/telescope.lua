@@ -13,6 +13,11 @@ return {
 
 		telescope.setup({
 			defaults = {
+				layout_strategy = "flex",
+				layout_config = {
+					width = { padding = 0 },
+					height = { padding = 0 },
+				},
 				path_display = { "truncate " },
 				mappings = {
 					i = {

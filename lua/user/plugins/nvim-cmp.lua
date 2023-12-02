@@ -74,11 +74,11 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "spell" }, -- spelling
 				{ name = "nvim_lsp" }, -- LSP
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
+				{ name = "spell" }, -- spelling
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {

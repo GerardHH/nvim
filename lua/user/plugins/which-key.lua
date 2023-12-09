@@ -19,7 +19,7 @@ return {
 		which_key.register({
 			b = {
 				name = "Buffer",
-				c = { "<cmd>BufferLinePickClose<cr>", "Buffer pick close" },
+				c = { "<cmd>bd<cr>", "Buffer pick close" },
 				l = { "<cmd>BufferLineCloseLeft<cr>", "Buffer close left" },
 				o = { "<cmd>BufferLineCloseOthers<cr>", "Buffer close others" },
 				r = { "<cmd>BufferLineCloseRight<cr>", "Buffer close right" },

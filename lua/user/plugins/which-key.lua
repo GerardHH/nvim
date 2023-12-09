@@ -12,6 +12,10 @@ return {
 			ignore_missing = true, -- Force specification of labels
 		})
 
+		local harpoon = function()
+			return require("harpoon")
+		end
+
 		which_key.register({
 			b = {
 				name = "Buffer",
@@ -30,6 +34,64 @@ return {
 				i = { "<cmd>DapStepInto<CR>", "Debug step Into" },
 				o = { "<cmd>DapStepOver<CR>", "Debug step Over" },
 			},
+			d = {
+				name = "Diagnostics",
+				b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer" },
+				l = { vim.diagnostic.open_float, "Diagnostics line" },
+				n = { vim.diagnostic.goto_next, "Diagnostics next" },
+				p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
+			},
+			h = {
+				name = "Harpoon",
+				a = {
+					function()
+						harpoon():list():append()
+					end,
+					"Harpoon append",
+				},
+				l = {
+					function()
+						harpoon().ui:toggle_quick_menu(harpoon():list())
+					end,
+					"Harpoon list",
+				},
+				["1"] = {
+					function()
+						harpoon():list():select(1)
+					end,
+					"Harpoon select 1",
+				},
+				["2"] = {
+					function()
+						harpoon():list():select(2)
+					end,
+					"Harpoon select 2",
+				},
+				["3"] = {
+					function()
+						harpoon():list():select(3)
+					end,
+					"Harpoon select 3",
+				},
+				["4"] = {
+					function()
+						harpoon():list():select(4)
+					end,
+					"Harpoon select 4",
+				},
+			},
+			L = {
+				name = "HighLight",
+				N = { "<cmd>Hi><CR>", "Highlight jump next cursor" },
+				P = { "<cmd>Hi<<CR>", "Highlight jump previous cursor" },
+				S = { "<cmd>Hi =<CR>", "Highlight single buffer" },
+				a = { "<cmd>Hi ==<CR>", "Highlight all buffers" },
+				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
+				e = { "<cmd>Hi -<CR>", "Highlight erase" },
+				n = { "<cmd>Hi}<CR>", "Highlight jump next any" },
+				p = { "<cmd>Hi{<CR>", "Highlight jump previous any" },
+				s = { "<cmd>Hi +<CR>", "Highlight set" },
+			},
 			l = {
 				name = "LSP",
 				D = { vim.lsp.buf.declaration, "LSP declaration" },
@@ -42,25 +104,6 @@ return {
 				r = { vim.lsp.buf.rename, "LSP rename" },
 				s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
 				t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions" },
-			},
-			d = {
-				name = "Diagnostics",
-				b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer" },
-				l = { vim.diagnostic.open_float, "Diagnostics line" },
-				n = { vim.diagnostic.goto_next, "Diagnostics next" },
-				p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
-			},
-			h = {
-				name = "Highlight",
-				N = { "<cmd>Hi><CR>", "Highlight jump next cursor" },
-				P = { "<cmd>Hi<<CR>", "Highlight jump previous cursor" },
-				S = { "<cmd>Hi =<CR>", "Highlight single buffer" },
-				a = { "<cmd>Hi ==<CR>", "Highlight all buffers" },
-				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
-				e = { "<cmd>Hi -<CR>", "Highlight erase" },
-				n = { "<cmd>Hi}<CR>", "Highlight jump next any" },
-				p = { "<cmd>Hi{<CR>", "Highlight jump previous any" },
-				s = { "<cmd>Hi +<CR>", "Highlight set" },
 			},
 			S = {
 				name = "Session",

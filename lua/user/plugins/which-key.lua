@@ -92,6 +92,9 @@ return {
 			v = {
 				name = "View",
 				e = { "<cmd>NvimTreeToggle<CR>", "View file explorer" },
+				l = { "<cmd>Lazy<CR>", "View Lazy" },
+				m = { "<cmd>Mason<CR>", "View Mason" },
+				h = { "<cmd>checkhealth<CR>", "View health" },
 			},
 		}, { prefix = "<leader>" })
 	end,

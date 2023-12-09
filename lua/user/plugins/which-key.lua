@@ -115,8 +115,8 @@ return {
 				name = "Split",
 				c = { "<cmd>close<CR>", "Split close current" },
 				e = { "<C-w>=", "Split equal size" },
+				f = { "<cmd>MaximizerToggle<CR>", "Split fullscreen" },
 				h = { "<C-w>s", "Split window horizontally" },
-				m = { "<cmd>MaximizerToggle<CR>", "Maximize/minimize a split" },
 				v = { "<C-w>v", "Split window vertically" },
 			},
 			t = {

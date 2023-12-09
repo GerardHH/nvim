@@ -1,6 +1,7 @@
 return {
 	"rmagatti/session-lens",
-	requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+	event = "VeryLazy",
+	dependencies = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
 	config = function()
 		require("session-lens").setup({})
 	end,

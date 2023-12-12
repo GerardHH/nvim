@@ -145,7 +145,12 @@ return {
 			},
 			v = {
 				name = "View",
-				e = { "<cmd>NvimTreeToggle<CR>", "View file explorer" },
+				e = {
+					function()
+						telescope().extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
+					end,
+					"View telescope file browser",
+				},
 				l = { "<cmd>Lazy<CR>", "View Lazy" },
 				m = { "<cmd>Mason<CR>", "View Mason" },
 				h = { "<cmd>checkhealth<CR>", "View health" },

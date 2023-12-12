@@ -121,6 +121,7 @@ return {
 			},
 			t = {
 				name = "Telescope",
+				b = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", "Telescope file browser" },
 				c = { "<cmd>Telescope grep_string<CR>", "Telescope current word" },
 				d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
 				f = { "<cmd>Telescope find_files<CR>", "Telescope file" },

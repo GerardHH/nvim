@@ -16,6 +16,10 @@ return {
 			return require("harpoon")
 		end
 
+		local telescope = function()
+			return require("telescope")
+		end
+
 		which_key.register({
 			b = {
 				name = "Buffer",
@@ -51,9 +55,15 @@ return {
 				},
 				l = {
 					function()
-						harpoon().ui:toggle_quick_menu(harpoon():list())
+						telescope().extensions.harpoon.marks()
 					end,
 					"Harpoon list",
+				},
+				q = {
+					function()
+						harpoon().ui:toggle_quick_menu(harpoon():list())
+					end,
+					"Harpoon quick menu",
 				},
 				["1"] = {
 					function()

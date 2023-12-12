@@ -20,6 +20,10 @@ return {
 			return require("telescope")
 		end
 
+		local telescope_builtin = function()
+			return require("telescope.builtin")
+		end
+
 		which_key.register({
 			b = {
 				name = "Buffer",
@@ -131,6 +135,12 @@ return {
 			},
 			t = {
 				name = "Telescope",
+				S = {
+					function()
+						telescope_builtin().treesitter()
+					end,
+					"Telescope symbols",
+				},
 				b = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", "Telescope file browser" },
 				c = { "<cmd>Telescope grep_string<CR>", "Telescope current word" },
 				d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
@@ -141,7 +151,6 @@ return {
 				o = { "<cmd>Telescope oldfiles<CR>", "Telescope recent file" },
 				r = { "<cmd>Telescope resume<CR>", "Telescope resume" },
 				s = { "<cmd>Telescope live_grep<CR>", "Telescope string" },
-				t = { "<cmd>Telescope tasks<CR>", "Telescope tasks" },
 			},
 			v = {
 				name = "View",

@@ -1,4 +1,4 @@
 return {
 	"szw/vim-maximizer",
-	event = "VeryLazy",
+	event = { "BufReadPre", "BufNewFile" },
 }

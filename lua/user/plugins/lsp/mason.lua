@@ -1,10 +1,16 @@
 return {
 	"williamboman/mason.nvim",
+	-- Mason acts as entry point for code files and depends other plugins that should start too.
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"jayp0521/mason-null-ls.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
+
+		-- Non lsp releated plugins
+		"nvim-treesitter/nvim-treesitter-context",
 	},
+	lazy = true,
+	ft = { "c", "cpp", "shell", "lua", "python" },
 	config = function()
 		-- import mason
 		local mason = require("mason")

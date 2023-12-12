@@ -1,4 +1,5 @@
 return {
 	"MTDL9/vim-log-highlighting",
-	event = "VeryLazy",
+	lazy = true,
+	ft = "log",
 }

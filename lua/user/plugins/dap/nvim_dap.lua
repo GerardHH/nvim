@@ -1,4 +1,5 @@
 return {
 	"mfussenegger/nvim-dap",
-	event = "VeryLazy",
+	-- Gets depended on by specefic dap configs
+	lazy = true,
 }

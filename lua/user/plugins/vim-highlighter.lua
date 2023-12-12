@@ -1,4 +1,4 @@
 return {
 	"azabiong/vim-highlighter",
-	event = "VeryLazy",
+	event = { "BufReadPre", "BufNewFile" },
 }

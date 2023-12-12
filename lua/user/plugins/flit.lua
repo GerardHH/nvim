@@ -1,6 +1,6 @@
 return {
 	"ggandor/flit.nvim",
-	event = "VeryLazy",
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"ggandor/leap.nvim",
 	},

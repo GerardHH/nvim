@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope-file-browser.nvim",
-	event = "VeryLazy",
+	lazy = true,
 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	config = function()
 		-- recommended settings from nvim-tree documentation

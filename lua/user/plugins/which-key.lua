@@ -44,7 +44,18 @@ return {
 			},
 			d = {
 				name = "Diagnostics",
-				b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics buffer" },
+				b = {
+					function()
+						telescope_builtin().diagnostics({ bufnr = 0 })
+					end,
+					"Diagnostics buffer",
+				},
+				d = {
+					function()
+						telescope_builtin().diagnostics()
+					end,
+					"Diagnostics everywhere",
+				},
 				l = { vim.diagnostic.open_float, "Diagnostics line" },
 				n = { vim.diagnostic.goto_next, "Diagnostics next" },
 				p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
@@ -110,14 +121,39 @@ return {
 				name = "LSP",
 				D = { vim.lsp.buf.declaration, "LSP declaration" },
 				K = { vim.lsp.buf.hover, "LSP documentation" },
-				R = { "<cmd>Telescope lsp_references<CR>", "LSP references" },
-				S = { "<cmd>LspRestart<CR>", "LSP restart" },
+				R = {
+					function()
+						telescope_builtin().lsp_references()
+					end,
+					"LSP references",
+				},
+				S = {
+					function()
+						telescope_builtin().treesitter()
+					end,
+					"Telescope symbols",
+				},
 				a = { vim.lsp.buf.code_action, "LSP action" },
-				d = { "<cmd>Telescope lsp_definitions<CR>", "LSP definitions" },
-				i = { "<cmd>Telescope lsp_implementations<CR>", "LSP implementations" },
+				d = {
+					function()
+						telescope_builtin().lsp_definitions()
+					end,
+					"LSP definitions",
+				},
+				i = {
+					function()
+						telescope_builtin().lsp_implementations()
+					end,
+					"LSP implementations",
+				},
 				r = { vim.lsp.buf.rename, "LSP rename" },
 				s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
-				t = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP type definitions" },
+				t = {
+					function()
+						telescope_builtin().lsp_type_definitions()
+					end,
+					"LSP type definitions",
+				},
 			},
 			S = {
 				name = "Session",
@@ -135,22 +171,54 @@ return {
 			},
 			t = {
 				name = "Telescope",
-				S = {
+				c = {
 					function()
-						telescope_builtin().treesitter()
+						telescope_builtin().grep_string()
 					end,
-					"Telescope symbols",
+					"Telescope current word",
 				},
-				b = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", "Telescope file browser" },
-				c = { "<cmd>Telescope grep_string<CR>", "Telescope current word" },
-				d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
-				f = { "<cmd>Telescope find_files<CR>", "Telescope file" },
-				h = { "<cmd>Telescope help_tags<CR>", "Telescope help" },
-				k = { "<cmd>Telescope keymaps<CR>", "Telescope keymaps" },
-				n = { "<cmd>Telescope notify<CR>", "Telescope notifycations" },
-				o = { "<cmd>Telescope oldfiles<CR>", "Telescope recent file" },
-				r = { "<cmd>Telescope resume<CR>", "Telescope resume" },
-				s = { "<cmd>Telescope live_grep<CR>", "Telescope string" },
+				f = {
+					function()
+						telescope_builtin().find_files()
+					end,
+					"Telescope file",
+				},
+				h = {
+					function()
+						telescope_builtin().help_tags()
+					end,
+					"Telescope help",
+				},
+				k = {
+					function()
+						telescope_builtin().keymaps()
+					end,
+					"Telescope keymaps",
+				},
+				n = {
+					function()
+						telescope_builtin().notify()
+					end,
+					"Telescope notifycations",
+				},
+				o = {
+					function()
+						telescope_builtin().oldfiles()
+					end,
+					"Telescope recent file",
+				},
+				r = {
+					function()
+						telescope_builtin().resume()
+					end,
+					"Telescope resume",
+				},
+				s = {
+					function()
+						telescope_builtin().live_grep()
+					end,
+					"Telescope string",
+				},
 			},
 			v = {
 				name = "View",

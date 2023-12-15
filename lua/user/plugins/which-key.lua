@@ -196,9 +196,7 @@ return {
 					"Telescope keymaps",
 				},
 				n = {
-					function()
-						telescope_builtin().notify()
-					end,
+					"<cmd>Noice telescope<CR>",
 					"Telescope notifycations",
 				},
 				o = {

@@ -10,7 +10,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-context",
 	},
 	lazy = true,
-	ft = { "c", "cpp", "shell", "lua", "python" },
+	ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
 	config = function()
 		-- import mason
 		local mason = require("mason")
@@ -38,10 +38,11 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				"bashls", -- shell LSP
-				"clangd", -- c/c++ LSP
-				"lua_ls", -- lua LSP
-				"pyright", -- python LSP
+				"bashls", -- shell
+				"clangd", -- c/c++
+				"lua_ls", -- lua
+				"marksman", -- markdown
+				"pyright", -- python
 			},
 			automatic_installation = true, -- not the same as ensure_installed
 		})

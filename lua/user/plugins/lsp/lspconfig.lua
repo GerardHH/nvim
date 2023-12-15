@@ -53,6 +53,10 @@ return {
 				"--offset-encoding=utf-16",
 			},
 		})
+		lspconfig["marksman"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,

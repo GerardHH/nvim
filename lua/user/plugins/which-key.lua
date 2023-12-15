@@ -222,6 +222,7 @@ return {
 			},
 			v = {
 				name = "View",
+				L = { "<cmd>LspInfo<CR>", "View connected LSP's" },
 				e = {
 					function()
 						telescope().extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })

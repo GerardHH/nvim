@@ -10,10 +10,14 @@ return {
 		require("telescope").setup({
 			extensions = {
 				file_browser = {
-					hijack_netrw = true,
+					follow_symlinks = true,
 					hidden = true,
+					hijack_netrw = true,
+					respect_gitignore = false,
 				},
 			},
 		})
+
+		require("telescope").load_extension("file_browser")
 	end,
 }

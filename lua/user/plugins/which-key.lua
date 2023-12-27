@@ -195,6 +195,36 @@ return {
 			},
 			t = {
 				name = "Telescope",
+				C = {
+					function()
+						telescope_builtin().commands()
+					end,
+					"Telescope plugin/user commands",
+				},
+				H = {
+					function()
+						telescope_builtin().command_history()
+					end,
+					"Telescope command history",
+				},
+				R = {
+					function()
+						telescope_builtin().registers()
+					end,
+					"Telescope registers",
+				},
+				S = {
+					function()
+						telescope_builtin().spell_suggest()
+					end,
+					"Telescope spelling suggestion",
+				},
+				b = {
+					function()
+						telescope_builtin().buffers()
+					end,
+					"Telescope buffers",
+				},
 				c = {
 					function()
 						telescope_builtin().grep_string()
@@ -209,9 +239,15 @@ return {
 				},
 				h = {
 					function()
-						telescope_builtin().help_tags()
+						telescope_builtin().search_history()
 					end,
-					"Telescope help",
+					"Telescope search history",
+				},
+				j = {
+					function()
+						telescope_builtin().jumplist()
+					end,
+					"Telescope jumplist",
 				},
 				k = {
 					function()
@@ -240,6 +276,12 @@ return {
 						telescope_builtin().live_grep()
 					end,
 					"Telescope string",
+				},
+				t = {
+					function()
+						telescope_builtin().help_tags()
+					end,
+					"Telescope help tags",
 				},
 			},
 			v = {

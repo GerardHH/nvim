@@ -119,41 +119,65 @@ return {
 			},
 			l = {
 				name = "LSP",
-				D = { vim.lsp.buf.declaration, "LSP declaration" },
-				K = { vim.lsp.buf.hover, "LSP documentation" },
-				R = {
-					function()
-						telescope_builtin().lsp_references()
-					end,
-					"LSP references",
-				},
-				S = {
-					function()
-						telescope_builtin().treesitter()
-					end,
-					"Telescope symbols",
-				},
+				D = { vim.lsp.buf.hover, "LSP documentation" },
 				a = { vim.lsp.buf.code_action, "LSP action" },
-				d = {
-					function()
-						telescope_builtin().lsp_definitions()
-					end,
-					"LSP definitions",
+				d = { vim.lsp.buf.declaration, "LSP declaration" },
+				g = {
+					name = "LSP go to",
+					d = {
+						function()
+							telescope_builtin().lsp_definitions()
+						end,
+						"LSP definitions",
+					},
+					i = {
+						function()
+							telescope_builtin().lsp_implementations()
+						end,
+						"LSP implementations",
+					},
+					t = {
+						function()
+							telescope_builtin().lsp_type_definitions()
+						end,
+						"LSP type definitions",
+					},
 				},
-				i = {
-					function()
-						telescope_builtin().lsp_implementations()
-					end,
-					"LSP implementations",
+				l = {
+					name = "LSP list",
+					i = {
+						function()
+							telescope_builtin().lsp_incoming_calls()
+						end,
+						"LSP incoming calls",
+					},
+					o = {
+						function()
+							telescope_builtin().lsp_outgoing_calls()
+						end,
+						"LSP outgoing calls",
+					},
+					r = {
+						function()
+							telescope_builtin().lsp_references()
+						end,
+						"LSP references",
+					},
+					s = {
+						function()
+							telescope_builtin().lsp_document_symbols()
+						end,
+						"LSP symbols",
+					},
+					w = {
+						function()
+							telescope_builtin().lsp_workspace_symbols()
+						end,
+						"LSP workspace symbols",
+					},
 				},
 				r = { vim.lsp.buf.rename, "LSP rename" },
 				s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
-				t = {
-					function()
-						telescope_builtin().lsp_type_definitions()
-					end,
-					"LSP type definitions",
-				},
 			},
 			S = {
 				name = "Session",

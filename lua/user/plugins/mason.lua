@@ -7,8 +7,7 @@ return {
 			"jay-babu/mason-nvim-dap.nvim",
 
 			-- Linting and formatting
-			"mfussenegger/nvim-lint",
-			"stevearc/conform.nvim",
+			"nvimtools/none-ls.nvim",
 
 			-- Mason only plugins
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -66,12 +65,12 @@ return {
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 			"folke/neodev.nvim",
 		},
+		lazy = true,
 		config = function()
 			-- import lspconfig plugin
 			local lspconfig = require("lspconfig")
@@ -130,43 +129,51 @@ return {
 			})
 		end,
 	},
-	-- Linting
+	-- Linting & Formatting
 	{
-		"mfussenegger/nvim-lint",
+		"nvimtools/none-ls.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 		lazy = true,
 		config = function()
-			local lint = require("lint")
+			local lsp_formatting = function(bufnr)
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+					filter = function(client)
+						-- apply whatever logic you want (in this example, we'll only use null-ls)
+						return client.name == "null-ls"
+					end,
+					timeout_ms = 2000,
+				})
+			end
 
-			lint.linters_by_ft = {
-				python = { "ruff", "mypy" },
-			}
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-				group = lint_augroup,
-				callback = function()
-					lint.try_lint()
+			local null_ls = require("null-ls")
+
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.completion.spell, -- spelling
+					null_ls.builtins.diagnostics.mypy, -- python
+					null_ls.builtins.diagnostics.ruff, -- python
+					null_ls.builtins.formatting.beautysh, -- shell
+					null_ls.builtins.formatting.black, -- python
+					null_ls.builtins.formatting.clang_format, -- c/c++
+					null_ls.builtins.formatting.stylua, -- lua
+				},
+				on_attach = function(client, bufnr)
+					if client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = bufnr,
+							callback = function()
+								lsp_formatting(bufnr)
+							end,
+						})
+					end
 				end,
-			})
-		end,
-	},
-	-- Formatting
-	{
-		"stevearc/conform.nvim",
-		lazy = true,
-		config = function()
-			require("conform").setup({
-				formatters_by_ft = {
-					cpp = { "clang-format" },
-					lua = { "stylua" },
-					python = { "black" },
-					shell = { "beautysh" },
-				},
-				format_on_save = {
-					lsp_fallback = true,
-					async = false,
-					timeout_ms = 500,
-				},
 			})
 		end,
 	},

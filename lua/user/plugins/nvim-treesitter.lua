@@ -25,25 +25,34 @@ local parsers = {
 }
 
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	dependencies = {
-		"windwp/nvim-ts-autotag",
-	},
-	lazy = true,
-	ft = parsers,
-	config = function()
-		local treesitter = require("nvim-treesitter.configs")
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
+		lazy = true,
+		ft = parsers,
+		config = function()
+			local treesitter = require("nvim-treesitter.configs")
 
-		---@diagnostic disable:missing-fields
-		treesitter.setup({
-			highlight = {
-				enable = true,
-			},
-			indent = { enable = true },
-			ensure_installed = parsers,
-			auto_install = true,
-		})
-		---@diagnostic enable:missing-fields
-	end,
+			---@diagnostic disable:missing-fields
+			treesitter.setup({
+				highlight = {
+					enable = true,
+				},
+				indent = { enable = true },
+				ensure_installed = parsers,
+				auto_install = true,
+			})
+			---@diagnostic enable:missing-fields
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		lazy = true,
+	},
 }

@@ -72,19 +72,11 @@ return {
 		},
 		lazy = true,
 		config = function()
-			-- import lspconfig plugin
 			local lspconfig = require("lspconfig")
 
-			-- import cmp-nvim-lsp plugin
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-			local on_attach = function() end
-
 			-- used to enable autocompletion (assign to every lsp server config)
-			local capabilities = cmp_nvim_lsp.default_capabilities()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			-- Change the Diagnostic symbols in the sign column (gutter)
-			-- (not in youtube nvim video)
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
@@ -93,11 +85,9 @@ return {
 
 			require("neodev").setup({})
 
-			-- configure lua server (with special settings)
 			lspconfig["lua_ls"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = { -- custom settings for lua
+				settings = {
 					Lua = {
 						completion = {
 							callSnipper = "Replace",
@@ -107,11 +97,9 @@ return {
 			})
 			lspconfig["bashls"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 			lspconfig["clangd"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				cmd = {
 					"clangd",
 					"--compile-commands-dir=/home/gerard/salsa_ws/unittest/build/",
@@ -120,11 +108,9 @@ return {
 			})
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 			lspconfig["pyright"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				filetypes = { "python" },
 			})
 		end,

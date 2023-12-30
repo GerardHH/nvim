@@ -26,6 +26,10 @@ return {
 
 		---@diagnostic disable:missing-fields
 		cmp.setup({
+			window = {
+				documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered(),
+			},
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},

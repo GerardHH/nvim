@@ -179,11 +179,6 @@ return {
 				r = { vim.lsp.buf.rename, "LSP rename" },
 				s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
 			},
-			S = {
-				name = "Session",
-				s = { "<cmd>SessionSave<CR>", "Session save" },
-				d = { "<cmd>SessionDelete<CR>", "Session delete" },
-				f = { "<cmd>SearchSession<CR>", "Session find" },
 			},
 			s = {
 				name = "Split",
@@ -286,16 +281,16 @@ return {
 			},
 			v = {
 				name = "View",
-				L = { "<cmd>LspInfo<CR>", "View connected LSP's" },
 				e = {
 					function()
 						telescope().extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
 					end,
 					"View telescope file browser",
 				},
+				h = { "<cmd>checkhealth<CR>", "View health" },
+				L = { "<cmd>LspInfo<CR>", "View connected LSP's" },
 				l = { "<cmd>Lazy<CR>", "View Lazy" },
 				m = { "<cmd>Mason<CR>", "View Mason" },
-				h = { "<cmd>checkhealth<CR>", "View health" },
 			},
 		}, { prefix = "<leader>" })
 	end,

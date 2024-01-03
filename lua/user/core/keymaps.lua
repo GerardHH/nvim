@@ -24,8 +24,6 @@ keymap("n", "<A-j>", ":m .+1<CR>==", { desc = "Move text on line down" })
 keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move text on line up" })
 
 -- Insert --
-keymap("i", "jk", "<ESC>", { desc = "Exit insert mode" })
-keymap("i", "kj", "<ESC>", { desc = "Exit insert mode" })
 
 -- Visual --
 keymap("v", "<", "<gv^", { desc = "Indent selected text to the left" })

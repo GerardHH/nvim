@@ -34,6 +34,25 @@ return {
 				n = { "<cmd>BufferLineMoveNext<CR>", "Buffer move next" },
 				p = { "<cmd>BufferLineMovePrev<CR>", "Buffer move previous" },
 			},
+			c = {
+				name = "Comment",
+				L = {
+					"<Plug>(comment_toggle_linewise_current)",
+					"Comment linewise current",
+				},
+				l = {
+					"<Plug>(comment_toggle_linewise)",
+					"Comment linewise motion",
+				},
+				B = {
+					"<Plug>(comment_toggle_blockwise_current)",
+					"Comment blockwise current",
+				},
+				b = {
+					"<Plug>(comment_toggle_blockwise)",
+					"Comment blockwise motion",
+				},
+			},
 			D = {
 				name = "Debug",
 				O = { "<cmd>DapStepOut<CR>", "Debug step Out" },
@@ -59,6 +78,18 @@ return {
 				l = { vim.diagnostic.open_float, "Diagnostics line" },
 				n = { vim.diagnostic.goto_next, "Diagnostics next" },
 				p = { vim.diagnostic.goto_prev, "Diagnostics previous" },
+			},
+			H = {
+				name = "Highlight",
+				N = { "<cmd>Hi><CR>", "Highlight jump next cursor" },
+				P = { "<cmd>Hi<<CR>", "Highlight jump previous cursor" },
+				S = { "<cmd>Hi =<CR>", "Highlight single buffer" },
+				a = { "<cmd>Hi ==<CR>", "Highlight all buffers" },
+				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
+				e = { "<cmd>Hi -<CR>", "Highlight erase" },
+				n = { "<cmd>Hi}<CR>", "Highlight jump next any" },
+				p = { "<cmd>Hi{<CR>", "Highlight jump previous any" },
+				s = { "<cmd>Hi +<CR>", "Highlight set" },
 			},
 			h = {
 				name = "Harpoon",
@@ -106,18 +137,6 @@ return {
 				},
 			},
 			L = {
-				name = "HighLight",
-				N = { "<cmd>Hi><CR>", "Highlight jump next cursor" },
-				P = { "<cmd>Hi<<CR>", "Highlight jump previous cursor" },
-				S = { "<cmd>Hi =<CR>", "Highlight single buffer" },
-				a = { "<cmd>Hi ==<CR>", "Highlight all buffers" },
-				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
-				e = { "<cmd>Hi -<CR>", "Highlight erase" },
-				n = { "<cmd>Hi}<CR>", "Highlight jump next any" },
-				p = { "<cmd>Hi{<CR>", "Highlight jump previous any" },
-				s = { "<cmd>Hi +<CR>", "Highlight set" },
-			},
-			l = {
 				name = "LSP",
 				D = { vim.lsp.buf.hover, "LSP documentation" },
 				a = { vim.lsp.buf.code_action, "LSP action" },
@@ -179,14 +198,23 @@ return {
 				r = { vim.lsp.buf.rename, "LSP rename" },
 				s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
 			},
+			l = {
+				name = "Leap",
+				B = { "<Plug>(leap-backward-till)", "Leap backward exclusive" },
+				b = { "<Plug>(leap-backward-to)", "Leap backward inclusive" },
+				F = { "<Plug>(leap-forward-till)", "Leap forward exclusive" },
+				f = { "<Plug>(leap-forward-to)", "Leap forward inclusive" },
+				w = {
+					"<Plug>(leap-from-window)",
+					"Leap from window",
+				},
 			},
 			s = {
-				name = "Split",
-				c = { "<cmd>close<CR>", "Split close current" },
-				e = { "<C-w>=", "Split equal size" },
-				f = { "<cmd>MaximizerToggle<CR>", "Split fullscreen" },
-				h = { "<C-w>s", "Split window horizontally" },
-				v = { "<C-w>v", "Split window vertically" },
+				name = "Surround",
+				c = { "<Plug>(nvim-surround-change)", "Surround change" },
+				d = { "<Plug>(nvim-surround-delete)", "Surround delete" },
+				l = { "<Plug>(nvim-surround-normal-cur)", "Surround line" },
+				s = { "<Plug>(nvim-surround-normal)", "Surround surround" },
 			},
 			t = {
 				name = "Telescope",
@@ -291,7 +319,33 @@ return {
 				L = { "<cmd>LspInfo<CR>", "View connected LSP's" },
 				l = { "<cmd>Lazy<CR>", "View Lazy" },
 				m = { "<cmd>Mason<CR>", "View Mason" },
+				s = {
+					name = "Split",
+					c = { "<cmd>close<CR>", "Split close current" },
+					e = { "<C-w>=", "Split equal size" },
+					f = { "<cmd>MaximizerToggle<CR>", "Split fullscreen" },
+					h = { "<C-w>s", "Split window horizontally" },
+					v = { "<C-w>v", "Split window vertically" },
+				},
 			},
-		}, { prefix = "<leader>" })
+		}, { mode = "n", prefix = "<leader>" })
+
+		which_key.register({
+			c = {
+				name = "Comment",
+				l = {
+					"<Plug>(comment_toggle_linewise_visual)",
+					"Comment linewise",
+				},
+				b = {
+					"<Plug>(comment_toggle_blockwise_visual)",
+					"Comment blockwise",
+				},
+			},
+			s = {
+				"<Plug>(nvim-surround-visual)",
+				"Surround visual",
+			},
+		}, { mode = "x", prefix = "<leader>" })
 	end,
 }

@@ -209,6 +209,16 @@ return {
 					"Leap from window",
 				},
 			},
+			r = {
+				name = "Recorder",
+				q = { "q", "Recorder start/stop" },
+				Q = { "Q", "Recorder play" },
+				["<C-q>"] = { "<C-q>", "Recorder switch slot" },
+				c = { "cq", "Recorder edit" },
+				d = { "dq", "Recorder delete all" },
+				y = { "yq", "Recorder yank" },
+				["#"] = { "##", "Recorder add breakpoint" },
+			},
 			s = {
 				name = "Surround",
 				c = { "<Plug>(nvim-surround-change)", "Surround change" },

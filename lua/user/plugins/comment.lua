@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
-	event = { "BufReadPre", "BufNewFile" },
+	lazy = true,
 	config = function()
 		---@diagnostic disable:missing-fields
 		require("Comment").setup({

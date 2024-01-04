@@ -12,9 +12,15 @@ return {
 			ignore_missing = true, -- Force specification of labels
 		})
 
+		local comment = "<CMD>lua require('Comment')<CR><Plug>(%s)"
+
 		local harpoon = function()
 			return require("harpoon")
 		end
+
+		local leap = "<CMD>lua require('leap')<CR><Plug>(%s)"
+
+		local surround = "<CMD>lua require('nvim-surround')<CR><Plug>(%s)"
 
 		local telescope = function()
 			return require("telescope")
@@ -27,39 +33,39 @@ return {
 		which_key.register({
 			b = {
 				name = "Buffer",
-				c = { "<cmd>bd<cr>", "Buffer pick close" },
-				l = { "<cmd>BufferLineCloseLeft<cr>", "Buffer close left" },
-				o = { "<cmd>BufferLineCloseOthers<cr>", "Buffer close others" },
-				r = { "<cmd>BufferLineCloseRight<cr>", "Buffer close right" },
-				n = { "<cmd>BufferLineMoveNext<CR>", "Buffer move next" },
-				p = { "<cmd>BufferLineMovePrev<CR>", "Buffer move previous" },
+				c = { "<CMD>bd<CR>", "Buffer pick close" },
+				l = { "<CMD>BufferLineCloseLeft<CR>", "Buffer close left" },
+				o = { "<CMD>BufferLineCloseOthers<CR>", "Buffer close others" },
+				r = { "<CMD>BufferLineCloseRight<CR>", "Buffer close right" },
+				n = { "<CMD>BufferLineMoveNext<CR>", "Buffer move next" },
+				p = { "<CMD>BufferLineMovePrev<CR>", "Buffer move previous" },
 			},
-			c = {
+			c = { -- Lazy loaded on key press, keep the same in `comment.lua`
 				name = "Comment",
 				L = {
-					"<Plug>(comment_toggle_linewise_current)",
+					string.format(comment, "comment_toggle_linewise_current"),
 					"Comment linewise current",
 				},
 				l = {
-					"<Plug>(comment_toggle_linewise)",
+					string.format(comment, "comment_toggle_linewise"),
 					"Comment linewise motion",
 				},
 				B = {
-					"<Plug>(comment_toggle_blockwise_current)",
+					string.format(comment, "comment_toggle_blockwise_current"),
 					"Comment blockwise current",
 				},
 				b = {
-					"<Plug>(comment_toggle_blockwise)",
+					string.format(comment, "comment_toggle_blockwise"),
 					"Comment blockwise motion",
 				},
 			},
 			D = {
 				name = "Debug",
-				O = { "<cmd>DapStepOut<CR>", "Debug step Out" },
-				b = { "<cmd>DapToggleBreakpoint<CR>", "Debug toggle Breakpoint" },
-				c = { "<cmd>DapContinue<CR>", "Debug Continue/start" },
-				i = { "<cmd>DapStepInto<CR>", "Debug step Into" },
-				o = { "<cmd>DapStepOver<CR>", "Debug step Over" },
+				O = { "<CMD>DapStepOut<CR>", "Debug step Out" },
+				b = { "<CMD>DapToggleBreakpoint<CR>", "Debug toggle Breakpoint" },
+				c = { "<CMD>DapContinue<CR>", "Debug Continue/start" },
+				i = { "<CMD>DapStepInto<CR>", "Debug step Into" },
+				o = { "<CMD>DapStepOver<CR>", "Debug step Over" },
 			},
 			d = {
 				name = "Diagnostics",
@@ -81,15 +87,15 @@ return {
 			},
 			H = {
 				name = "Highlight",
-				N = { "<cmd>Hi><CR>", "Highlight jump next cursor" },
-				P = { "<cmd>Hi<<CR>", "Highlight jump previous cursor" },
-				S = { "<cmd>Hi =<CR>", "Highlight single buffer" },
-				a = { "<cmd>Hi ==<CR>", "Highlight all buffers" },
-				c = { "<cmd>Hi clear<CR>", "Highlight clear" },
-				e = { "<cmd>Hi -<CR>", "Highlight erase" },
-				n = { "<cmd>Hi}<CR>", "Highlight jump next any" },
-				p = { "<cmd>Hi{<CR>", "Highlight jump previous any" },
-				s = { "<cmd>Hi +<CR>", "Highlight set" },
+				N = { "<CMD>Hi><CR>", "Highlight jump next cursor" },
+				P = { "<CMD>Hi<<CR>", "Highlight jump previous cursor" },
+				S = { "<CMD>Hi =<CR>", "Highlight single buffer" },
+				a = { "<CMD>Hi ==<CR>", "Highlight all buffers" },
+				c = { "<CMD>Hi clear<CR>", "Highlight clear" },
+				e = { "<CMD>Hi -<CR>", "Highlight erase" },
+				n = { "<CMD>Hi}<CR>", "Highlight jump next any" },
+				p = { "<CMD>Hi{<CR>", "Highlight jump previous any" },
+				s = { "<CMD>Hi +<CR>", "Highlight set" },
 			},
 			h = {
 				name = "Harpoon",
@@ -196,18 +202,15 @@ return {
 					},
 				},
 				r = { vim.lsp.buf.rename, "LSP rename" },
-				s = { "<cmd>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
+				s = { "<CMD>ClangdSwitchSourceHeader<CR>", "LSP Switch header/source" },
 			},
 			l = {
 				name = "Leap",
-				B = { "<Plug>(leap-backward-till)", "Leap backward exclusive" },
-				b = { "<Plug>(leap-backward-to)", "Leap backward inclusive" },
-				F = { "<Plug>(leap-forward-till)", "Leap forward exclusive" },
-				f = { "<Plug>(leap-forward-to)", "Leap forward inclusive" },
-				w = {
-					"<Plug>(leap-from-window)",
-					"Leap from window",
-				},
+				B = { string.format(leap, "leap-backward-till"), "Leap backward exclusive" },
+				b = { string.format(leap, "leap-backward-to"), "Leap backward inclusive" },
+				F = { string.format(leap, "leap-forward-till"), "Leap forward exclusive" },
+				f = { string.format(leap, "leap-forward-to"), "Leap forward inclusive" },
+				w = { string.format(leap, "leap-from-window"), "Leap from window" },
 			},
 			r = {
 				name = "Recorder",
@@ -221,10 +224,10 @@ return {
 			},
 			s = {
 				name = "Surround",
-				c = { "<Plug>(nvim-surround-change)", "Surround change" },
-				d = { "<Plug>(nvim-surround-delete)", "Surround delete" },
-				l = { "<Plug>(nvim-surround-normal-cur)", "Surround line" },
-				s = { "<Plug>(nvim-surround-normal)", "Surround surround" },
+				c = { string.format(surround, "nvim-surround-change"), "Surround change" },
+				d = { string.format(surround, "nvim-surround-delete"), "Surround delete" },
+				l = { string.format(surround, "nvim-surround-normal-cur"), "Surround line" },
+				s = { string.format(surround, "nvim-surround-normal"), "Surround surround" },
 			},
 			t = {
 				name = "Telescope",
@@ -289,7 +292,7 @@ return {
 					"Telescope keymaps",
 				},
 				n = {
-					"<cmd>Noice telescope<CR>",
+					"<CMD>Noice telescope<CR>",
 					"Telescope notifycations",
 				},
 				o = {
@@ -325,15 +328,15 @@ return {
 					end,
 					"View telescope file browser",
 				},
-				h = { "<cmd>checkhealth<CR>", "View health" },
-				L = { "<cmd>LspInfo<CR>", "View connected LSP's" },
-				l = { "<cmd>Lazy<CR>", "View Lazy" },
-				m = { "<cmd>Mason<CR>", "View Mason" },
+				h = { "<CMD>checkhealth<CR>", "View health" },
+				L = { "<CMD>LspInfo<CR>", "View connected LSP's" },
+				l = { "<CMD>Lazy<CR>", "View Lazy" },
+				m = { "<CMD>Mason<CR>", "View Mason" },
 				s = {
 					name = "Split",
-					c = { "<cmd>close<CR>", "Split close current" },
+					c = { "<CMD>close<CR>", "Split close current" },
 					e = { "<C-w>=", "Split equal size" },
-					f = { "<cmd>MaximizerToggle<CR>", "Split fullscreen" },
+					f = { "<CMD>MaximizerToggle<CR>", "Split fullscreen" },
 					h = { "<C-w>s", "Split window horizontally" },
 					v = { "<C-w>v", "Split window vertically" },
 				},
@@ -344,16 +347,16 @@ return {
 			c = {
 				name = "Comment",
 				l = {
-					"<Plug>(comment_toggle_linewise_visual)",
+					string.format(comment, "comment_toggle_linewise_visual"),
 					"Comment linewise",
 				},
 				b = {
-					"<Plug>(comment_toggle_blockwise_visual)",
+					string.format(comment, "comment_toggle_blockwise_visual"),
 					"Comment blockwise",
 				},
 			},
 			s = {
-				"<Plug>(nvim-surround-visual)",
+				string.format(surround, "nvim-surround-visual"),
 				"Surround visual",
 			},
 		}, { mode = "x", prefix = "<leader>" })

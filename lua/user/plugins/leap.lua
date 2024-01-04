@@ -1,9 +1,9 @@
 return {
 	"ggandor/leap.nvim",
-	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"tpope/vim-repeat",
 	},
+	lazy = true,
 	config = function()
 		require("leap").add_repeat_mappings(";", ",", {
 			-- False by default. If set to true, the keys will work like the

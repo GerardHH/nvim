@@ -1,8 +1,8 @@
 return {
 	"ggandor/flit.nvim",
-	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"ggandor/leap.nvim",
 	},
+	keys = { "F", "f", "T", "t" },
 	config = true,
 }

@@ -14,6 +14,7 @@ return {
 
 			-- Plugins depending on LSP
 			"utilyre/barbecue.nvim",
+			"SmiteshP/nvim-navbuddy",
 		},
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
@@ -228,5 +229,14 @@ return {
 				attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 			})
 		end,
+	},
+	{
+		"SmiteshP/nvim-navbuddy",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"MunifTanjim/nui.nvim",
+		},
+		lazy = true,
+		opts = { lsp = { auto_attach = true } },
 	},
 }

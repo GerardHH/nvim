@@ -332,6 +332,12 @@ return {
 				L = { "<CMD>LspInfo<CR>", "View connected LSP's" },
 				l = { "<CMD>Lazy<CR>", "View Lazy" },
 				m = { "<CMD>Mason<CR>", "View Mason" },
+				n = {
+					function()
+						require("nvim-navbuddy").open()
+					end,
+					"View symbols explorer (navbuddy)",
+				},
 				s = {
 					name = "Split",
 					c = { "<CMD>close<CR>", "Split close current" },

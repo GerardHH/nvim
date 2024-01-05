@@ -41,14 +41,14 @@ return {
 		which_key.register({
 			b = {
 				name = "Buffer",
-				c = { "<CMD>bd<CR>", "Buffer pick close" },
+				c = { "<CMD>bd<CR>", "Buffer close current" },
 				l = { "<CMD>BufferLineCloseLeft<CR>", "Buffer close left" },
 				o = { "<CMD>BufferLineCloseOthers<CR>", "Buffer close others" },
 				r = { "<CMD>BufferLineCloseRight<CR>", "Buffer close right" },
 				n = { "<CMD>BufferLineMoveNext<CR>", "Buffer move next" },
 				p = { "<CMD>BufferLineMovePrev<CR>", "Buffer move previous" },
 			},
-			c = { -- Lazy loaded on key press, keep the same in `comment.lua`
+			c = {
 				name = "Comment",
 				L = {
 					string.format(comment, "comment_toggle_linewise_current"),
@@ -320,6 +320,10 @@ return {
 						telescope_builtin().live_grep()
 					end,
 					"Telescope string",
+				},
+				T = {
+					"<CMD>lua require('todo-comments')<CR><CMD>TodoTelescope<CR>",
+					"Telescope todo-comments",
 				},
 				t = {
 					function()

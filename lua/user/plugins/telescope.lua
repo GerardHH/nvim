@@ -11,7 +11,7 @@ return {
 		config = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-
+			local trouble = require("trouble.providers.telescope")
 			telescope.setup({
 				defaults = {
 					layout_strategy = "flex",
@@ -22,9 +22,12 @@ return {
 					path_display = { "truncate " },
 					mappings = {
 						i = {
-							["<C-k>"] = actions.move_selection_previous, -- move to prev result
-							["<C-j>"] = actions.move_selection_next, -- move to next result
-							["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-j>"] = actions.move_selection_next,
+							["<C-q>"] = trouble.open_with_trouble,
+						},
+						n = {
+							["q"] = trouble.open_with_trouble,
 						},
 					},
 				},

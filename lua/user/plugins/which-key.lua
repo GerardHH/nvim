@@ -34,6 +34,10 @@ return {
 			return require("telescope.builtin")
 		end
 
+		local trouble = function()
+			return require("trouble")
+		end
+
 		which_key.register({
 			b = {
 				name = "Buffer",
@@ -73,17 +77,17 @@ return {
 			},
 			d = {
 				name = "Diagnostics",
-				b = {
+				D = {
 					function()
-						telescope_builtin().diagnostics({ bufnr = 0 })
+						trouble().toggle("document_diagnostics")
 					end,
-					"Diagnostics buffer",
+					"Diagnostics everywhere",
 				},
 				d = {
 					function()
-						telescope_builtin().diagnostics()
+						trouble().toggle("workspace_diagnostics")
 					end,
-					"Diagnostics everywhere",
+					"Diagnostics buffer",
 				},
 				l = { vim.diagnostic.open_float, "Diagnostics line" },
 				n = { vim.diagnostic.goto_next, "Diagnostics next" },
@@ -155,7 +159,7 @@ return {
 					name = "LSP go to",
 					d = {
 						function()
-							telescope_builtin().lsp_definitions()
+							trouble().toggle("lsp_definitions")
 						end,
 						"LSP definitions",
 					},
@@ -167,7 +171,7 @@ return {
 					},
 					t = {
 						function()
-							telescope_builtin().lsp_type_definitions()
+							trouble().toggle("lsp_type_definitions")
 						end,
 						"LSP type definitions",
 					},
@@ -188,7 +192,7 @@ return {
 					},
 					r = {
 						function()
-							telescope_builtin().lsp_references()
+							trouble().toggle("lsp_references")
 						end,
 						"LSP references",
 					},
@@ -380,8 +384,14 @@ return {
 					c = { "<CMD>close<CR>", "Split close current" },
 					e = { "<C-w>=", "Split equal size" },
 					f = { "<CMD>MaximizerToggle<CR>", "Split fullscreen" },
-					h = { "<C-w>s", "Split window horizontally" },
-					v = { "<C-w>v", "Split window vertically" },
+					["-"] = { "<C-w>s", "Split window horizontally" },
+					["|"] = { "<C-w>v", "Split window vertically" },
+				},
+				t = {
+					function()
+						trouble().toggle()
+					end,
+					"Trouble toggle",
 				},
 			},
 		}, { mode = "n", prefix = "<leader>" })

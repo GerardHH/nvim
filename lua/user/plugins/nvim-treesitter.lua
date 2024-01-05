@@ -48,11 +48,4 @@ return {
 			---@diagnostic enable:missing-fields
 		end,
 	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		lazy = true,
-	},
 }

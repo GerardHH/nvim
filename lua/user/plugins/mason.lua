@@ -12,8 +12,8 @@ return {
 			-- Mason only plugins
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-			-- Non lsp related plugins
-			"nvim-treesitter/nvim-treesitter-context",
+			-- Plugins depending on LSP
+			"utilyre/barbecue.nvim",
 		},
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
@@ -69,6 +69,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 			"folke/neodev.nvim",
+			"SmiteshP/nvim-navic",
 		},
 		lazy = true,
 		config = function()
@@ -76,6 +77,12 @@ return {
 
 			-- used to enable autocompletion (assign to every lsp server config)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			local on_attach = function(client, bufnr)
+				if client.server_capabilities.documentSymbolProvider then
+					require("nvim-navic").attach(client, bufnr)
+				end
+			end
 
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			for type, icon in pairs(signs) do
@@ -87,6 +94,7 @@ return {
 
 			lspconfig["lua_ls"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 				settings = {
 					Lua = {
 						completion = {
@@ -97,9 +105,11 @@ return {
 			})
 			lspconfig["bashls"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 			lspconfig["clangd"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 				cmd = {
 					"clangd",
 					"--compile-commands-dir=/home/gerard/salsa_ws/unittest/build/",
@@ -108,9 +118,11 @@ return {
 			})
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 			lspconfig["pyright"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 				filetypes = { "python" },
 			})
 		end,
@@ -200,6 +212,21 @@ return {
 		config = function()
 			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			require("dap-python").setup(path)
+		end,
+	},
+	-- Others
+	{
+		"utilyre/barbecue.nvim",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
+		lazy = true,
+		config = function()
+			require("barbecue").setup({
+				attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
+			})
 		end,
 	},
 }

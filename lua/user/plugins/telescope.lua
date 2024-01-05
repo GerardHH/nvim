@@ -40,19 +40,16 @@ return {
 		"nvim-telescope/telescope-file-browser.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		lazy = true,
-		config = function()
-			-- recommended settings from nvim-tree documentation
-			vim.g.loaded_netrw = 1
-			vim.g.loaded_netrwPlugin = 1
-
+		opts = {
+			follow_symlinks = true,
+			hidden = true,
+			hijack_netrw = true,
+			respect_gitignore = false,
+		},
+		config = function(_, opts)
 			require("telescope").setup({
 				extensions = {
-					file_browser = {
-						follow_symlinks = true,
-						hidden = true,
-						hijack_netrw = true,
-						respect_gitignore = false,
-					},
+					file_browser = opts,
 				},
 			})
 

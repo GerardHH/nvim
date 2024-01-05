@@ -224,11 +224,9 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		lazy = true,
-		config = function()
-			require("barbecue").setup({
-				attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
-			})
-		end,
+		opts = {
+			attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
+		},
 	},
 	{
 		"SmiteshP/nvim-navbuddy",

@@ -6,23 +6,26 @@ return {
 		{ "q", desc = " Start Recording" },
 		{ "Q", desc = " Play Recording" },
 	},
-	config = function()
-		---@diagnostic disable:missing-fields
-		require("recorder").setup({
-			mapping = {
-				startStopRecording = "q",
-				playMacro = "Q",
-			},
-		})
-		---@diagnostic enable:missing-fields
+	opts = {
+		mapping = {
+			startStopRecording = "q",
+			playMacro = "Q",
+		},
+	},
+	config = function(_, opts)
+		local recorder = require("recorder")
+
+		recorder.setup(opts)
 
 		-- Add to lualine
-		local lualineZ = require("lualine").get_config().sections.lualine_z or {}
-		local lualineY = require("lualine").get_config().sections.lualine_y or {}
-		table.insert(lualineZ, { require("recorder").recordingStatus })
-		table.insert(lualineY, { require("recorder").displaySlots })
+		local lualine = require("lualine")
 
-		require("lualine").setup({
+		local lualineZ = lualine.get_config().sections.lualine_z or {}
+		local lualineY = lualine.get_config().sections.lualine_y or {}
+		table.insert(lualineZ, { recorder.recordingStatus })
+		table.insert(lualineY, { recorder.displaySlots })
+
+		lualine.setup({
 			sections = {
 				lualine_y = lualineY,
 				lualine_z = lualineZ,

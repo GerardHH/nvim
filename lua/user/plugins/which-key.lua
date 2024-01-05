@@ -20,6 +20,10 @@ return {
 
 		local leap = "<CMD>lua require('leap')<CR><Plug>(%s)"
 
+		local spectre = function()
+			return require("spectre")
+		end
+
 		local surround = "<CMD>lua require('nvim-surround')<CR><Plug>(%s)"
 
 		local telescope = function()
@@ -337,6 +341,39 @@ return {
 						require("nvim-navbuddy").open()
 					end,
 					"View symbols explorer (navbuddy)",
+				},
+				S = {
+					name = "Spectre (search&replace)",
+					C = {
+						function()
+							spectre().open_file_search({ select_word = true })
+						end,
+						"Spectre search current word in current file",
+					},
+					c = {
+						function()
+							spectre().open_visual({ select_word = true })
+						end,
+						"Spectre search current word",
+					},
+					O = {
+						function()
+							spectre().open_file_search()
+						end,
+						"Spectre search current word in current file",
+					},
+					o = {
+						function()
+							spectre().open_visual()
+						end,
+						"Spectre search current word",
+					},
+					t = {
+						function()
+							spectre().toggle()
+						end,
+						"Spectre toggle",
+					},
 				},
 				s = {
 					name = "Split",

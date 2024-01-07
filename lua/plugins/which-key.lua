@@ -7,8 +7,11 @@ return {
 	end,
 	lazy = true,
 	keys = "<leader>",
-	config = function(plugin, opts)
-		local which_key = require(plugin.main)
+	opts = {
+		operators = {}, -- Disable gc
+	},
+	config = function(_, opts)
+		local which_key = require("which-key")
 
 		which_key.setup(opts)
 
@@ -24,10 +27,6 @@ return {
 			s = { name = "Surround" },
 			t = { name = "Telescope" },
 			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
-		}, { mode = "n", prefix = "<leader>" })
-
-		which_key.register({
-			c = { name = "Comment" },
-		}, { mode = "x", prefix = "<leader>" })
+		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })
 	end,
 }

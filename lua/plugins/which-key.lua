@@ -21,6 +21,7 @@ return {
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
 			d = { name = "Diagnostics" },
+			f = { name = "Flash" },
 			h = { name = "Harpoon" },
 			l = { name = "LSP", g = { name = "LSP go to" }, l = { name = "LSP list" } },
 			r = { name = "Recorder" },

@@ -11,7 +11,7 @@ return {
 		{ "<leader>cc", "<Plug>(comment_toggle_linewise)", desc = "Comment linewise motion" },
 		-- Visual
 		{ "<leader>cb", "<Plug>(comment_toggle_blockwise_visual)", desc = "Comment blockwise", mode = "x" },
-		{ "<leader>cl", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment linewise", mode = "x" },
+		{ "<leader>cc", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment linewise", mode = "x" },
 	},
 	config = function()
 		---@diagnostic disable:missing-fields

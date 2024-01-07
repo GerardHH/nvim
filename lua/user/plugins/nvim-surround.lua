@@ -2,6 +2,14 @@ return {
 	"kylechui/nvim-surround",
 	version = "*", -- Use for stability; omit to use `main` branch for the latest features
 	lazy = true,
+	keys = {
+		{ "<leader>sc", "<Plug>(nvim-surround-change)", desc = "Surround change" },
+		{ "<leader>sd", "<Plug>(nvim-surround-delete)", desc = "Surround delete" },
+		{ "<leader>sl", "<Plug>(nvim-surround-normal-cur)", desc = "Surround line" },
+		{ "<leader>ss", "<Plug>(nvim-surround-normal)", desc = "Surround surround" },
+		-- Visual
+		{ "<leader>s", "<Plug>(nvim-surround-visual)", desc = "Surround visual", mode = "x" },
+	},
 	opts = {
 		keymaps = {
 			insert = false,

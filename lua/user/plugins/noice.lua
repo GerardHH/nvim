@@ -4,6 +4,10 @@ return {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	},
+	lazy = false,
+	keys = {
+		{ "<leader>tn", "<CMD>Noice telescope<CR>", desc = "Telescope notifycations" },
+	},
 	opts = {
 		lsp = {
 			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**

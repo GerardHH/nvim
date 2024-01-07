@@ -4,6 +4,15 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	lazy = true,
+	keys = {
+		{ "<leader>cB", "<Plug>(comment_toggle_blockwise_current)", desc = "Comment blockwise current" },
+		{ "<leader>cC", "<Plug>(comment_toggle_linewise_current)", desc = "Comment linewise current" },
+		{ "<leader>cb", "<Plug>(comment_toggle_blockwise)", desc = "Comment blockwise motion" },
+		{ "<leader>cc", "<Plug>(comment_toggle_linewise)", desc = "Comment linewise motion" },
+		-- Visual
+		{ "<leader>cb", "<Plug>(comment_toggle_blockwise_visual)", desc = "Comment blockwise", mode = "x" },
+		{ "<leader>cl", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment linewise", mode = "x" },
+	},
 	config = function()
 		---@diagnostic disable:missing-fields
 		require("Comment").setup({

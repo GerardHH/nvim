@@ -2,6 +2,9 @@ return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	lazy = true,
+	keys = {
+		{ "<leader>tT", "<CMD>TodoTelescope<CR>", desc = "Telescope todo-comments" },
+	},
 	opts = {
 		highlight = {
 			pattern = [[.*<(KEYWORDS)\s*]], -- vim regex

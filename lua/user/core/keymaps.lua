@@ -23,6 +23,19 @@ keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<A-j>", ":m .+1<CR>==", { desc = "Move text on line down" })
 keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move text on line up" })
 
+-- leader maps
+-- Diagnostics,
+keymap("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Diagnostics line" })
+keymap("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Diagnostics next" })
+keymap("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnostics previous" })
+-- View
+keymap("n", "<leader>vh", "<CMD>checkhealth<CR>", { desc = "View health" })
+keymap("n", "<leader>vl", "<CMD>Lazy<CR>", { desc = "View lazy" })
+keymap("n", "<leader>vs-", "<C-w>s", { desc = "View Split window horizontally" })
+keymap("n", "<leader>vs=", "<C-w>=", { desc = "View Split equal size" })
+keymap("n", "<leader>vsc", "<CMD>close<CR>", { desc = "View Split close current" })
+keymap("n", "<leader>vs|", "<C-w>v", { desc = "View Split window vertically" })
+
 -- Insert --
 
 -- Visual --

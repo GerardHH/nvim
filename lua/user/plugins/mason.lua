@@ -18,6 +18,9 @@ return {
 		},
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
+		keys = {
+			{ "<leader>vm", "<CMD>Mason<CR>", "View Mason" },
+		},
 		config = function()
 			-- Mason itself
 			require("mason").setup({
@@ -73,6 +76,14 @@ return {
 			"SmiteshP/nvim-navic",
 		},
 		lazy = true,
+		keys = {
+			{ "<leader>lD", vim.lsp.buf.hover, desc = "LSP documentation" },
+			{ "<leader>la", vim.lsp.buf.code_action, desc = "LSP action" },
+			{ "<leader>ld", vim.lsp.buf.declaration, desc = "LSP declaration" },
+			{ "<leader>lr", vim.lsp.buf.rename, desc = "LSP rename" },
+			{ "<leader>ls", "<CMD>ClangdSwitchSourceHeader<CR>", desc = "LSP Switch header/source" },
+			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LSP's" },
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 
@@ -181,6 +192,13 @@ return {
 		"mfussenegger/nvim-dap",
 		-- Gets depended on by specific DAP configs
 		lazy = true,
+		keys = {
+			{ "<leader>DO", "<CMD>DapStepOut<CR>", desc = "Debug step Out" },
+			{ "<leader>Db", "<CMD>DapToggleBreakpoint<CR>", desc = "Debug toggle Breakpoint" },
+			{ "<leader>Dc", "<CMD>DapContinue<CR>", desc = "Debug Continue/start" },
+			{ "<leader>Di", "<CMD>DapStepInto<CR>", desc = "Debug step Into" },
+			{ "<leader>Do", "<CMD>DapStepOver<CR>", desc = "Debug step Over" },
+		},
 	},
 	{
 		"rcarriga/nvim-dap-ui",

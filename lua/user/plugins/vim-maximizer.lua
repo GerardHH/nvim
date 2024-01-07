@@ -1,4 +1,5 @@
 return {
 	"szw/vim-maximizer",
-	event = { "BufReadPre", "BufNewFile" },
+	lazy = true,
+	keys = { "<leader>vsf", "<CMD>MaximizerToggle<CR>", desc = "View Split fullscreen" },
 }

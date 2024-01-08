@@ -87,13 +87,35 @@ return {
 			respect_gitignore = false,
 		},
 		config = function(_, opts)
-			require("telescope").setup({
+			local telescope = require("telescope")
+
+			telescope.setup({
 				extensions = {
 					file_browser = opts,
 				},
 			})
 
-			require("telescope").load_extension("file_browser")
+			telescope.load_extension("file_browser")
+		end,
+	},
+	{
+		"debugloop/telescope-undo.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		lazy = true,
+		keys = {
+			{ "<leader>tu", "<CMD>Telescope undo<CR>", desc = "Telescope undo" },
+		},
+		opts = {},
+		config = function(_, opts)
+			local telescope = require("telescope")
+
+			telescope.setup({
+				extensions = {
+					undo = opts,
+				},
+			})
+
+			telescope.load_extension("undo")
 		end,
 	},
 }

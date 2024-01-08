@@ -10,9 +10,12 @@ return {
 		lazy = true,
 		keys = {
 			-- LSP
-			{ "<leader>lgi", "<CMD>telescope lsp_implementations<CR>", desc = "LSP Go to implementations" },
+			{ "<leader>lgd", "<CMDTelescope lsp_definitions<CR>", desc = "LSP definitions" },
+			{ "<leader>lgi", "<CMD>Telescope lsp_implementations<CR>", desc = "LSP Go to implementations" },
+			{ "<leader>lgt", "<CMD>Telescope lsp_type_definitions<CR>", desc = "LSP type definitions" },
 			{ "<leader>lli", "<CMD>Telescope lsp_incoming_calls<CR>", desc = "LSP incoming calls" },
 			{ "<leader>llo", "<CMD>Telescope lsp_outgoing_calls<CR>", desc = "LSP outgoing calls" },
+			{ "<leader>llr", "<CMD>Telescope lsp_references<CR>", desc = "LSP List references" },
 			{ "<leader>lls", "<CMD>Telescope lsp_document_symbols<CR>", desc = "LSP symbols" },
 			{ "<leader>llw", "<CMD>Telescope lsp_workspace_symbols<CR>", desc = "LSP workspace symbols" },
 			-- Telescope
@@ -71,7 +74,11 @@ return {
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		lazy = true,
 		keys = {
-			{ "<leader>ve", "<CMD>Telescope file_browser<CR>", desc = "View explorer (telescope-file-browser)" },
+			{
+				"<leader>ve",
+				"<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+				desc = "View explorer (telescope-file-browser)",
+			},
 		},
 		opts = {
 			follow_symlinks = true,

@@ -73,15 +73,26 @@ return {
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 			"folke/neodev.nvim",
 			"SmiteshP/nvim-navic",
+
+			"nvim-telescope/telescope-ui-select.nvim",
+			"gbrlsnchs/telescope-lsp-handlers.nvim",
 		},
 		lazy = true,
 		keys = {
-			{ "<leader>lD", vim.lsp.buf.hover, desc = "LSP documentation" },
+			{ "<leader>l?", vim.lsp.buf.signature_help, desc = "LSP signature help" },
+			{ "<leader>lC", vim.lsp.buf.outgoing_calls, desc = "LSP outgoing calls" },
+			{ "<leader>lD", vim.lsp.buf.definition, desc = "LSP definition" },
+			{ "<leader>lS", vim.lsp.buf.document_symbol, desc = "LSP document symbol" },
 			{ "<leader>la", vim.lsp.buf.code_action, desc = "LSP action" },
+			{ "<leader>lc", vim.lsp.buf.incoming_calls, desc = "LSP incoming calls" },
 			{ "<leader>ld", vim.lsp.buf.declaration, desc = "LSP declaration" },
-			{ "<leader>lr", vim.lsp.buf.rename, desc = "LSP rename" },
+			{ "<leader>lh", vim.lsp.buf.hover, desc = "LSP hover (doc popup)" },
+			{ "<leader>li", vim.lsp.buf.implementation, desc = "LSP implementation" },
+			{ "<leader>ln", vim.lsp.buf.rename, desc = "LSP rename" },
+			{ "<leader>lr", vim.lsp.buf.references, desc = "LSP references" },
 			{ "<leader>ls", "<CMD>ClangdSwitchSourceHeader<CR>", desc = "LSP Switch header/source" },
-			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LSP's" },
+			-- View
+			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
 		},
 		config = function()
 			local lspconfig = require("lspconfig")

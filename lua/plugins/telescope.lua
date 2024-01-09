@@ -9,16 +9,6 @@ return {
 		},
 		lazy = true,
 		keys = {
-			-- LSP
-			{ "<leader>lgd", "<CMDTelescope lsp_definitions<CR>", desc = "LSP definitions" },
-			{ "<leader>lgi", "<CMD>Telescope lsp_implementations<CR>", desc = "LSP Go to implementations" },
-			{ "<leader>lgt", "<CMD>Telescope lsp_type_definitions<CR>", desc = "LSP type definitions" },
-			{ "<leader>lli", "<CMD>Telescope lsp_incoming_calls<CR>", desc = "LSP incoming calls" },
-			{ "<leader>llo", "<CMD>Telescope lsp_outgoing_calls<CR>", desc = "LSP outgoing calls" },
-			{ "<leader>llr", "<CMD>Telescope lsp_references<CR>", desc = "LSP List references" },
-			{ "<leader>lls", "<CMD>Telescope lsp_document_symbols<CR>", desc = "LSP symbols" },
-			{ "<leader>llw", "<CMD>Telescope lsp_workspace_symbols<CR>", desc = "LSP workspace symbols" },
-			-- Telescope
 			{ "<leader>tC", "<CMD>Telescope commands<CR>", desc = "Telescope plugin/user commands" },
 			{ "<leader>tH", "<CMD>Telescope command_history<CR>", desc = "Telescope command history" },
 			{ "<leader>tR", "<CMD>Telescope registers<CR>", desc = "Telescope registers" },
@@ -65,6 +55,7 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = function()
 			require("telescope").load_extension("ui-select")
 		end,
@@ -116,6 +107,16 @@ return {
 			})
 
 			telescope.load_extension("undo")
+		end,
+	},
+	{
+		"gbrlsnchs/telescope-lsp-handlers.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
+		lazy = true,
+		config = function()
+			require("telescope").load_extension("lsp_handlers")
 		end,
 	},
 }

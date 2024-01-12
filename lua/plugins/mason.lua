@@ -3,17 +3,10 @@ return {
 		"williamboman/mason.nvim",
 		-- Mason acts as entry point for code files and depends other plugins that should start too.
 		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-			"jay-babu/mason-nvim-dap.nvim",
-
-			-- Linting and formatting
-			"nvimtools/none-ls.nvim",
-
-			-- Mason only plugins
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-			-- Plugins depending on LSP
-			"utilyre/barbecue.nvim",
+            -- Kick off LS's and depended plugins
+            "neovim/nvim-lspconfig",
 		},
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
@@ -32,36 +25,25 @@ return {
 				},
 			})
 
-			-- LSP's
-			require("mason-lspconfig").setup({
+			-- Formatters and Linters
+			require("mason-tool-installer").setup({
 				ensure_installed = {
+					-- LS's
 					"bashls", -- shell
 					"clangd", -- c/c++
 					"lua_ls", -- lua
 					"marksman", -- markdown
 					"pyright", -- python
-				},
-				automatic_installation = true,
-			})
-
-			-- Formatters and Linters
-			require("mason-tool-installer").setup({
-				ensure_installed = {
+					-- Formatters and Linters
 					"beautysh", -- shell formatter
 					"black", -- python formatter
 					"clang-format", -- c/c++ formatter
 					"mypy", -- python static analyzer
 					"ruff", -- python linter
 					"stylua", -- lua formatter
-				},
-			})
-
-			-- Debuggers
-			require("mason-nvim-dap").setup({
-				ensure_installed = {
+					-- Debbuggers
 					"python", -- python
 				},
-				automatic_installation = true,
 			})
 		end,
 	},
@@ -74,6 +56,7 @@ return {
 			"folke/neodev.nvim",
 			"SmiteshP/nvim-navic",
 
+			-- Improve selection for LSP actions
 			"nvim-telescope/telescope-ui-select.nvim",
 			"gbrlsnchs/telescope-lsp-handlers.nvim",
 		},
@@ -156,6 +139,7 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		lazy = true,
+		event = "LspAttach",
 		config = function()
 			local lsp_formatting = function(bufnr)
 				vim.lsp.buf.format({
@@ -252,6 +236,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		lazy = true,
+		event = "LspAttach",
 		opts = {
 			attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 		},

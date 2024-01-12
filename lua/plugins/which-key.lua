@@ -29,6 +29,7 @@ return {
 			s = { name = "Surround" },
 			t = { name = "Telescope" },
 			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
+            n = { name = "Neogen" },
 		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })
 	end,
 }

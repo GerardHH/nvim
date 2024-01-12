@@ -18,6 +18,7 @@ return {
 		which_key.register({
 			D = { name = "Debug" },
 			H = { name = "Highlight" },
+			S = { name = "Session" },
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
 			d = { name = "Diagnostics" },

@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-buffer", -- source for text in buffer
 			"hrsh7th/cmp-path", -- source for file system paths
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"onsails/lspkind.nvim", -- vs-code like pictograms
 			"saadparwaiz1/cmp_luasnip", -- for autocompletion
 			"L3MON4D3/LuaSnip", -- snippet engine
@@ -72,6 +73,7 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" }, -- LSP
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- snippets
 					{ name = "buffer" }, -- text within current buffer
 					{ name = "path" }, -- file system paths

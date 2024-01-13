@@ -4,12 +4,14 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-buffer", -- source for text in buffer
 			"hrsh7th/cmp-path", -- source for file system paths
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"onsails/lspkind.nvim", -- vs-code like pictograms
-			"saadparwaiz1/cmp_luasnip", -- for autocompletion
+			"hrsh7th/cmp-nvim-lsp-signature-help", -- enhanced signature help
+			"hrsh7th/cmp-cmdline", -- completion for search and command line
+			"onsails/lspkind.nvim", -- vs-code like pictographs
+			"saadparwaiz1/cmp_luasnip", -- for auto completion
 			"L3MON4D3/LuaSnip", -- snippet engine
 		},
 		event = "InsertEnter",
+		keys = { ":", "/" },
 		config = function()
 			local cmp = require("cmp")
 
@@ -87,6 +89,26 @@ return {
 				},
 			})
 			---@diagnostic enable:missing-fields
+
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
+			})
 		end,
 	},
 	{

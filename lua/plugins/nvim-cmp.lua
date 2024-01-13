@@ -75,8 +75,8 @@ return {
 					{ name = "nvim_lsp" }, -- LSP
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- snippets
-					-- { name = "buffer" }, -- text within current buffer
 					{ name = "path" }, -- file system paths
+					{ name = "buffer" }, -- text within current buffer
 				}),
 				-- configure lspkind for vs-code like pictograms in completion menu
 				formatting = {

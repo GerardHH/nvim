@@ -5,8 +5,8 @@ return {
 		dependencies = {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-            -- Kick off LS's and depended plugins
-            "neovim/nvim-lspconfig",
+			-- Kick off LS's and depended plugins
+			"neovim/nvim-lspconfig",
 		},
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
@@ -158,7 +158,6 @@ return {
 
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.completion.spell, -- spelling
 					null_ls.builtins.diagnostics.mypy, -- python
 					null_ls.builtins.diagnostics.ruff, -- python
 					null_ls.builtins.formatting.beautysh, -- shell

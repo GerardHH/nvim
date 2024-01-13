@@ -11,7 +11,7 @@ return {
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
 		keys = {
-			{ "<leader>vm", "<CMD>Mason<CR>", "View Mason" },
+			{ "<leader>vm", "<CMD>Mason<CR>", desc = "View Mason" },
 		},
 		config = function()
 			-- Mason itself

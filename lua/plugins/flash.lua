@@ -88,6 +88,9 @@ return {
 		},
 	},
 	opts = {
+		search = {
+			enabled = false,
+		},
 		char = {
 			enabled = false,
 		},

@@ -23,6 +23,9 @@ keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<A-j>", ":m .+1<CR>==", { desc = "Move text on line down" })
 keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move text on line up" })
 
+-- Easy redo
+keymap("n", "U", "<C-r>", { desc = "Redo" })
+
 -- leader maps
 -- Diagnostics,
 keymap("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Diagnostics line" })

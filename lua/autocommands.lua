@@ -18,3 +18,10 @@ autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
 	end,
 })
+
+-- Keep cursor in the middle of the screen
+autocmd({ "BufEnter", "WinEnter", "WinNew", "VimResized" }, {
+	group = group,
+	pattern = "*",
+	command = "let &scrolloff=(winheight(win_getid())/2) + 1",
+})

@@ -31,6 +31,7 @@ return {
 			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
 			g = {
 				name = "Git",
+				c = { name = "Conflict" },
 				d = { name = "Diff" },
 				h = { name = "Hunk" },
 				t = { name = "Toggle" },

@@ -41,4 +41,17 @@ return {
 			{ "<leader>gdf", "<CMD>DiffviewFileHistory<CR>", desc = "Git Diff file history" },
 		},
 	},
+	{
+		"akinsho/git-conflict.nvim",
+		lazy = true,
+		keys = {
+			{ "<leader>gcN", "<CMD>GitConflictChooseNone<CR>", desc = "Git Conflict none" },
+			{ "<leader>gcb", "<CMD>GitConflictChooseBoth<CR>", desc = "Git Conflict both" },
+			{ "<leader>gcn", "<CMD>GitConflictNextConflict<CR>", desc = "Git Conflict next" },
+			{ "<leader>gco", "<CMD>GitConflictChooseOurs<CR>", desc = "Git Conflict ours" },
+			{ "<leader>gcp", "<CMD>GitConflictPrevConflict<CR>", desc = "Git Conflict previous" },
+			{ "<leader>gcq", "<CMD>GitConflictListQf<CR>", desc = "Git Conflict quickfix list" },
+			{ "<leader>gct", "<CMD>GitConflictChooseTheirs<CR>", desc = "Git Conflict theirs" },
+		},
+	},
 }

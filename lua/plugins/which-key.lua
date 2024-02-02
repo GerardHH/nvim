@@ -29,7 +29,12 @@ return {
 			s = { name = "Surround" },
 			t = { name = "Telescope" },
 			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
-			g = { name = "Git", h = { name = "Hunk" } },
+			g = {
+				name = "Git",
+				d = { name = "Diff" },
+				h = { name = "Hunk" },
+				t = { name = "Toggle" },
+			},
 			n = { name = "Neogen" },
 		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })
 	end,

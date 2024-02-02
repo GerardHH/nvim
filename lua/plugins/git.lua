@@ -4,8 +4,10 @@ return {
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		keys = {
-			{ "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", desc = "Git toggle current line blame" },
-			{ "<leader>gd", "<CMD>Gitsigns toggle_deleted<CR>", desc = "Git toggle deleted" },
+			-- Git Toggle
+			{ "<leader>gtb", "<CMD>Gitsigns toggle_current_line_blame<CR>", desc = "Git Toggle current line blame" },
+			{ "<leader>gtd", "<CMD>Gitsigns toggle_deleted<CR>", desc = "Git Toggle deleted" },
+			-- Git Hunk
 			{ "<leader>ghP", "<CMD>Gitsigns preview_hunk<CR>", desc = "Git Hunk preview" },
 			{ "<leader>ghR", "<CMD>Gitsigns reset_buffer<CR>", desc = "Git Hunk reset buffer" },
 			{ "<leader>ghS", "<CMD>Gitsigns stage_buffer<CR>", desc = "Git Hunk stage buffer" },
@@ -24,7 +26,19 @@ return {
 		},
 		lazy = true,
 		keys = {
-			{ "<leader>gg", "<CMD>LazyGit<CR>", desc = "Git LazyGit" },
+			{ "<leader>gg", "<CMD>LazyGit<CR>", desc = "LazyGit" },
+		},
+	},
+	{
+		"sindrets/diffview.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		lazy = true,
+		keys = {
+			{ "<leader>gdd", "<CMD>DiffviewOpen<CR>", desc = "Git Diff open diff" },
+			{ "<leader>gdc", "<CMD>DiffviewClose<CR>", desc = "Git Diff close diff" },
+			{ "<leader>gdf", "<CMD>DiffviewFileHistory<CR>", desc = "Git Diff file history" },
 		},
 	},
 }

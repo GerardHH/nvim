@@ -1,6 +1,10 @@
 return {
 	"akinsho/bufferline.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", "moll/vim-bbye" },
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+		"moll/vim-bbye",
+		"catppuccin/nvim",
+	},
 	version = "*",
 	lazy = false,
 	keys = {
@@ -11,11 +15,13 @@ return {
 		{ "<leader>bp", "<CMD>BufferLineMovePrev<CR>", desc = "Buffer move previous" },
 		{ "<leader>br", "<CMD>BufferLineCloseRight<CR>", desc = "Buffer close right" },
 	},
-	opts = {
-		highlights = {},
-		options = {
-			close_command = "Bdelete! %d",
-			right_mouse_command = "Bdelete! %d",
-		},
-	},
+	config = function()
+		require("bufferline").setup({
+			highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			options = {
+				close_command = "Bdelete! %d",
+				right_mouse_command = "Bdelete! %d",
+			},
+		})
+	end,
 }

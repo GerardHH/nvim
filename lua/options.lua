@@ -26,7 +26,7 @@ opt.background = "dark" -- colorschemes that can be light or dark will be made d
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard:append("unnamed,unnamedplus") -- use system clipboard as default register
 
 -- split windows
 opt.splitright = true -- split vertical window to the right

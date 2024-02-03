@@ -38,6 +38,9 @@ keymap("n", "<leader>vs-", "<C-w>s", { desc = "View Split window horizontally" }
 keymap("n", "<leader>vs=", "<C-w>=", { desc = "View Split equal size" })
 keymap("n", "<leader>vsc", "<CMD>close<CR>", { desc = "View Split close current" })
 keymap("n", "<leader>vs|", "<C-w>v", { desc = "View Split window vertically" })
+-- writing
+keymap("n", "<leader>W", "<CMD>wa<CR>", { desc = "Write all" })
+keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })
 
 -- Insert --
 

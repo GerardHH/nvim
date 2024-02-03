@@ -15,15 +15,16 @@ return {
 					flash = true,
 					gitsigns = true,
 					harpoon = true,
-					illuminate = { enabled = true },
+					illuminate = true,
 					lsp_trouble = true,
 					mason = true,
 					noice = true,
 					notify = true,
+					rainbow_delimiters = true,
 					telescope = { enabled = true },
 					treesitter = true,
 					which_key = true,
-					rainbow_delimiters = true,
+					indent_blankline = { enabled = true, colored_indent_levels = true },
 				},
 			})
 			vim.cmd.colorscheme("catppuccin")

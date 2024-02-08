@@ -35,6 +35,8 @@ return {
 				d = { name = "Diff" },
 				h = { name = "Hunk" },
 				t = { name = "Toggle" },
+				n = { name = "Next" },
+				p = { name = "Previous" },
 			},
 			n = { name = "Neogen" },
 		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })

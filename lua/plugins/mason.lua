@@ -29,9 +29,9 @@ return {
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					-- LS's
-					"bashls", -- shell
+					"bash-language-server", -- shell
 					"clangd", -- c/c++
-					"lua_ls", -- lua
+					"lua-language-server", -- lua
 					"marksman", -- markdown
 					"pyright", -- python
 					-- Formatters and Linters
@@ -42,7 +42,7 @@ return {
 					"ruff", -- python linter
 					"stylua", -- lua formatter
 					-- Debbuggers
-					"python", -- python
+					-- "python", -- python
 				},
 			})
 		end,
@@ -171,9 +171,7 @@ return {
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
 							buffer = bufnr,
-							callback = function()
-								lsp_formatting(bufnr)
-							end,
+							callback = function() lsp_formatting(bufnr) end,
 						})
 					end
 				end,
@@ -202,15 +200,9 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 			dapui.setup()
-			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated["dapui_config"] = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close()
-			end
+			dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+			dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
+			dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 		end,
 	},
 	{

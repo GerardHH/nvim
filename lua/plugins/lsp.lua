@@ -1,52 +1,4 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		-- Mason acts as entry point for code files and depends other plugins that should start too.
-		dependencies = {
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-			-- Kick off LS's and depended plugins
-			"neovim/nvim-lspconfig",
-		},
-		lazy = true,
-		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
-		keys = {
-			{ "<leader>vm", "<CMD>Mason<CR>", desc = "View Mason" },
-		},
-		config = function()
-			-- Mason itself
-			require("mason").setup({
-				ui = {
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			})
-
-			-- Formatters and Linters
-			require("mason-tool-installer").setup({
-				ensure_installed = {
-					-- LS's
-					"bash-language-server", -- shell
-					"clangd", -- c/c++
-					"lua-language-server", -- lua
-					"marksman", -- markdown
-					"pyright", -- python
-					-- Formatters and Linters
-					"beautysh", -- shell formatter
-					"black", -- python formatter
-					"clang-format", -- c/c++ formatter
-					"mypy", -- python static analyzer
-					"ruff", -- python linter
-					"stylua", -- lua formatter
-					-- Debbuggers
-					-- "python", -- python
-				},
-			})
-		end,
-	},
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
@@ -61,6 +13,7 @@ return {
 			"gbrlsnchs/telescope-lsp-handlers.nvim",
 		},
 		lazy = true,
+		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
 		keys = {
 			{ "<leader>l?", vim.lsp.buf.signature_help, desc = "LSP signature help" },
 			{ "<leader>lC", vim.lsp.buf.outgoing_calls, desc = "LSP outgoing calls" },

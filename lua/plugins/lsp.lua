@@ -13,8 +13,9 @@ return {
 			"gbrlsnchs/telescope-lsp-handlers.nvim",
 		},
 		lazy = true,
-		ft = { "c", "cpp", "shell", "lua", "markdown", "python" },
+		ft = { "c", "cpp", "shell", "lua", "markdown", "nix", "python" },
 		keys = {
+			-- lsp
 			{ "<leader>l?", vim.lsp.buf.signature_help, desc = "LSP signature help" },
 			{ "<leader>lC", vim.lsp.buf.outgoing_calls, desc = "LSP outgoing calls" },
 			{ "<leader>lD", vim.lsp.buf.definition, desc = "LSP definition" },
@@ -75,6 +76,10 @@ return {
 				},
 			})
 			lspconfig["marksman"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig["nixd"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

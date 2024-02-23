@@ -30,6 +30,10 @@ return {
 		keys = {
 			{ "<leader>gg", "<CMD>LazyGit<CR>", desc = "LazyGit" },
 		},
+		config = function()
+			vim.g.lazygit_floating_window_scaling_factor = 1
+			vim.g.lazygit_floating_window_use_plenary = 1
+		end,
 	},
 	{
 		"sindrets/diffview.nvim",

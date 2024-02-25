@@ -88,6 +88,10 @@ return {
 				on_attach = on_attach,
 				filetypes = { "python" },
 			})
+			lspconfig["ruff_lsp"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 		end,
 	},
 	-- Linting & Formatting
@@ -117,7 +121,6 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.diagnostics.mypy, -- python
-					null_ls.builtins.diagnostics.ruff, -- python
 					null_ls.builtins.formatting.shfmt, -- shell
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.clang_format, -- c/c++

@@ -118,7 +118,7 @@ return {
 				sources = {
 					null_ls.builtins.diagnostics.mypy, -- python
 					null_ls.builtins.diagnostics.ruff, -- python
-					null_ls.builtins.formatting.beautysh, -- shell
+					null_ls.builtins.formatting.shfmt, -- shell
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.clang_format, -- c/c++
 					null_ls.builtins.formatting.stylua, -- lua

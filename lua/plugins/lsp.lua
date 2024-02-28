@@ -121,9 +121,10 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.diagnostics.mypy, -- python
-					null_ls.builtins.formatting.shfmt, -- shell
+					null_ls.builtins.formatting.alejandra, -- Nix
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.clang_format, -- c/c++
+					null_ls.builtins.formatting.shfmt, -- shell
 					null_ls.builtins.formatting.stylua, -- lua
 				},
 				on_attach = function(client, bufnr)

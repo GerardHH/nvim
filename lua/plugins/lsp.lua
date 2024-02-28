@@ -75,6 +75,10 @@ return {
 					"--offset-encoding=utf-16",
 				},
 			})
+			lspconfig["cmake"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,

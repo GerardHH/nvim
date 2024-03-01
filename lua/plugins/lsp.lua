@@ -72,6 +72,14 @@ return {
 				cmd = {
 					"clangd",
 					"--offset-encoding=utf-16",
+					"--background-index",
+					"--clang-tidy",
+					"--clang-tidy-checks=*",
+					"--all-scopes-completion",
+					"--cross-file-rename",
+					"--completion-style=detailed",
+					"--header-insertion-decorators",
+					"--header-insertion=iwyu",
 				},
 			})
 			lspconfig["cmake"].setup({

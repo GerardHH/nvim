@@ -5,7 +5,10 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
+
 			"folke/neodev.nvim",
+			"p00f/clangd_extensions.nvim",
+
 			"SmiteshP/nvim-navic",
 
 			-- Improve selection for LSP actions
@@ -68,7 +71,11 @@ return {
 			})
 			lspconfig["clangd"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
+				on_attach = function(client, bufnr)
+					require("clangd_extensions.inlay_hints").setup_autocmd()
+					require("clangd_extensions.inlay_hints").set_inlay_hints()
+					on_attach(client, bufnr)
+				end,
 				cmd = {
 					"clangd",
 					"--offset-encoding=utf-16",

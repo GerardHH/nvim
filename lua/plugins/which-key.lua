@@ -33,9 +33,11 @@ return {
 			},
 			h = { name = "Harpoon" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
+			m = { name = "Bookmark" },
 			n = { name = "Neogen" },
 			r = { name = "Recorder" },
 			s = { name = "Surround" },
+			t = { name = "Telescope" },
 			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
 		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })
 	end,

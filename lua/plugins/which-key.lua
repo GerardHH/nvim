@@ -22,13 +22,7 @@ return {
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
 			d = { name = "Diagnostics" },
-			f = { name = "Flash" },
-			h = { name = "Harpoon" },
-			l = { name = "LSP", g = { name = "LSP go to" }, l = { name = "LSP list" } },
-			r = { name = "Recorder" },
-			s = { name = "Surround" },
-			t = { name = "Telescope" },
-			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
+			f = { name = "Find" },
 			g = {
 				name = "Git",
 				c = { name = "Conflict" },
@@ -38,7 +32,12 @@ return {
 				n = { name = "Next" },
 				p = { name = "Previous" },
 			},
+			h = { name = "Harpoon" },
+			l = { name = "LSP", g = { name = "LSP go to" }, l = { name = "LSP list" } },
 			n = { name = "Neogen" },
+			r = { name = "Recorder" },
+			s = { name = "Surround" },
+			v = { name = "View", S = { name = "Spectre (search&replace)" }, s = { name = "Split" } },
 		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })
 	end,
 }

@@ -6,7 +6,7 @@ return {
 	},
 	lazy = false,
 	keys = {
-		{ "<leader>tn", "<CMD>Noice telescope<CR>", desc = "Telescope notifications" },
+		{ "<leader>fn", "<CMD>Noice telescope<CR>", desc = "Find notifications" },
 	},
 	opts = {
 		lsp = {

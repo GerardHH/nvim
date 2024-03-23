@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	lazy = true,
 	keys = {
-		{ "<leader>tT", "<CMD>TodoTelescope<CR>", desc = "Telescope todo-comments" },
+		{ "<leader>fT", "<CMD>TodoTelescope<CR>", desc = "Find todo-comments" },
 	},
 	opts = {
 		highlight = {

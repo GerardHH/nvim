@@ -31,10 +31,11 @@ return {
 
 			telescope.setup({
 				defaults = {
-					layout_strategy = "flex",
+					layout_strategy = "vertical",
 					layout_config = {
 						width = { padding = 0 },
 						height = { padding = 0 },
+						preview_height = 0.60,
 					},
 					path_display = { "truncate " },
 					mappings = {
@@ -68,9 +69,7 @@ return {
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		config = function()
-			require("telescope").load_extension("ui-select")
-		end,
+		config = function() require("telescope").load_extension("ui-select") end,
 	},
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
@@ -127,8 +126,6 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		lazy = true,
-		config = function()
-			require("telescope").load_extension("lsp_handlers")
-		end,
+		config = function() require("telescope").load_extension("lsp_handlers") end,
 	},
 }

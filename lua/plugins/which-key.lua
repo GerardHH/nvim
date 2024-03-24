@@ -21,7 +21,6 @@ return {
 			S = { name = "Session" },
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
-			d = { name = "Diagnostics" },
 			f = { name = "Find" },
 			g = {
 				name = "Git",
@@ -33,7 +32,7 @@ return {
 				p = { name = "Previous" },
 			},
 			h = { name = "Harpoon" },
-			l = { name = "LSP", g = { name = "LSP go to" }, l = { name = "LSP list" } },
+			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
 			n = { name = "Neogen" },
 			r = { name = "Recorder" },
 			s = { name = "Surround" },

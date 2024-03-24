@@ -27,10 +27,6 @@ keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move text on line up" })
 keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- leader maps
--- Diagnostics,
-keymap("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Diagnostics line" })
-keymap("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Diagnostics next" })
-keymap("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnostics previous" })
 -- View
 keymap("n", "<leader>vh", "<CMD>checkhealth<CR>", { desc = "View health" })
 keymap("n", "<leader>vl", "<CMD>Lazy<CR>", { desc = "View lazy" })

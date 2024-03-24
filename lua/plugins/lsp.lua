@@ -12,24 +12,12 @@ return {
 			"SmiteshP/nvim-navic",
 
 			-- Improve selection for LSP actions
-			"nvim-telescope/telescope-ui-select.nvim",
-			"gbrlsnchs/telescope-lsp-handlers.nvim",
+			"nvimdev/lspsaga.nvim",
 		},
 		lazy = true,
 		ft = { "c", "cpp", "shell", "lua", "markdown", "nix", "python" },
 		keys = {
 			-- lsp
-			{ "<leader>l?", vim.lsp.buf.signature_help, desc = "LSP signature help" },
-			{ "<leader>lC", vim.lsp.buf.outgoing_calls, desc = "LSP outgoing calls" },
-			{ "<leader>lD", vim.lsp.buf.definition, desc = "LSP definition" },
-			{ "<leader>lS", vim.lsp.buf.document_symbol, desc = "LSP document symbol" },
-			{ "<leader>la", vim.lsp.buf.code_action, desc = "LSP action" },
-			{ "<leader>lc", vim.lsp.buf.incoming_calls, desc = "LSP incoming calls" },
-			{ "<leader>ld", vim.lsp.buf.declaration, desc = "LSP declaration" },
-			{ "<leader>lh", vim.lsp.buf.hover, desc = "LSP hover (doc popup)" },
-			{ "<leader>li", vim.lsp.buf.implementation, desc = "LSP implementation" },
-			{ "<leader>ln", vim.lsp.buf.rename, desc = "LSP rename" },
-			{ "<leader>lr", vim.lsp.buf.references, desc = "LSP references" },
 			{ "<leader>ls", "<CMD>ClangdSwitchSourceHeader<CR>", desc = "LSP Switch header/source" },
 			-- View
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
@@ -200,16 +188,37 @@ return {
 	},
 	-- Others
 	{
-		"utilyre/barbecue.nvim",
-		version = "*",
+		"nvimdev/lspsaga.nvim",
 		dependencies = {
-			"SmiteshP/nvim-navic",
+			"neovim/nvim-lspconfig", -- Just in case this plugin gets loaded before this
+			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
 		lazy = true,
 		event = "LspAttach",
-		opts = {
-			attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
+		keys = {
+			{ "<leader>lC", "<CMD>Lspsaga outgoing_calls<CR>", desc = "LSP outgoing calls" },
+			{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
+			{ "<leader>lR", "<CMD>Lspsaga rename<CR>", desc = "LSP rename" },
+			{ "<leader>la", "<CMD>Lspsaga code_action<CR>", desc = "LSP code action" },
+			{ "<leader>lc", "<CMD>Lspsaga incoming_calls<CR>", desc = "LSP incomming calls" },
+			{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
+			{ "<leader>li", "<CMD>Lspsaga finder imp<CR>", desc = "LSP implemenations" },
+			{ "<leader>lo", "<CMD>Lspsaga outline<CR>", desc = "LSP outline" },
+			{ "<leader>lr", "<CMD>Lspsaga finder def+ref<CR>", desc = "LSP references + definitions" },
+			-- Diagnostic
+			{ "<leader>ldb", "<CMD>Lspsaga show_buffer_diagnostics<CR>", desc = "LSP Diagnostic buffer" },
+			{ "<leader>ldl", "<CMD>Lspsaga show_line_diagnostics<CR>", desc = "LSP Diagnostic line" },
+			{ "<leader>ldn", "<CMD>Lspsaga diagnostic_jump_next<CR>", desc = "LSP Diagnostic next" },
+			{ "<leader>ldp", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "LSP Diagnostic previous" },
+			{ "<leader>ldw", "<CMD>Lspsaga show_workspace_diagnostics<CR>", desc = "LSP Diagnostic workspace" },
+			-- Go to
+			{ "<leader>lgd", "<CMD>Lspsaga goto_dedinition<CR>", desc = "LSP Go to definition" },
+			{ "<leader>lgt", "<CMD>Lspsaga goto_type_dedinition<CR>", desc = "LSP Go to type definition" },
+			-- Peek
+			{ "<leader>lpd", "<CMD>Lspsaga peek_dedinition<CR>", desc = "LSP peek definition" },
+			{ "<leader>lpt", "<CMD>Lspsaga peek_type_dedinition<CR>", desc = "LSP peek type definition" },
 		},
+		opts = {},
 	},
 }

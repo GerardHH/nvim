@@ -213,11 +213,11 @@ return {
 			{ "<leader>ldp", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "LSP Diagnostic previous" },
 			{ "<leader>ldw", "<CMD>Lspsaga show_workspace_diagnostics<CR>", desc = "LSP Diagnostic workspace" },
 			-- Go to
-			{ "<leader>lgd", "<CMD>Lspsaga goto_dedinition<CR>", desc = "LSP Go to definition" },
-			{ "<leader>lgt", "<CMD>Lspsaga goto_type_dedinition<CR>", desc = "LSP Go to type definition" },
+			{ "<leader>lgd", "<CMD>Lspsaga goto_definition<CR>", desc = "LSP Go to definition" },
+			{ "<leader>lgt", "<CMD>Lspsaga goto_type_definition<CR>", desc = "LSP Go to type definition" },
 			-- Peek
-			{ "<leader>lpd", "<CMD>Lspsaga peek_dedinition<CR>", desc = "LSP peek definition" },
-			{ "<leader>lpt", "<CMD>Lspsaga peek_type_dedinition<CR>", desc = "LSP peek type definition" },
+			{ "<leader>lpd", "<CMD>Lspsaga peek_definition<CR>", desc = "LSP peek definition" },
+			{ "<leader>lpt", "<CMD>Lspsaga peek_type_definition<CR>", desc = "LSP peek type definition" },
 		},
 		opts = {},
 	},

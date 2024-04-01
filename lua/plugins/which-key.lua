@@ -24,12 +24,8 @@ return {
 			f = { name = "Find" },
 			g = {
 				name = "Git",
-				c = { name = "Conflict" },
-				d = { name = "Diff" },
 				h = { name = "Hunk" },
 				t = { name = "Toggle" },
-				n = { name = "Next" },
-				p = { name = "Previous" },
 			},
 			h = { name = "Harpoon" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },

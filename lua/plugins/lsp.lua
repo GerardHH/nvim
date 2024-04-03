@@ -207,7 +207,7 @@ return {
 			{ "<leader>lo", "<CMD>Lspsaga outline<CR>", desc = "LSP outline" },
 			{ "<leader>lr", "<CMD>Lspsaga finder def+ref<CR>", desc = "LSP references + definitions" },
 			-- Diagnostic
-			{ "<leader>ldb", "<CMD>Lspsaga show_buffer_diagnostics<CR>", desc = "LSP Diagnostic buffer" },
+			{ "<leader>ldb", "<CMD>Lspsaga show_buf_diagnostics<CR>", desc = "LSP Diagnostic buffer" },
 			{ "<leader>ldl", "<CMD>Lspsaga show_line_diagnostics<CR>", desc = "LSP Diagnostic line" },
 			{ "<leader>ldn", "<CMD>Lspsaga diagnostic_jump_next<CR>", desc = "LSP Diagnostic next" },
 			{ "<leader>ldp", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "LSP Diagnostic previous" },
@@ -219,6 +219,42 @@ return {
 			{ "<leader>lpd", "<CMD>Lspsaga peek_definition<CR>", desc = "LSP peek definition" },
 			{ "<leader>lpt", "<CMD>Lspsaga peek_type_definition<CR>", desc = "LSP peek type definition" },
 		},
-		opts = {},
+		opts = {
+			callhierarchy = {
+				keys = {
+					edit = "<CR>",
+					vsplit = "|",
+					split = "-",
+					shuttle = "<TAB>",
+				},
+			},
+			definition = {
+				keys = {
+					edit = "<CR>",
+					vsplit = "|",
+					split = "-",
+				},
+			},
+			finder = {
+				keys = {
+					toggle_or_open = "<CR>",
+					vsplit = "|",
+					split = "-",
+					shuttle = "<TAB>",
+				},
+			},
+			outline = {
+				layout = "float",
+				left_width = 0.4,
+				keys = {
+					toggle_or_jump = "<CR>",
+				},
+			},
+			rename = {
+				keys = {
+					quit = "<C-q>",
+				},
+			},
+		},
 	},
 }

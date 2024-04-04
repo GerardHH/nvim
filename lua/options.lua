@@ -17,6 +17,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.incsearch = true -- see what vim matches as it is typed
 opt.hlsearch = true -- highlight all matches on previous search pattern
 
 -- turn on termguicolors for nightfly colorscheme to work

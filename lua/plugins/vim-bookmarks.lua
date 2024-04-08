@@ -3,7 +3,7 @@ return {
 		"MattesGroeger/vim-bookmarks",
 		version = "*",
 		lazy = true,
-		event = "VimEnter",
+		event = "VeryLazy",
 		keys = {
 			{ "<leader>mm", "<CMD>BookmarkToggle<CR>", desc = "Bookmark toggle" },
 			{ "<leader>ma", "<CMD>BookmarkAnnotate<CR>", desc = "Bookmark annotate" },

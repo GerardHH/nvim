@@ -23,6 +23,6 @@ return {
 			delete = false,
 			change = false,
 			change_line = false,
-		}, -- Let which-key define these
+		},
 	},
 }

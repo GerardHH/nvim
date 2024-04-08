@@ -1,6 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
+		version = "*",
 		dependencies = {
 			"hrsh7th/cmp-buffer", -- source for text in buffer
 			"hrsh7th/cmp-path", -- source for file system paths
@@ -114,6 +115,7 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
+		version = "*",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},

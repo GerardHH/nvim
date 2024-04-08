@@ -2,6 +2,7 @@ return {
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
+		version = "*",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
@@ -103,6 +104,7 @@ return {
 	-- Linting & Formatting
 	{
 		"nvimtools/none-ls.nvim",
+		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
@@ -149,7 +151,7 @@ return {
 	-- DAP
 	{
 		"mfussenegger/nvim-dap",
-		-- Gets depended on by specific DAP configs
+		version = "*",
 		lazy = true,
 		keys = {
 			{ "<leader>DO", "<CMD>DapStepOut<CR>", desc = "Debug step Out" },
@@ -161,6 +163,7 @@ return {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
+		version = "*",
 		dependencies = { "mfussenegger/nvim-dap" },
 		-- Gets depended on by specific DAP configs
 		lazy = true,
@@ -175,6 +178,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap-python",
+		version = "*",
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"rcarriga/nvim-dap-ui",
@@ -189,6 +193,7 @@ return {
 	-- Others
 	{
 		"nvimdev/lspsaga.nvim",
+		version = "*",
 		dependencies = {
 			"neovim/nvim-lspconfig", -- Just in case this plugin gets loaded before this
 			"nvim-treesitter/nvim-treesitter",

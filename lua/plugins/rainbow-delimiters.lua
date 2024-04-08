@@ -1,5 +1,6 @@
 return {
 	"HiPhish/rainbow-delimiters.nvim",
+	version = "*",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },

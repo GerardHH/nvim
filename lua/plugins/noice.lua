@@ -1,5 +1,6 @@
 return {
 	"folke/noice.nvim",
+	version = "*",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",

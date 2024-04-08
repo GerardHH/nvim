@@ -1,6 +1,7 @@
 return {
 	{
 		"MattesGroeger/vim-bookmarks",
+		version = "*",
 		lazy = true,
 		event = "VimEnter",
 		keys = {
@@ -20,6 +21,7 @@ return {
 	},
 	{
 		"tom-anders/telescope-vim-bookmarks.nvim",
+		version = "*",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 		},

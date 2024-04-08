@@ -1,5 +1,6 @@
 return {
 	"LunarVim/bigfile.nvim",
+	version = "*",
 	lazy = true,
 	event = "BufReadPre",
 	opts = {

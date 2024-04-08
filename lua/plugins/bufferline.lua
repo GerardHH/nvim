@@ -1,11 +1,11 @@
 return {
 	"akinsho/bufferline.nvim",
+	version = "*",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"moll/vim-bbye",
 		"catppuccin/nvim",
 	},
-	version = "*",
 	lazy = false,
 	keys = {
 		{ "<leader>bc", "<CMD>bd<CR>", desc = "Buffer close current" },

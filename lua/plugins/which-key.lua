@@ -1,6 +1,7 @@
 return {
 	"folke/which-key.nvim",
 	main = "which-key",
+	version = "*",
 	init = function()
 		vim.o.timeout = true
 		vim.o.timeoutlen = 1000

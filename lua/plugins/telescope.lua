@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -68,11 +68,13 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
+		version = "*",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = function() require("telescope").load_extension("ui-select") end,
 	},
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
+		version = "*",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		lazy = true,
 		keys = {
@@ -102,6 +104,7 @@ return {
 	},
 	{
 		"debugloop/telescope-undo.nvim",
+		version = "*",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		lazy = true,
 		keys = {
@@ -122,6 +125,7 @@ return {
 	},
 	{
 		"gbrlsnchs/telescope-lsp-handlers.nvim",
+		version = "*",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 		},

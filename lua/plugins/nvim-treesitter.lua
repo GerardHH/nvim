@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	version = "*",
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",

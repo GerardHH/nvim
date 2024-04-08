@@ -1,6 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
+		version = "*",
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		keys = {
@@ -21,6 +22,7 @@ return {
 	},
 	{
 		"kdheepak/lazygit.nvim",
+		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},

@@ -1,5 +1,6 @@
 return {
 	"chrisgrieser/nvim-recorder",
+	version = "*",
 	dependencies = { "rcarriga/nvim-notify" },
 	keys = {
 		-- these must match the keys in the mapping config below

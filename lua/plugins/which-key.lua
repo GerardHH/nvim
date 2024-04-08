@@ -17,7 +17,6 @@ return {
 
 		which_key.register({
 			D = { name = "Debug" },
-			H = { name = "Highlight" },
 			S = { name = "Session" },
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
@@ -27,7 +26,7 @@ return {
 				h = { name = "Hunk" },
 				t = { name = "Toggle" },
 			},
-			h = { name = "Harpoon" },
+			h = { name = "Highlight" },
 			j = { name = "Jump" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
 			m = { name = "Bookmark" },

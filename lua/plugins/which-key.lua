@@ -30,7 +30,6 @@ return {
 			j = { name = "Jump" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
 			m = { name = "Bookmark" },
-			n = { name = "Neogen" },
 			r = { name = "Recorder" },
 			s = { name = "Surround" },
 			t = { name = "Telescope" },

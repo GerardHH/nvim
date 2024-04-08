@@ -1,9 +1,6 @@
 return {
 	"rmagatti/auto-session",
 	version = "*",
-	dependencies = {
-		"nvim-telescope/telescope.nvim",
-	},
 	lazy = false,
 	keys = {
 		{ "<leader>Sd", "<CMD>Autosession delete<CR>", desc = "Session delete" },
@@ -13,5 +10,8 @@ return {
 	opts = {
 		auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 		auto_session_use_git_branch = true,
+		session_lens = {
+			load_on_setup = false,
+		},
 	},
 }

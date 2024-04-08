@@ -7,4 +7,9 @@ return {
 		-- View
 		{ "<leader>vt", "<CMD>TroubleToggle<CR>", desc = "View Trouble toggle" },
 	},
+	opts = {
+		action_keys = {
+			close = "<ESC>",
+		},
+	},
 }

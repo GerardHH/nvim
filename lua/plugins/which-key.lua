@@ -28,6 +28,7 @@ return {
 				t = { name = "Toggle" },
 			},
 			h = { name = "Harpoon" },
+			j = { name = "Jump" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
 			m = { name = "Bookmark" },
 			n = { name = "Neogen" },

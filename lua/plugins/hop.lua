@@ -4,16 +4,16 @@ return {
 	lazy = true,
 	keys = {
 		{
-			"<leader>jj",
+			"<leader>j",
 			"<CMD>HopCamelCase<CR>",
 			mode = { "n", "x", "o" },
-			desc = "Jump word",
+			desc = "Jump (hop) word",
 		},
 		{
-			"<leader>jl",
+			"<leader>J",
 			"<CMD>HopLine<CR>",
 			mode = { "n", "x", "o" },
-			desc = "Jump line",
+			desc = "Jump (hop) line",
 		},
 		{
 			"F",
@@ -24,7 +24,7 @@ return {
 				})
 			end,
 			mode = { "n", "x", "o" },
-			desc = "Hop F implementation",
+			desc = "Hop F",
 		},
 		{
 			"f",
@@ -35,7 +35,7 @@ return {
 				})
 			end,
 			mode = { "n", "x", "o" },
-			desc = "Hop f implementation",
+			desc = "Hop f",
 		},
 		{
 			"T",
@@ -47,7 +47,7 @@ return {
 				})
 			end,
 			mode = { "n", "x", "o" },
-			desc = "Hop t implementation",
+			desc = "Hop t",
 		},
 		{
 			"t",
@@ -59,13 +59,10 @@ return {
 				})
 			end,
 			mode = { "n", "x", "o" },
-			desc = "Hop t implementation",
+			desc = "Hop t",
 		},
 	},
 	opts = {
 		multi_windows = true,
 	},
 }
--- testTest
--- test_test
--- TestTest

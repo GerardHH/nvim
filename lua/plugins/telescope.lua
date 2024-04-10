@@ -67,36 +67,6 @@ return {
 		end,
 	},
 	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		version = "*",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		lazy = true,
-		keys = {
-			{
-				"<leader>ve",
-				"<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-				desc = "View explorer (telescope-file-browser)",
-			},
-		},
-		opts = {
-			follow_symlinks = true,
-			hidden = true,
-			hijack_netrw = true,
-			respect_gitignore = false,
-		},
-		config = function(_, opts)
-			local telescope = require("telescope")
-
-			telescope.setup({
-				extensions = {
-					file_browser = opts,
-				},
-			})
-
-			telescope.load_extension("file_browser")
-		end,
-	},
-	{
 		"debugloop/telescope-undo.nvim",
 		version = "*",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },

@@ -66,25 +66,4 @@ return {
 			telescope.load_extension("fzf")
 		end,
 	},
-	{
-		"debugloop/telescope-undo.nvim",
-		version = "*",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		lazy = true,
-		keys = {
-			{ "<leader>fu", "<CMD>Telescope undo<CR>", desc = "Find undo" },
-		},
-		opts = {},
-		config = function(_, opts)
-			local telescope = require("telescope")
-
-			telescope.setup({
-				extensions = {
-					undo = opts,
-				},
-			})
-
-			telescope.load_extension("undo")
-		end,
-	},
 }

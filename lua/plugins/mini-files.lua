@@ -25,6 +25,11 @@ return {
 	},
 	opts = {
 		mappings = {
+			go_in = "<CR>",
+			go_in_plus = "",
+			go_out = "<BS>",
+			go_out_plus = "",
+			reset = "",
 			show_help = "?",
 		},
 		windows = {

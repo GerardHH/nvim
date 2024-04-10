@@ -87,13 +87,4 @@ return {
 			telescope.load_extension("undo")
 		end,
 	},
-	{
-		"gbrlsnchs/telescope-lsp-handlers.nvim",
-		version = "*",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
-		lazy = true,
-		config = function() require("telescope").load_extension("lsp_handlers") end,
-	},
 }

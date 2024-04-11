@@ -44,6 +44,8 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		version = "*",
+		lazy = true,
+		event = "InsertEnter",
 		opts = {},
 	},
 	{

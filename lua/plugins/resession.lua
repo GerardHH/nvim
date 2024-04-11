@@ -7,8 +7,14 @@ return {
 		{ "<leader>Sl", function() require("resession").load() end, desc = "Session load" },
 		{ "<leader>Sd", function() require("resession").delete() end, desc = "Session delete" },
 	},
-	opts = {},
-	config = function(opts)
+	opts = {
+		autosave = {
+			enabled = true,
+			interval = 60, -- seconds
+			notify = false,
+		},
+	},
+	config = function(_, opts)
 		local resession = require("resession")
 
 		resession.setup(opts)

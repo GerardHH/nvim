@@ -37,21 +37,3 @@ keymap("n", "<leader>vs|", "<C-w>v", { desc = "View Split window vertically" })
 -- writing
 keymap("n", "<leader>W", "<CMD>wa<CR>", { desc = "Write all" })
 keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })
-
--- Insert --
-
--- Visual --
-keymap("v", "<", "<gv^", { desc = "Indent selected text to the left" })
-keymap("v", ">", ">gv^", { desc = "Indent selected text to the right" })
-
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected text up" })
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })
-
-keymap("v", "p", '"_dP', { desc = "Replace selection with buffer" })
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected text up" })
-keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })
-keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected text up" })
-keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })

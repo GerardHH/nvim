@@ -42,6 +42,13 @@ return {
 		},
 	},
 	{
+		"echasnovski/mini.move",
+		version = "*",
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+	},
+	{
 		"echasnovski/mini.pairs",
 		version = "*",
 		lazy = true,

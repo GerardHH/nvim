@@ -45,7 +45,12 @@ return {
 		"echasnovski/mini.move",
 		version = "*",
 		lazy = true,
-		event = { "BufReadPre", "BufNewFile" },
+		keys = {
+			{ "<M-h>", mode = { "n", "x" }, desc = "Indent line/selection left (mini.move)" },
+			{ "<M-l>", mode = { "n", "x" }, desc = "Indent line/selection right (mini.move)" },
+			{ "<M-j>", mode = { "n", "x" }, desc = "Move line/selection down (mini.move)" },
+			{ "<M-k>", mode = { "n", "x" }, desc = "Move line/selection up (mini.move)" },
+		},
 		opts = {},
 	},
 	{
@@ -53,8 +58,8 @@ return {
 		version = "*",
 		lazy = true,
 		keys = {
-			{ "<leader>or", mode = "x", desc = "Operators replace with register" },
-			{ "<leader>os", mode = "x", desc = "Operators sort" },
+			{ "<leader>or", mode = "x", desc = "Replace with register (mini.operators)" },
+			{ "<leader>os", mode = "x", desc = "Sort (mini.operators)" },
 		},
 		opts = {
 			evaluate = {
@@ -78,7 +83,17 @@ return {
 		"echasnovski/mini.pairs",
 		version = "*",
 		lazy = true,
-		event = "InsertEnter",
+		keys = {
+			{ "(", mode = "i", desc = "Auto close pair (mini.pairs)" },
+			{ "[", mode = "i", desc = "Auto close pair (mini.pairs)" },
+			{ "{", mode = "i", desc = "Auto close pair (mini.pairs)" },
+			{ ")", mode = "i", desc = "Skip over if paired (mini.pairs)" },
+			{ "]", mode = "i", desc = "Skip over if paired (mini.pairs)" },
+			{ "}", mode = "i", desc = "Skip over if paired (mini.pairs)" },
+			{ '"', mode = "i", desc = "Auto close pair & skip over if paired (mini.pairs)" },
+			{ "'", mode = "i", desc = "Auto close pair & skip over if paired (mini.pairs)" },
+			{ "`", mode = "i", desc = "Auto close pair & skip over if paired (mini.pairs)" },
+		},
 		opts = {},
 	},
 	{
@@ -86,11 +101,11 @@ return {
 		version = "*",
 		lazy = true,
 		keys = {
-			{ "<leader>~", function() MiniSplitjoin.toggle() end, desc = "Split/Join arguments" },
+			{ "<leader>~", desc = "Split/Join arguments (mini.splitjoin)" },
 		},
 		opts = {
 			mappings = {
-				toggle = "",
+				toggle = "<leader>~",
 			},
 		},
 	},

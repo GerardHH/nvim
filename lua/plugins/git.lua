@@ -5,6 +5,7 @@ return {
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		keys = {
+			{ "<leader>gr", "<CMD>Gitsigns refresh<CR>", desc = "Git refresh (gitsigns)" },
 			-- Git Toggle
 			{ "<leader>gtb", "<CMD>Gitsigns toggle_current_line_blame<CR>", desc = "Git Toggle current line blame" },
 			{ "<leader>gtd", "<CMD>Gitsigns toggle_deleted<CR>", desc = "Git Toggle deleted" },
@@ -18,7 +19,7 @@ return {
 			{ "<leader>ghs", "<CMD>Gitsigns stage_hunk<CR>", desc = "Git Hunk stage" },
 			{ "<leader>ghu", "<CMD>Gitsigns undo_stage_hunk<CR>", desc = "Git Hunk undo stage hunk" },
 		},
-		config = true,
+		opts = {},
 	},
 	{
 		"kdheepak/lazygit.nvim",

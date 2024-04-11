@@ -49,6 +49,32 @@ return {
 		opts = {},
 	},
 	{
+		"echasnovski/mini.operators",
+		version = "*",
+		lazy = true,
+		keys = {
+			{ "<leader>or", mode = "x", desc = "Operators replace with register" },
+			{ "<leader>os", mode = "x", desc = "Operators sort" },
+		},
+		opts = {
+			evaluate = {
+				prefix = "",
+			},
+			exchange = {
+				prefix = "",
+			},
+			multiply = {
+				prefix = "",
+			},
+			replace = {
+				prefix = "<leader>or",
+			},
+			sort = {
+				prefix = "<leader>os",
+			},
+		},
+	},
+	{
 		"echasnovski/mini.pairs",
 		version = "*",
 		lazy = true,

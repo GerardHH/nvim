@@ -22,7 +22,7 @@ return {
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
 			f = { name = "Find" },
-			g = { name = "Git", h = { name = "Hunk" }, t = { name = "Toggle" } },
+			g = { name = "Git", c = { name = "Conflict" }, h = { name = "Hunk" }, t = { name = "Toggle" } },
 			h = { name = "Highlight" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
 			m = { name = "Bookmark" },

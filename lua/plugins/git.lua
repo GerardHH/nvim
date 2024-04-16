@@ -1,5 +1,35 @@
 return {
 	{
+		"akinsho/git-conflict.nvim",
+		version = "*",
+		lazy = false,
+		keys = {
+			{ "<leader>gc0", "<Plug>(git-conflict-none)", desc = "Git Conflict choose none" },
+			{ "<leader>gcb", "<Plug>(git-conflict-both)", desc = "Git Conflict choose both" },
+			{ "<leader>gcn", "<Plug>(git-conflict-next-conflict)", desc = "Git Conflict next" },
+			{ "<leader>gco", "<Plug>(git-conflict-ours)", desc = "Git Conflict choose ours" },
+			{ "<leader>gcp", "<Plug>(git-conflict-prev-conflict)", desc = "Git Conflict previous" },
+			{ "<leader>gct", "<Plug>(git-conflict-theirs)", desc = "Git Conflict choose theirs" },
+		},
+		opts = {
+			default_mappings = false, -- Disable buffer local mappings
+			disable_diagnostics = true, -- Disable diagnostics during a conflict
+		},
+		config = function(_, opts)
+			require("git-conflict").setup(opts)
+
+			vim.api.nvim_create_autocmd("BufEnter", {
+				group = vim.api.nvim_create_augroup("git-conflict", {}),
+				pattern = "*",
+				callback = function(ev)
+					if string.find(ev.file, "LOCAL") == nil and string.find(ev.file, "REMOTE") == nil then
+						vim.cmd("GitConflictRefresh")
+					end
+				end,
+			})
+		end,
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		version = "*",
 		lazy = true,

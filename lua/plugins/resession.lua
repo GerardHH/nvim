@@ -45,7 +45,12 @@ return {
 		vim.api.nvim_create_autocmd("VimLeavePre", {
 			group = ressesion_group,
 			pattern = "*",
-			callback = function() resession.save(get_session_name(), { dir = "dirsession", notify = false }) end,
+			callback = function()
+				-- Only save the session if nvim was started with no args
+				if vim.fn.argc(-1) == 0 then
+					resession.save(get_session_name(), { dir = "dirsession", notify = false })
+				end
+			end,
 		})
 	end,
 }

@@ -17,9 +17,6 @@ keymap("n", "<C-Down>", ":resize -2<CR>", { desc = "Shrink current view horizont
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", { desc = "Expand current view vertically" })
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "Shrink current view vertically" })
 
-keymap("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
-keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
-
 keymap("n", "<A-j>", ":m .+1<CR>==", { desc = "Move text on line down" })
 keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move text on line up" })
 

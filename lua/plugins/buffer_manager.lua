@@ -16,6 +16,16 @@ return {
 		{ "L", function() require("buffer_manager.ui").nav_next() end, desc = "Next buffer" },
 	},
 	opts = {
+		select_menu_item_commands = {
+			v = {
+				key = "/",
+				command = "vsplit",
+			},
+			h = {
+				key = "-",
+				command = "split",
+			},
+		},
 		short_file_names = true,
 	},
 }

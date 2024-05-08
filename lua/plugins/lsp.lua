@@ -228,7 +228,7 @@ return {
 			callhierarchy = {
 				keys = {
 					edit = "<CR>",
-					vsplit = "|",
+					vsplit = "/",
 					split = "-",
 					shuttle = "<TAB>",
 				},
@@ -236,14 +236,14 @@ return {
 			definition = {
 				keys = {
 					edit = "<CR>",
-					vsplit = "|",
+					vsplit = "/",
 					split = "-",
 				},
 			},
 			finder = {
 				keys = {
 					toggle_or_open = "<CR>",
-					vsplit = "|",
+					vsplit = "/",
 					split = "-",
 					shuttle = "<TAB>",
 				},

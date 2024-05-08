@@ -1,6 +1,9 @@
 return {
 	"j-morano/buffer_manager.nvim",
 	version = "*",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
 	lazy = true,
 	keys = {
 		{ "<leader>B", "<CMD>bdelete %<CR>", desc = "Delete current buffer" },

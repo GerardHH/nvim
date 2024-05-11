@@ -1,7 +1,9 @@
 return {
 	"chrisgrieser/nvim-recorder",
+	main = "recorder",
 	version = "*",
 	dependencies = { "rcarriga/nvim-notify" },
+	lazy = true,
 	keys = {
 		-- these must match the keys in the mapping config below
 		{ "q", desc = " Start Recording" },
@@ -13,8 +15,8 @@ return {
 			playMacro = "Q",
 		},
 	},
-	config = function(_, opts)
-		local recorder = require("recorder")
+	config = function(pkg, opts)
+		local recorder = require(pkg.main)
 
 		recorder.setup(opts)
 

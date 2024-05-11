@@ -1,6 +1,7 @@
 return {
 	{
 		"akinsho/git-conflict.nvim",
+		main = "git-conflict",
 		version = "*",
 		lazy = false,
 		keys = {
@@ -15,8 +16,8 @@ return {
 			default_mappings = false, -- Disable buffer local mappings
 			disable_diagnostics = true, -- Disable diagnostics during a conflict
 		},
-		config = function(_, opts)
-			require("git-conflict").setup(opts)
+		config = function(pkg, opts)
+			require(pkg.main).setup(opts)
 
 			vim.api.nvim_create_autocmd("BufEnter", {
 				group = vim.api.nvim_create_augroup("git-conflict", {}),

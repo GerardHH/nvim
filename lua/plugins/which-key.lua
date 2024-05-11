@@ -11,8 +11,8 @@ return {
 	opts = {
 		operators = {}, -- Disable gc
 	},
-	config = function(_, opts)
-		local which_key = require("which-key")
+	config = function(pkg, opts)
+		local which_key = require(pkg.main)
 
 		which_key.setup(opts)
 

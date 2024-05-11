@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		main = "telescope",
 		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -24,45 +25,46 @@ return {
 			{ "<leader>fs", "<CMD>Telescope live_grep<CR>", desc = "Find string" },
 			{ "<leader>ft", "<CMD>Telescope help_tags<CR>", desc = "Find help tags" },
 		},
-		config = function()
-			local telescope = require("telescope")
+		opts = {
+			defaults = {
+				layout_strategy = "vertical",
+				layout_config = {
+					width = { padding = 0 },
+					height = { padding = 0 },
+					preview_height = 0.60,
+				},
+				path_display = { "truncate " },
+			},
+		},
+		config = function(pkg, opts)
 			local actions = require("telescope.actions")
 			local trouble = require("trouble.providers.telescope")
 
-			telescope.setup({
-				defaults = {
-					layout_strategy = "vertical",
-					layout_config = {
-						width = { padding = 0 },
-						height = { padding = 0 },
-						preview_height = 0.60,
-					},
-					path_display = { "truncate " },
+			opts.defaults.mappings = {
+				i = {
+					["<C-k>"] = actions.move_selection_previous,
+					["<C-j>"] = actions.move_selection_next,
+					["<C-q>"] = trouble.open_with_trouble,
+				},
+				n = {
+					["q"] = trouble.open_with_trouble,
+				},
+			}
+			opts.pickers = {
+				buffers = {
 					mappings = {
 						i = {
-							["<C-k>"] = actions.move_selection_previous,
-							["<C-j>"] = actions.move_selection_next,
-							["<C-q>"] = trouble.open_with_trouble,
+							["<C-d>"] = actions.delete_buffer,
 						},
 						n = {
-							["q"] = trouble.open_with_trouble,
+							["d"] = actions.delete_buffer,
 						},
 					},
 				},
-				pickers = {
-					buffers = {
-						mappings = {
-							i = {
-								["<C-d>"] = actions.delete_buffer,
-							},
-							n = {
-								["d"] = actions.delete_buffer,
-							},
-						},
-					},
-				},
-			})
+			}
 
+			local telescope = require(pkg.main)
+			telescope.setup(opts)
 			telescope.load_extension("fzf")
 		end,
 	},

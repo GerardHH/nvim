@@ -1,5 +1,6 @@
 return {
 	"stevearc/resession.nvim",
+	main = "resession",
 	version = "*",
 	lazy = false,
 	keys = {
@@ -14,8 +15,8 @@ return {
 			notify = false,
 		},
 	},
-	config = function(_, opts)
-		local resession = require("resession")
+	config = function(pkg, opts)
+		local resession = require(pkg.main)
 
 		resession.setup(opts)
 

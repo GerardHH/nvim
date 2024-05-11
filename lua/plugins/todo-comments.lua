@@ -14,8 +14,8 @@ return {
 			pattern = [[\b(KEYWORDS)\b]],
 		},
 	},
-	config = function(_, opts)
-		require("todo-comments").setup(opts)
+	config = function(pkg, opts)
+		require(pkg.main).setup(opts)
 
 		require("telescope").load_extension("todo-comments")
 	end,

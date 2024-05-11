@@ -2,6 +2,28 @@ local jump_color = require("catppuccin.palettes.mocha").sky
 
 return {
 	{
+		"echasnovski/mini.indentscope",
+		version = "*",
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {
+			mappings = {
+				object_scope = "",
+				object_scope_with_border = "",
+				goto_top = "",
+				goto_bottom = "",
+			},
+		},
+		config = function(pkg, opts)
+			opts.draw = {
+				animation = require("mini.indentscope").gen_animation.none(),
+			}
+			require(pkg.name).setup(opts)
+			local color = require("catppuccin.palettes.mocha").yellow
+			vim.cmd(string.format("highlight MiniIndentscopeSymbol cterm=NONE gui=NONE guifg=%s guibg=NONE", color))
+		end,
+	},
+	{
 		"echasnovski/mini.jump",
 		version = "*",
 		lazy = true,

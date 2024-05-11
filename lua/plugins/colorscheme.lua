@@ -40,7 +40,6 @@ return {
 					},
 					noice = true,
 					notify = true,
-					rainbow_delimiters = true,
 					telescope = { enabled = true },
 					treesitter = true,
 					which_key = true,

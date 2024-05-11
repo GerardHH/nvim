@@ -5,14 +5,13 @@ return {
 	dependencies = { "rcarriga/nvim-notify" },
 	lazy = true,
 	keys = {
-		-- these must match the keys in the mapping config below
-		{ "q", desc = " Start Recording" },
-		{ "Q", desc = " Play Recording" },
+		{ "<leader>r", desc = " Start Recording" },
+		{ "<leader>R", desc = " Play Recording" },
 	},
 	opts = {
 		mapping = {
-			startStopRecording = "q",
-			playMacro = "Q",
+			startStopRecording = "<leader>r",
+			playMacro = "<leader>R",
 		},
 	},
 	config = function(pkg, opts)

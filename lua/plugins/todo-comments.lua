@@ -1,10 +1,10 @@
 return {
 	"folke/todo-comments.nvim",
 	version = "*",
-	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-	lazy = true,
+	dependencies = { "nvim-lua/plenary.nvim" },
+	lazy = false,
 	keys = {
-		{ "<leader>fT", "<CMD>TodoTelescope<CR>", desc = "Find todo-comments" },
+		{ "<leader>vt", "<CMD>TodoQuickFix<CR>", desc = "View todo-comments" },
 	},
 	opts = {
 		highlight = {
@@ -14,9 +14,4 @@ return {
 			pattern = [[\b(KEYWORDS)\b]],
 		},
 	},
-	config = function(pkg, opts)
-		require(pkg.main).setup(opts)
-
-		require("telescope").load_extension("todo-comments")
-	end,
 }

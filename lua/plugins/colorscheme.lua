@@ -38,7 +38,6 @@ return {
 				},
 				noice = true,
 				notify = true,
-				telescope = { enabled = true },
 				treesitter = true,
 				which_key = true,
 			},

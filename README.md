@@ -5,7 +5,7 @@
 <!--toc:end-->
 
 # Dependencies
-- ripgrep for Telescope.
+- ripgrep for fzf-lua.
 - Language servers (LS) are not installed, mason is not used. Either install manually or use the home-manager config.
 - Tree-sitter config doesn't auto install correctly yet, if some are not installed use `TSInstall <language>` or `TSInstall all`.
 

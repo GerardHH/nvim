@@ -21,7 +21,7 @@ return {
 			S = { name = "Session" },
 			b = { name = "Buffer" },
 			c = { name = "Comment" },
-			f = { name = "Find" },
+			f = { name = "FZF" },
 			g = { name = "Git", c = { name = "Conflict" }, h = { name = "Hunk" }, t = { name = "Toggle" } },
 			h = { name = "Highlight" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },

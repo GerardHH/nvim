@@ -202,21 +202,9 @@ return {
 		lazy = true,
 		event = "LspAttach",
 		keys = {
-			{ "<leader>lC", "<CMD>Lspsaga outgoing_calls<CR>", desc = "LSP outgoing calls" },
 			{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
 			{ "<leader>lR", "<CMD>Lspsaga rename<CR>", desc = "LSP rename" },
-			{ "<leader>la", "<CMD>Lspsaga code_action<CR>", desc = "LSP code action" },
-			{ "<leader>lc", "<CMD>Lspsaga incoming_calls<CR>", desc = "LSP incomming calls" },
 			{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
-			{ "<leader>li", "<CMD>Lspsaga finder imp<CR>", desc = "LSP implemenations" },
-			{ "<leader>lo", "<CMD>Lspsaga outline<CR>", desc = "LSP outline" },
-			{ "<leader>lr", "<CMD>Lspsaga finder def+ref<CR>", desc = "LSP references + definitions" },
-			-- Diagnostic
-			{ "<leader>ldb", "<CMD>Lspsaga show_buf_diagnostics<CR>", desc = "LSP Diagnostic buffer" },
-			{ "<leader>ldl", "<CMD>Lspsaga show_line_diagnostics<CR>", desc = "LSP Diagnostic line" },
-			{ "<leader>ldn", "<CMD>Lspsaga diagnostic_jump_next<CR>", desc = "LSP Diagnostic next" },
-			{ "<leader>ldp", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "LSP Diagnostic previous" },
-			{ "<leader>ldw", "<CMD>Lspsaga show_workspace_diagnostics<CR>", desc = "LSP Diagnostic workspace" },
 			-- Go to
 			{ "<leader>lg", "<CMD>Lspsaga goto_definition<CR>", desc = "LSP Go to definition" },
 			{ "<leader>lG", "<CMD>Lspsaga goto_type_definition<CR>", desc = "LSP Go to type definition" },

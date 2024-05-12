@@ -5,12 +5,10 @@ return {
 		version = "*",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
-			{ "antosha417/nvim-lsp-file-operations", config = true },
 
-			"folke/neodev.nvim",
-			"p00f/clangd_extensions.nvim",
-
-			"SmiteshP/nvim-navic",
+			-- Language specific LSP extentions
+			{ "folke/neodev.nvim", opts = {} }, -- nvim lua
+			{ "p00f/clangd_extensions.nvim", opts = {} }, -- c/cpp
 
 			-- Improve selection for LSP actions
 			"nvimdev/lspsaga.nvim",
@@ -24,28 +22,18 @@ return {
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
-
-			-- used to enable autocompletion (assign to every lsp server config)
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			local on_attach = function(client, bufnr)
-				if client.server_capabilities.documentSymbolProvider then
-					require("nvim-navic").attach(client, bufnr)
-				end
-			end
-
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 			end
 
-			require("neodev").setup({})
+			-- used to enable autocompletion (assign to every lsp server config)
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			local lspconfig = require("lspconfig")
 			lspconfig["lua_ls"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				settings = {
 					Lua = {
 						completion = {
@@ -56,14 +44,12 @@ return {
 			})
 			lspconfig["bashls"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 			lspconfig["clangd"].setup({
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
+				on_attach = function(_, _)
 					require("clangd_extensions.inlay_hints").setup_autocmd()
 					require("clangd_extensions.inlay_hints").set_inlay_hints()
-					on_attach(client, bufnr)
 				end,
 				cmd = {
 					"clangd",
@@ -80,24 +66,19 @@ return {
 			})
 			lspconfig["cmake"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 			lspconfig["nixd"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 			lspconfig["pyright"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				filetypes = { "python" },
 			})
 			lspconfig["ruff_lsp"].setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end,
 	},

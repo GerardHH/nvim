@@ -27,6 +27,3 @@
     - replacer.nvim might make things even better.
 - Buffer management remains suboptimal.
     - Perhaps the new fzf-lua plugin can play a role?
-- Look into simplifying cmp, contenders:
-    - https://github.com/ms-jpq/coq_nvim.
-    - https://github.com/echasnovski/mini.completion.

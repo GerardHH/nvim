@@ -26,6 +26,7 @@ return {
 			h = { name = "Highlight" },
 			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
 			m = { name = "Bookmark" },
+			n = { name = "Noice" },
 			o = { name = "Operator" },
 			s = { name = "Surround" },
 			v = { name = "View", s = { name = "Split" } },

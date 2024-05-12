@@ -7,7 +7,8 @@ return {
 	},
 	lazy = false,
 	keys = {
-		{ "<leader>fn", "<CMD>Noice telescope<CR>", desc = "Find notifications" },
+		{ "<leader>nl", "<CMD>Noice last<CR>", desc = "Noice last notification" },
+		{ "<leader>nh", "<CMD>Noice history<CR>", desc = "Noice history" },
 	},
 	opts = {
 		lsp = {

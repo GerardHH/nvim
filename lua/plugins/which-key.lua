@@ -17,6 +17,7 @@ return {
 		which_key.setup(opts)
 
 		which_key.register({
+			C = { name = "Quickfix" },
 			D = { name = "Debug" },
 			S = { name = "Session" },
 			b = { name = "Buffer" },

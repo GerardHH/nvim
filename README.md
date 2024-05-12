@@ -23,7 +23,5 @@
     - rename: vim.lsp.buf.rename.
     - breadcrumbs: No idea yet.
     - Symbol to show code-actions.
-- nvim-bqf (better quick fix list).
-    - replacer.nvim might make things even better.
 - Buffer management remains suboptimal.
     - Perhaps the new fzf-lua plugin can play a role?

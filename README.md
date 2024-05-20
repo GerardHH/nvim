@@ -19,7 +19,6 @@
 - Look into replacing lspsaga:
     - Peeking could be done by https://github.com/rmagatti/goto-preview.
     - hover: vim.lsp.buf.hover. Don't know how to do the hover-stay thing yet.
-    - go-to: vim.lsp.buf.(type_)definition. "declaration" is apparently not implemented as much, see how it affects cpp.
     - rename: vim.lsp.buf.rename.
     - breadcrumbs: No idea yet.
 - Buffer management remains suboptimal.

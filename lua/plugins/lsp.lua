@@ -17,6 +17,8 @@ return {
 		ft = { "c", "cpp", "shell", "lua", "markdown", "nix", "python" },
 		keys = {
 			-- lsp
+			{ "<leader>lG", vim.lsp.buf.type_definition, desc = "LSP Go to type definition" },
+			{ "<leader>lg", vim.lsp.buf.definition, desc = "LSP Go to definition" },
 			{ "<leader>ls", "<CMD>ClangdSwitchSourceHeader<CR>", desc = "LSP Switch header/source" },
 			-- View
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
@@ -205,9 +207,6 @@ return {
 			{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
 			{ "<leader>lR", "<CMD>Lspsaga rename<CR>", desc = "LSP rename" },
 			{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
-			-- Go to
-			{ "<leader>lg", "<CMD>Lspsaga goto_definition<CR>", desc = "LSP Go to definition" },
-			{ "<leader>lG", "<CMD>Lspsaga goto_type_definition<CR>", desc = "LSP Go to type definition" },
 			-- Peek
 			{ "<leader>lp", "<CMD>Lspsaga peek_definition<CR>", desc = "LSP peek definition" },
 			{ "<leader>lP", "<CMD>Lspsaga peek_type_definition<CR>", desc = "LSP peek type definition" },

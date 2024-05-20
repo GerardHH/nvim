@@ -7,8 +7,8 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 
 			-- Language specific LSP extentions
-			{ "folke/neodev.nvim", opts = {} }, -- nvim lua
-			{ "p00f/clangd_extensions.nvim", opts = {} }, -- c/cpp
+			{ "folke/neodev.nvim", version = "*", opts = {} }, -- nvim lua
+			{ "p00f/clangd_extensions.nvim", version = "*", opts = {} }, -- c/cpp
 
 			-- Breadcrumps
 			{ "SmiteshP/nvim-navic", version = "*", opts = { highlight = true } },

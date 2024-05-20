@@ -39,6 +39,8 @@ return {
 					resession.load(get_session_name(), { dir = "dirsession", silence_errors = true })
 					-- Work around for plugins not loading depending on this signal
 					-- https://github.com/stevearc/resession.nvim/issues/44#issuecomment-1929764507
+					vim.cmd.doautoall("BufEnter")
+					vim.cmd.doautoall("BufWinEnter")
 					vim.cmd.doautoall("BufReadPre")
 				end
 			end,

@@ -19,6 +19,7 @@ return {
 			},
 		},
 		presets = {
+			inc_rename = true,
 			lsp_doc_border = true, -- add a border to hover docs and signature help
 		},
 	},

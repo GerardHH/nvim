@@ -193,6 +193,20 @@ return {
 		opts = {},
 	},
 	{
+		"smjonas/inc-rename.nvim",
+		version = "*",
+		lazy = true,
+		keys = {
+			{
+				"<leader>lr",
+				function() return ":IncRename " .. vim.fn.expand("<cword>") end,
+				expr = true,
+				desc = "LSP rename",
+			},
+		},
+		opts = {},
+	},
+	{
 		"kosayoda/nvim-lightbulb",
 		version = "*",
 		lazy = true,
@@ -223,7 +237,6 @@ return {
 		event = "LspAttach",
 		keys = {
 			{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
-			{ "<leader>lR", "<CMD>Lspsaga rename<CR>", desc = "LSP rename" },
 			{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
 		},
 		opts = {

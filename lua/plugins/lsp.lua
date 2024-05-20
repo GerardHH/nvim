@@ -175,6 +175,25 @@ return {
 	},
 	-- Others
 	{
+		"rmagatti/goto-preview",
+		version = "*",
+		lazy = true,
+		event = "LspAttach",
+		keys = {
+			{
+				"<leader>lp",
+				function() require("goto-preview").goto_preview_definition({}) end,
+				desc = "LSP preview definition",
+			},
+			{
+				"<leader>lP",
+				function() require("goto-preview").goto_preview_type_definition({}) end,
+				desc = "LSP preview type definition",
+			},
+		},
+		opts = {},
+	},
+	{
 		"kosayoda/nvim-lightbulb",
 		version = "*",
 		lazy = true,
@@ -207,9 +226,6 @@ return {
 			{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
 			{ "<leader>lR", "<CMD>Lspsaga rename<CR>", desc = "LSP rename" },
 			{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
-			-- Peek
-			{ "<leader>lp", "<CMD>Lspsaga peek_definition<CR>", desc = "LSP peek definition" },
-			{ "<leader>lP", "<CMD>Lspsaga peek_type_definition<CR>", desc = "LSP peek type definition" },
 		},
 		opts = {
 			callhierarchy = {

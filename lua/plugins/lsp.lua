@@ -10,6 +10,9 @@ return {
 			{ "folke/neodev.nvim", opts = {} }, -- nvim lua
 			{ "p00f/clangd_extensions.nvim", opts = {} }, -- c/cpp
 
+			-- Breadcrumps
+			{ "SmiteshP/nvim-navic", version = "*", opts = { highlight = true } },
+
 			-- Improve selection for LSP actions
 			"nvimdev/lspsaga.nvim",
 		},
@@ -33,9 +36,16 @@ return {
 			-- used to enable autocompletion (assign to every lsp server config)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			local on_attach = function(client, bufnr)
+				if client.server_capabilities.documentSymbolProvider then
+					require("nvim-navic").attach(client, bufnr)
+				end
+			end
+
 			local lspconfig = require("lspconfig")
 			lspconfig["lua_ls"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 				settings = {
 					Lua = {
 						completion = {
@@ -46,12 +56,14 @@ return {
 			})
 			lspconfig["bashls"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 			lspconfig["clangd"].setup({
 				capabilities = capabilities,
-				on_attach = function(_, _)
+				on_attach = function(client, bufnr)
 					require("clangd_extensions.inlay_hints").setup_autocmd()
 					require("clangd_extensions.inlay_hints").set_inlay_hints()
+					on_attach(client, bufnr)
 				end,
 				cmd = {
 					"clangd",
@@ -68,19 +80,24 @@ return {
 			})
 			lspconfig["cmake"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 			lspconfig["nixd"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 			lspconfig["pyright"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 				filetypes = { "python" },
 			})
 			lspconfig["ruff_lsp"].setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 		end,
 	},
@@ -225,62 +242,62 @@ return {
 			},
 		},
 	},
-	{
-		"nvimdev/lspsaga.nvim",
-		version = "*",
-		dependencies = {
-			"neovim/nvim-lspconfig", -- Just in case this plugin gets loaded before this
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-		lazy = true,
-		event = "LspAttach",
-		keys = {
-			{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
-			{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
-		},
-		opts = {
-			callhierarchy = {
-				keys = {
-					edit = "<CR>",
-					vsplit = "/",
-					split = "-",
-					shuttle = "<TAB>",
-				},
-			},
-			definition = {
-				keys = {
-					edit = "<CR>",
-					vsplit = "/",
-					split = "-",
-				},
-			},
-			finder = {
-				keys = {
-					toggle_or_open = "<CR>",
-					vsplit = "/",
-					split = "-",
-					shuttle = "<TAB>",
-				},
-			},
-			lightbulb = {
-				enable = false,
-			},
-			outline = {
-				layout = "float",
-				left_width = 0.4,
-				keys = {
-					toggle_or_jump = "<CR>",
-				},
-			},
-			rename = {
-				keys = {
-					quit = "<C-q>",
-				},
-			},
-			ui = {
-				kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-			},
-		},
-	},
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	version = "*",
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig", -- Just in case this plugin gets loaded before this
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- 	lazy = true,
+	-- 	event = "LspAttach",
+	-- 	keys = {
+	-- 		{ "<leader>lH", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "LSP hover doc keep" },
+	-- 		{ "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", desc = "LSP hover doc" },
+	-- 	},
+	-- 	opts = {
+	-- 		callhierarchy = {
+	-- 			keys = {
+	-- 				edit = "<CR>",
+	-- 				vsplit = "/",
+	-- 				split = "-",
+	-- 				shuttle = "<TAB>",
+	-- 			},
+	-- 		},
+	-- 		definition = {
+	-- 			keys = {
+	-- 				edit = "<CR>",
+	-- 				vsplit = "/",
+	-- 				split = "-",
+	-- 			},
+	-- 		},
+	-- 		finder = {
+	-- 			keys = {
+	-- 				toggle_or_open = "<CR>",
+	-- 				vsplit = "/",
+	-- 				split = "-",
+	-- 				shuttle = "<TAB>",
+	-- 			},
+	-- 		},
+	-- 		lightbulb = {
+	-- 			enable = false,
+	-- 		},
+	-- 		outline = {
+	-- 			layout = "float",
+	-- 			left_width = 0.4,
+	-- 			keys = {
+	-- 				toggle_or_jump = "<CR>",
+	-- 			},
+	-- 		},
+	-- 		rename = {
+	-- 			keys = {
+	-- 				quit = "<C-q>",
+	-- 			},
+	-- 		},
+	-- 		ui = {
+	-- 			kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+	-- 		},
+	-- 	},
+	-- },
 }

@@ -35,6 +35,14 @@ return {
 					{ "filetype" },
 				},
 			},
+			winbar = {
+				lualine_c = {
+					{
+						"navic",
+						color_correction = nil,
+					},
+				},
+			},
 		})
 	end,
 }

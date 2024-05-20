@@ -36,6 +36,7 @@ return {
 						background = true,
 					},
 				},
+				navic = { enabled = true },
 				noice = true,
 				notify = true,
 				treesitter = true,

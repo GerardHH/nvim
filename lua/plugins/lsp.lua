@@ -173,6 +173,25 @@ return {
 	},
 	-- Others
 	{
+		"kosayoda/nvim-lightbulb",
+		version = "*",
+		lazy = true,
+		event = "LspAttach",
+		opts = {
+			autocmd = {
+				enabled = true,
+			},
+			sign = {
+				enabled = true,
+				text = "",
+			},
+			virtual_text = {
+				enabled = true,
+				text = "",
+			},
+		},
+	},
+	{
 		"nvimdev/lspsaga.nvim",
 		version = "*",
 		dependencies = {
@@ -216,6 +235,9 @@ return {
 					split = "-",
 					shuttle = "<TAB>",
 				},
+			},
+			lightbulb = {
+				enable = false,
 			},
 			outline = {
 				layout = "float",

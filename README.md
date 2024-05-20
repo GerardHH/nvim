@@ -22,6 +22,5 @@
     - go-to: vim.lsp.buf.(type_)definition. "declaration" is apparently not implemented as much, see how it affects cpp.
     - rename: vim.lsp.buf.rename.
     - breadcrumbs: No idea yet.
-    - Symbol to show code-actions.
 - Buffer management remains suboptimal.
     - Perhaps the new fzf-lua plugin can play a role?

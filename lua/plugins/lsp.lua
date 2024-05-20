@@ -178,7 +178,6 @@ return {
 		"rmagatti/goto-preview",
 		version = "*",
 		lazy = true,
-		event = "LspAttach",
 		keys = {
 			{
 				"<leader>lp",

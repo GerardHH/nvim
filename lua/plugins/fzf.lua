@@ -29,6 +29,7 @@ return {
 		{ "<leader>la", "<CMD>FzfLua lsp_code_actions<CR>", desc = "LSP code action (fzf)" },
 		{ "<leader>ld", "<CMD>FzfLua lsp_document_diagnostics<CR>", desc = "LSP document diagnostics (fzf)" },
 		{ "<leader>lf", "<CMD>FzfLua lsp_finder<CR>", desc = "LSP find all locations (fzf)" },
+		{ "<leader>lw", "<CMD>Fzflua lsp_workspace_symbols<CR>", desc = "LSP workspace symbols (fzf)" },
 	},
 	opts = {
 		"telescope",

@@ -10,9 +10,6 @@ return {
 			{ "folke/neodev.nvim", version = "*", opts = {} }, -- nvim lua
 			{ "p00f/clangd_extensions.nvim", version = "*", opts = {} }, -- c/cpp
 
-			-- Breadcrumps
-			{ "SmiteshP/nvim-navic", version = "*", opts = { highlight = true } },
-
 			-- Improve selection for LSP actions
 			"nvimdev/lspsaga.nvim",
 		},
@@ -37,11 +34,7 @@ return {
 			-- used to enable autocompletion (assign to every lsp server config)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local on_attach = function(client, bufnr)
-				if client.server_capabilities.documentSymbolProvider then
-					require("nvim-navic").attach(client, bufnr)
-				end
-			end
+			local on_attach = function(client, bufnr) end
 
 			local lspconfig = require("lspconfig")
 			lspconfig["lua_ls"].setup({
@@ -192,6 +185,17 @@ return {
 		end,
 	},
 	-- Others
+	{
+		"utilyre/barbecue.nvim",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
+		lazy = true,
+		event = "LspAttach",
+		opts = {},
+	},
 	{
 		"rmagatti/goto-preview",
 		version = "*",

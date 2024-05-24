@@ -22,6 +22,7 @@ return {
 			-- lsp
 			{ "<leader>lG", vim.lsp.buf.type_definition, desc = "LSP Go to type definition" },
 			{ "<leader>lg", vim.lsp.buf.definition, desc = "LSP Go to definition" },
+			{ "<leader>lh", vim.lsp.buf.hover, desc = "LSP hover documentation" },
 			{ "<leader>ls", "<CMD>ClangdSwitchSourceHeader<CR>", desc = "LSP Switch header/source" },
 			-- View
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },

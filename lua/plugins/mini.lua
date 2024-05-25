@@ -116,30 +116,4 @@ return {
 			},
 		},
 	},
-	{
-		"echasnovski/mini.surround",
-		version = "*",
-		lazy = true,
-		keys = {
-			{ "<leader>sa", mode = { "n", "x" }, desc = "Surround add" },
-			{ "<leader>sd", desc = "Surround delete" },
-			{ "<leader>sf", desc = "Surround find (left)" },
-			{ "<leader>sF", desc = "Surround find (right)" },
-			{ "<leader>sh", desc = "Surround highlight" },
-			{ "<leader>sr", desc = "Surround replace" },
-		},
-		opts = {
-			mappings = {
-				add = "<leader>sa",
-				delete = "<leader>sd",
-				find = "<leader>sf",
-				find_left = "<leader>sF",
-				highlight = "<leader>sh",
-				replace = "<leader>sr",
-				update_n_lines = "",
-				suffix_last = "",
-				suffix_next = "",
-			},
-		},
-	},
 }

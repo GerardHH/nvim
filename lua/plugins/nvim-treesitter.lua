@@ -18,11 +18,14 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		version = "*",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 		lazy = true,
 		event = "VeryLazy",
 		opts = {
 			indent = {
-				char = "┊",
+				char = "",
 				highlight = {
 					"RainbowRed",
 					"RainbowYellow",

@@ -6,6 +6,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Normal --
+-- buffer
+keymap("n", "H", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
+keymap("n", "L", "<CMD>bnext<CR>", { desc = "Next buffer" })
+
 keymap("n", "<C-h>", "<cmd>wincmd h<CR>", { desc = "Navigate to left nvim window" })
 keymap("n", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Navigate to down nvim window" })
 keymap("n", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Navigate to up nvim window" })
@@ -17,13 +21,11 @@ keymap("n", "<C-Down>", ":resize -2<CR>", { desc = "Shrink current view horizont
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", { desc = "Expand current view vertically" })
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "Shrink current view vertically" })
 
-keymap("n", "<A-j>", ":m .+1<CR>==", { desc = "Move text on line down" })
-keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move text on line up" })
-
 -- Easy redo
 keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- leader maps
+keymap("n", "<leader>B", "<CMD>bdelete %<CR>", { desc = "Close current buffer" })
 -- View
 keymap("n", "<leader>vh", "<CMD>checkhealth<CR>", { desc = "View health" })
 keymap("n", "<leader>vl", "<CMD>Lazy<CR>", { desc = "View lazy" })

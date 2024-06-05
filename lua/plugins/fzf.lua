@@ -7,13 +7,14 @@ return {
 	lazy = true,
 	event = "LspAttach",
 	keys = {
+		-- Buffer
+		{ "<leader>b", "<CMD>FzfLua buffers<CR>", desc = "FZF buffers" },
 		-- FZF
 		{ "<leader>fB", "<CMD>FzfLua builtin<CR>", desc = "FZF builtin commands" },
 		{ "<leader>fC", "<CMD>FzfLua commands<CR>", desc = "FZF plugin/user commands" },
 		{ "<leader>fH", "<CMD>FzfLua command_history<CR>", desc = "FZF command history" },
 		{ "<leader>fR", "<CMD>FzfLua registers<CR>", desc = "FZF registers" },
 		{ "<leader>fS", "<CMD>FzfLua spell_suggest<CR>", desc = "FZF spelling suggestion" },
-		{ "<leader>fb", "<CMD>FzfLua buffers<CR>", desc = "FZF buffers" },
 		{ "<leader>fc", "<CMD>FzfLua grep_cword<CR>", desc = "FZF current word" },
 		{ "<leader>ff", "<CMD>FzfLua files<CR>", desc = "FZF find files" },
 		{ "<leader>fh", "<CMD>FzfLua search_history<CR>", desc = "FZF search history" },

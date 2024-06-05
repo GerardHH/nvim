@@ -31,6 +31,8 @@ return {
 		{ "<leader>ld", "<CMD>FzfLua lsp_document_diagnostics<CR>", desc = "LSP document diagnostics (fzf)" },
 		{ "<leader>lf", "<CMD>FzfLua lsp_finder<CR>", desc = "LSP find all locations (fzf)" },
 		{ "<leader>lw", "<CMD>Fzflua lsp_workspace_symbols<CR>", desc = "LSP workspace symbols (fzf)" },
+		-- Tab
+		{ "<leader>tt", "<CMD>FzfLua tabs<CR>", desc = "Tab FZF" },
 	},
 	opts = {
 		"telescope",

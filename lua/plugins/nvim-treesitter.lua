@@ -25,7 +25,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			indent = {
-				char = "",
+				char = "",
 				highlight = {
 					"RainbowRed",
 					"RainbowYellow",

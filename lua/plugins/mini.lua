@@ -65,8 +65,8 @@ return {
 		version = "*",
 		lazy = true,
 		keys = {
-			{ "<leader>or", mode = "x", desc = "Replace with register (mini.operators)" },
-			{ "<leader>os", mode = "x", desc = "Sort (mini.operators)" },
+			{ "<leader>or", mode = { "v", "x" }, desc = "Replace with register (mini.operators)" },
+			{ "<leader>os", mode = { "v", "x" }, desc = "Sort (mini.operators)" },
 		},
 		opts = {
 			evaluate = {

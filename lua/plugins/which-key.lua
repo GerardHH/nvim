@@ -21,7 +21,6 @@ return {
 			D = { name = "Debug" },
 			S = { name = "Session" },
 			b = { name = "Buffer" },
-			c = { name = "Comment" },
 			f = { name = "FZF" },
 			g = { name = "Git", c = { name = "Conflict" }, h = { name = "Hunk" }, t = { name = "Toggle" } },
 			h = { name = "Highlight" },

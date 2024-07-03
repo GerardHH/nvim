@@ -35,7 +35,7 @@ return {
 		lazy = true,
 		keys = {
 			"<CR>",
-			mode = { "n", "x", "o" },
+			mode = { "n", "v", "o" },
 			desc = "Jump to any word/line (mini.jump2d)",
 		},
 		opts = {

@@ -16,19 +16,29 @@ return {
 
 		which_key.setup(opts)
 
-		which_key.register({
-			C = { name = "Quickfix" },
-			D = { name = "Debug" },
-			S = { name = "Session" },
-			b = { name = "Buffer" },
-			f = { name = "FZF" },
-			g = { name = "Git", c = { name = "Conflict" }, h = { name = "Hunk" }, t = { name = "Toggle" } },
-			h = { name = "Highlight" },
-			l = { name = "LSP", d = { name = "Diagnostic" }, g = { name = "Go to" }, p = { name = "Peek" } },
-			m = { name = "Bookmark" },
-			n = { name = "Noice" },
-			o = { name = "Operator" },
-			v = { name = "View", s = { name = "Split" } },
-		}, { mode = { "n", "v", "o", "x" }, prefix = "<leader>" })
+		which_key.add({
+			{
+				mode = { "n", "o", "v", "x" },
+				{ "<leader>C", group = "Quickfix" },
+				{ "<leader>D", group = "Debug" },
+				{ "<leader>S", group = "Session" },
+				{ "<leader>b", group = "Buffer" },
+				{ "<leader>f", group = "FZF" },
+				{ "<leader>g", group = "Git" },
+				{ "<leader>gc", group = "Git Conflict" },
+				{ "<leader>gh", group = "Git Hunk" },
+				{ "<leader>gt", group = "Git Toggle" },
+				{ "<leader>h", group = "Highlight" },
+				{ "<leader>l", group = "LSP" },
+				{ "<leader>ld", group = "LSP Diagnostic" },
+				{ "<leader>lg", group = "LSP Go to" },
+				{ "<leader>lp", group = "LSP Peek" },
+				{ "<leader>m", group = "Bookmark" },
+				{ "<leader>n", group = "Noice" },
+				{ "<leader>o", group = "Operator" },
+				{ "<leader>v", group = "View" },
+				{ "<leader>vs", group = "View Split" },
+			},
+		})
 	end,
 }

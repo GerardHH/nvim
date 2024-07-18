@@ -146,48 +146,6 @@ return {
 			})
 		end,
 	},
-	-- DAP
-	{
-		"mfussenegger/nvim-dap",
-		version = "*",
-		lazy = true,
-		keys = {
-			{ "<leader>DO", "<CMD>DapStepOut<CR>", desc = "Debug step Out" },
-			{ "<leader>Db", "<CMD>DapToggleBreakpoint<CR>", desc = "Debug toggle Breakpoint" },
-			{ "<leader>Dc", "<CMD>DapContinue<CR>", desc = "Debug Continue/start" },
-			{ "<leader>Di", "<CMD>DapStepInto<CR>", desc = "Debug step Into" },
-			{ "<leader>Do", "<CMD>DapStepOver<CR>", desc = "Debug step Over" },
-		},
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		version = "*",
-		dependencies = { "mfussenegger/nvim-dap" },
-		-- Gets depended on by specific DAP configs
-		lazy = true,
-		config = function()
-			local dap = require("dap")
-			local dapui = require("dapui")
-			dapui.setup()
-			dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
-			dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
-			dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
-		end,
-	},
-	{
-		"mfussenegger/nvim-dap-python",
-		version = "*",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-		},
-		lazy = true,
-		ft = "python",
-		config = function()
-			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-			require("dap-python").setup(path)
-		end,
-	},
 	-- Others
 	{
 		"utilyre/barbecue.nvim",

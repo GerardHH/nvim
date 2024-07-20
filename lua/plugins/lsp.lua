@@ -14,7 +14,17 @@ return {
 			{ "p00f/clangd_extensions.nvim", version = "*", opts = {} }, -- c/cpp
 		},
 		lazy = true,
-		ft = { "c", "cpp", "shell", "lua", "markdown", "nix", "python" },
+		ft = {
+			"c",
+			"cpp",
+			"cmake",
+			"lua",
+			"markdown",
+			"nix",
+			"python",
+			"rust",
+			"shell",
+		},
 		keys = {
 			-- lsp
 			{ "<leader>lG", vim.lsp.buf.type_definition, desc = "LSP Go to type definition" },
@@ -96,6 +106,27 @@ return {
 			lspconfig["ruff_lsp"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+			})
+			lspconfig["rust_analyzer"].setup({
+				capabilities = capabilities,
+				-- Format on save
+				on_attach = function(client, bufnr)
+					local augroup = vim.api.nvim_create_augroup("RustFormatting", {})
+					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						command = "RustFmt",
+					})
+					on_attach(client, bufnr)
+				end,
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							features = { "all" },
+						},
+					},
+				},
 			})
 		end,
 	},

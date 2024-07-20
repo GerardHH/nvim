@@ -8,6 +8,6 @@ return {
 		execution_message = {
 			message = function() return "AutoSave: " .. vim.api.nvim_buf_get_name(0) end,
 		},
-		debounce_delay = 500,
+		debounce_delay = 2000,
 	},
 }

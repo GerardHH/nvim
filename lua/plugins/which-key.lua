@@ -2,6 +2,9 @@ return {
 	"folke/which-key.nvim",
 	main = "which-key",
 	version = "*",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	init = function()
 		vim.o.timeout = true
 		vim.o.timeoutlen = 1000

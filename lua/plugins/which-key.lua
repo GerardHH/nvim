@@ -29,6 +29,7 @@ return {
 			{ "<leader>m", group = "Bookmark", mode = { "n", "o", "v", "x" } },
 			{ "<leader>n", group = "Noice", mode = { "n", "o", "v", "x" } },
 			{ "<leader>o", group = "Operator", mode = { "n", "o", "v", "x" } },
+			{ "<leader>t", group = "Tab", mode = { "n", "o", "v", "x" } },
 			{ "<leader>v", group = "View", mode = { "n", "o", "v", "x" } },
 			{ "<leader>vs", group = "View Split", mode = { "n", "o", "v", "x" } },
 		},

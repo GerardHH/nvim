@@ -36,6 +36,9 @@ return {
 	},
 	opts = {
 		"telescope",
+		lsp = {
+			async_or_timeout = 3000, -- Make lsp request synchronous so they play nice with null-ls
+		},
 		winopts = {
 			fullscreen = true,
 			preview = {

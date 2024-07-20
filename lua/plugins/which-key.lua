@@ -12,36 +12,25 @@ return {
 	lazy = true,
 	keys = "<leader>",
 	opts = {
-		operators = {}, -- Disable gc
+		spec = {
+			{ "<leader>C", group = "Quickfix", mode = { "n", "o", "v", "x" } },
+			{ "<leader>S", group = "Session", mode = { "n", "o", "v", "x" } },
+			{ "<leader>b", group = "Buffer", mode = { "n", "o", "v", "x" } },
+			{ "<leader>f", group = "FZF", mode = { "n", "o", "v", "x" } },
+			{ "<leader>g", group = "Git", mode = { "n", "o", "v", "x" } },
+			{ "<leader>gc", group = "Git Conflict", mode = { "n", "o", "v", "x" } },
+			{ "<leader>gh", group = "Git Hunk", mode = { "n", "o", "v", "x" } },
+			{ "<leader>gt", group = "Git Toggle", mode = { "n", "o", "v", "x" } },
+			{ "<leader>h", group = "Highlight", mode = { "n", "o", "v", "x" } },
+			{ "<leader>l", group = "LSP", mode = { "n", "o", "v", "x" } },
+			{ "<leader>ld", group = "LSP Diagnostic", mode = { "n", "o", "v", "x" } },
+			{ "<leader>lg", group = "LSP Go to", mode = { "n", "o", "v", "x" } },
+			{ "<leader>lp", group = "LSP Peek", mode = { "n", "o", "v", "x" } },
+			{ "<leader>m", group = "Bookmark", mode = { "n", "o", "v", "x" } },
+			{ "<leader>n", group = "Noice", mode = { "n", "o", "v", "x" } },
+			{ "<leader>o", group = "Operator", mode = { "n", "o", "v", "x" } },
+			{ "<leader>v", group = "View", mode = { "n", "o", "v", "x" } },
+			{ "<leader>vs", group = "View Split", mode = { "n", "o", "v", "x" } },
+		},
 	},
-	config = function(pkg, opts)
-		local which_key = require(pkg.main)
-
-		which_key.setup(opts)
-
-		which_key.add({
-			{
-				mode = { "n", "o", "v", "x" },
-				{ "<leader>C", group = "Quickfix" },
-				{ "<leader>D", group = "Debug" },
-				{ "<leader>S", group = "Session" },
-				{ "<leader>b", group = "Buffer" },
-				{ "<leader>f", group = "FZF" },
-				{ "<leader>g", group = "Git" },
-				{ "<leader>gc", group = "Git Conflict" },
-				{ "<leader>gh", group = "Git Hunk" },
-				{ "<leader>gt", group = "Git Toggle" },
-				{ "<leader>h", group = "Highlight" },
-				{ "<leader>l", group = "LSP" },
-				{ "<leader>ld", group = "LSP Diagnostic" },
-				{ "<leader>lg", group = "LSP Go to" },
-				{ "<leader>lp", group = "LSP Peek" },
-				{ "<leader>m", group = "Bookmark" },
-				{ "<leader>n", group = "Noice" },
-				{ "<leader>o", group = "Operator" },
-				{ "<leader>v", group = "View" },
-				{ "<leader>vs", group = "View Split" },
-			},
-		})
-	end,
 }

@@ -8,6 +8,12 @@ return {
 		execution_message = {
 			message = function() return "AutoSave: " .. vim.api.nvim_buf_get_name(0) end,
 		},
+		-- BUG : Something is using mode `niI` when new-lining a `{}` in Lua (perhaps other languages as well).
+		-- This would trigger the auto save and more importantly the auto-formatter.
+		condition = function()
+			local mode = vim.api.nvim_get_mode().mode
+			return mode ~= "niI"
+		end,
 		debounce_delay = 2000,
 	},
 }

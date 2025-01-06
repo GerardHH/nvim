@@ -5,9 +5,6 @@ return {
 	cmd = "ASToggle",
 	event = { "InsertLeave", "TextChanged" },
 	opts = {
-		execution_message = {
-			message = function() return "AutoSave: " .. vim.api.nvim_buf_get_name(0) end,
-		},
 		-- BUG : Something is using mode `niI` when new-lining a `{}` in Lua (perhaps other languages as well).
 		-- This would trigger the auto save and more importantly the auto-formatter.
 		condition = function()

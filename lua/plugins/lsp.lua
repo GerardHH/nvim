@@ -20,7 +20,6 @@ return {
 			"cmake",
 			"lua",
 			"markdown",
-			"nix",
 			"python",
 			"rust",
 			"shell",
@@ -94,10 +93,6 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
-			lspconfig["nixd"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
 			lspconfig["pyright"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -158,7 +153,6 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.diagnostics.mypy, -- python
-					null_ls.builtins.formatting.alejandra, -- Nix
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.clang_format, -- c/c++
 					null_ls.builtins.formatting.shfmt, -- shell

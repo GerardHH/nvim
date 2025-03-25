@@ -34,11 +34,6 @@ keymap("n", "<leader>vs-", "<C-w>s", { desc = "View Split window horizontally" }
 keymap("n", "<leader>vs/", "<C-w>v", { desc = "View Split window vertically" })
 keymap("n", "<leader>vs=", "<C-w>=", { desc = "View Split equal size" })
 keymap("n", "<leader>vsc", "<CMD>close<CR>", { desc = "View Split close current" })
--- Tabs
-keymap("n", "<leader>tc", "<CMD>tabclose<CR>", { desc = "Tab close" })
-keymap("n", "<leader>th", "<CMD>tprevious<CR>", { desc = "Tab previous" })
-keymap("n", "<leader>tl", "<CMD>tnext<CR>", { desc = "Tab next" })
-keymap("n", "<leader>tn", "<CMD>tabnew<CR>", { desc = "Tab new" })
 -- Writing
 keymap("n", "<leader>W", "<CMD>wa<CR>", { desc = "Write all" })
 keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })

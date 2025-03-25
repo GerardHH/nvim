@@ -25,13 +25,13 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "Shrink current vie
 keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- leader maps
+keymap("n", "<leader>S-", "<C-w>s", { desc = "Split window horizontally" })
+keymap("n", "<leader>S/", "<C-w>v", { desc = "Split window vertically" })
+keymap("n", "<leader>S=", "<C-w>=", { desc = "Split equal size" })
+keymap("n", "<leader>Sc", "<CMD>close<CR>", { desc = "Split close" })
 keymap("n", "<leader>vh", "<CMD>checkhealth<CR>", { desc = "View health" })
 keymap("n", "<leader>vl", "<CMD>Lazy<CR>", { desc = "View lazy" })
 keymap("n", "<leader>vm", "<CMD>messages<CR>", { desc = "View messages" })
-keymap("n", "<leader>vs-", "<C-w>s", { desc = "View Split window horizontally" })
-keymap("n", "<leader>vs/", "<C-w>v", { desc = "View Split window vertically" })
-keymap("n", "<leader>vs=", "<C-w>=", { desc = "View Split equal size" })
-keymap("n", "<leader>vsc", "<CMD>close<CR>", { desc = "View Split close current" })
 -- Writing
 keymap("n", "<leader>W", "<CMD>wa<CR>", { desc = "Write all" })
 keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })

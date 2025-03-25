@@ -14,7 +14,7 @@ return {
 	opts = {
 		spec = {
 			{ "<leader>C", group = "Quickfix", mode = { "n", "o", "v", "x" } },
-			{ "<leader>S", group = "Session", mode = { "n", "o", "v", "x" } },
+			{ "<leader>S", group = "Split", mode = { "n", "o", "v", "x" } },
 			{ "<leader>b", group = "Buffer", mode = { "n", "o", "v", "x" } },
 			{ "<leader>f", group = "FZF", mode = { "n", "o", "v", "x" } },
 			{ "<leader>g", group = "Git", mode = { "n", "o", "v", "x" } },

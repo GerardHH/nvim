@@ -7,6 +7,7 @@ return {
 			{ "<leader>q", function() require("mini.bufremove").delete(0) end, desc = "Quit buffer (mini.bufremove)" },
 		},
 	},
+	{ "echasnovski/mini.cursorword", version = "*", lazy = true, event = "BufEnter", opts = {} },
 	{
 		"echasnovski/mini.files",
 		version = "*",

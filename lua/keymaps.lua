@@ -25,8 +25,6 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "Shrink current vie
 keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- leader maps
-keymap("n", "<leader>B", "<CMD>bdelete %<CR>", { desc = "Close current buffer" })
--- View
 keymap("n", "<leader>vh", "<CMD>checkhealth<CR>", { desc = "View health" })
 keymap("n", "<leader>vl", "<CMD>Lazy<CR>", { desc = "View lazy" })
 keymap("n", "<leader>vm", "<CMD>messages<CR>", { desc = "View messages" })
@@ -37,3 +35,6 @@ keymap("n", "<leader>vsc", "<CMD>close<CR>", { desc = "View Split close current"
 -- Writing
 keymap("n", "<leader>W", "<CMD>wa<CR>", { desc = "Write all" })
 keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })
+-- Quiting
+keymap("n", "<leader>Q", "<CMD>qa<CR>", { desc = "Quit nvim" })
+keymap("n", "<leader>q", "<CMD>bdelete %<CR>", { desc = "Quit buffer" })

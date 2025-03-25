@@ -3,11 +3,6 @@ return {
 	main = "resession",
 	version = "*",
 	lazy = false,
-	keys = {
-		{ "<leader>Ss", function() require("resession").save() end, desc = "Session save" },
-		{ "<leader>Sl", function() require("resession").load() end, desc = "Session load" },
-		{ "<leader>Sd", function() require("resession").delete() end, desc = "Session delete" },
-	},
 	opts = {
 		autosave = {
 			enabled = true,

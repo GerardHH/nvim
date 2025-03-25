@@ -2,6 +2,27 @@ local jump_color = require("catppuccin.palettes.mocha").sky
 
 return {
 	{
+		"echasnovski/mini.files",
+		version = "*",
+		lazy = true,
+		keys = {
+			{
+				"<leader>ve",
+				function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end,
+				desc = "View explorer (mini.files)",
+			},
+		},
+		opts = {
+			mappings = {
+				show_help = "F1",
+			},
+			windows = {
+				preview = true,
+				width_preview = 50,
+			},
+		},
+	},
+	{
 		"echasnovski/mini.jump",
 		version = "*",
 		lazy = true,

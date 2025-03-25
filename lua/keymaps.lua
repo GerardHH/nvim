@@ -36,5 +36,4 @@ keymap("n", "<leader>vsc", "<CMD>close<CR>", { desc = "View Split close current"
 keymap("n", "<leader>W", "<CMD>wa<CR>", { desc = "Write all" })
 keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })
 -- Quiting
-keymap("n", "<leader>Q", "<CMD>qa<CR>", { desc = "Quit nvim" })
-keymap("n", "<leader>q", "<CMD>bdelete %<CR>", { desc = "Quit buffer" })
+keymap("n", "<leader>Q", "<CMD>qa<CR>", { desc = "Quit all" })

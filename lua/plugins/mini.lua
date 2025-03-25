@@ -1,5 +1,13 @@
 return {
 	{
+		"echasnovski/mini.bufremove",
+		version = "*",
+		lazy = true,
+		keys = {
+			{ "<leader>q", function() require("mini.bufremove").delete(0) end, desc = "Quit buffer (mini.bufremove)" },
+		},
+	},
+	{
 		"echasnovski/mini.files",
 		version = "*",
 		lazy = true,

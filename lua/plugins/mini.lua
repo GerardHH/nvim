@@ -88,4 +88,22 @@ return {
 			},
 		},
 	},
+	{
+		"echasnovski/mini.trailspace",
+		main = "mini.trailspace",
+		version = "*",
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+		config = function(pkg, opts)
+			require(pkg.main).setup(opts)
+
+			local group = vim.api.nvim_create_augroup(pkg.main, {})
+			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+				group = group,
+				pattern = "*",
+				callback = function() require(pkg.main).trim() end,
+			})
+		end,
+	},
 }

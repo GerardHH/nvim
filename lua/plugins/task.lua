@@ -22,26 +22,26 @@ return {
 	opts = {
 		task_list = {
 			bindings = {
-				["F1"] = "ShowHelp",
+				["<F1>"] = "ShowHelp",
 			},
 		},
 		task_launcher = {
 			bindings = {
 				i = {
-					["F1"] = "ShowHelp",
+					["<F1>"] = "ShowHelp",
 				},
 				n = {
-					["F1"] = "ShowHelp",
+					["<F1>"] = "ShowHelp",
 				},
 			},
 		},
 		task_editor = {
 			bindings = {
 				i = {
-					["F1"] = "ShowHelp",
+					["<F1>"] = "ShowHelp",
 				},
 				n = {
-					["F1"] = "ShowHelp",
+					["<F1>"] = "ShowHelp",
 				},
 			},
 		},

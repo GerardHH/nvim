@@ -21,7 +21,7 @@ return {
 		},
 		opts = {
 			mappings = {
-				show_help = "F1",
+				show_help = "<F1>",
 			},
 			windows = {
 				preview = true,

@@ -15,14 +15,15 @@ return {
 		},
 		lazy = true,
 		ft = {
+			"bash",
 			"c",
-			"cpp",
 			"cmake",
+			"cpp",
 			"lua",
 			"markdown",
 			"python",
 			"rust",
-			"shell",
+			"sh",
 		},
 		keys = {
 			-- lsp

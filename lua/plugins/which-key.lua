@@ -26,6 +26,7 @@ return {
 				mode = { "n", "o", "v", "x" },
 				expand = function() return require("which-key.extras").expand.buf() end,
 			},
+			{ "<leader>d", group = "Debug", mode = { "n", "o", "v", "x" } },
 			{ "<leader>f", group = "FZF", mode = { "n", "o", "v", "x" } },
 			{ "<leader>g", group = "Git", mode = { "n", "o", "v", "x" } },
 			{ "<leader>gc", group = "Git Conflict", mode = { "n", "o", "v", "x" } },

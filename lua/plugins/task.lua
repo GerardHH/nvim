@@ -3,10 +3,10 @@ return {
 	version = "*",
 	lazy = true,
 	keys = {
-		{ "<leader>tt", "<CMD>OverseerRun<CR>", desc = "Task task" },
-		{ "<leader>tT", "<CMD>OverseerToggle<CR>", desc = "Task toggle results" },
+		{ "<leader>rt", "<CMD>OverseerRun<CR>", desc = "Run task" },
+		{ "<leader>rT", "<CMD>OverseerToggle<CR>", desc = "Run toggle results" },
 		{
-			"<leader>tr",
+			"<leader>rr",
 			function()
 				local overseer = require("overseer")
 				local tasks = overseer.list_tasks({ recent_first = true })
@@ -16,7 +16,7 @@ return {
 					overseer.run_action(tasks[1], "restart")
 				end
 			end,
-			desc = "Task re-run task",
+			desc = "Run re-run task",
 		},
 	},
 	opts = {

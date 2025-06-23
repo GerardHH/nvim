@@ -6,6 +6,12 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 
+			{
+				"mrcjkb/rustaceanvim",
+				version = "^6", -- Recommended
+				lazy = false, -- This plugin is already lazy
+			},
+
 			-- Breadcrumps, but barbecue does the showing
 			"SmiteshP/nvim-navic",
 
@@ -99,27 +105,27 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
-			lspconfig["rust_analyzer"].setup({
-				capabilities = capabilities,
-				-- Format on save
-				on_attach = function(client, bufnr)
-					local augroup = vim.api.nvim_create_augroup("RustFormatting", {})
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						command = "RustFmt",
-					})
-					on_attach(client, bufnr)
-				end,
-				settings = {
-					["rust-analyzer"] = {
-						cargo = {
-							features = { "all" },
-						},
-					},
-				},
-			})
+			-- lspconfig["rust_analyzer"].setup({
+			-- 	capabilities = capabilities,
+			-- 	-- Format on save
+			-- 	on_attach = function(client, bufnr)
+			-- 		local augroup = vim.api.nvim_create_augroup("RustFormatting", {})
+			-- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			-- 		vim.api.nvim_create_autocmd("BufWritePre", {
+			-- 			group = augroup,
+			-- 			buffer = bufnr,
+			-- 			command = "RustFmt",
+			-- 		})
+			-- 		on_attach(client, bufnr)
+			-- 	end,
+			-- 	settings = {
+			-- 		["rust-analyzer"] = {
+			-- 			cargo = {
+			-- 				features = { "all" },
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
 		end,
 	},
 	-- Linting & Formatting

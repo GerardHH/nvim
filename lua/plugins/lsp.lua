@@ -4,7 +4,8 @@ return {
 		"neovim/nvim-lspconfig",
 		version = "*",
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
+			-- "hrsh7th/cmp-nvim-lsp",
+			"saghen/blink.cmp",
 
 			{
 				"mrcjkb/rustaceanvim",
@@ -42,7 +43,9 @@ return {
 		},
 		config = function()
 			-- used to enable autocompletion (assign to every lsp server config)
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 			local on_attach = function(client, bufnr)
 				if client.server_capabilities["documentSymbolProvider"] then
 					require("nvim-navic").attach(client, bufnr)

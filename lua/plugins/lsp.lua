@@ -221,6 +221,27 @@ return {
 		opts = {},
 	},
 	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		main = "tiny-inline-diagnostic",
+		version = "*",
+		lazy = true,
+		event = "LspAttach",
+		priority = 1000, -- needs to be loaded in first
+		opts = {
+			preset = "classic",
+			multilines = {
+				enabled = true,
+				always_show = true,
+				trim_whitespaces = true,
+				tabstop = 2,
+			},
+		},
+		config = function(pkg, opts)
+			require(pkg.main).setup(opts)
+			vim.diagnostic.config({ virtual_text = false })
+		end,
+	},
+	{
 		"kosayoda/nvim-lightbulb",
 		version = "*",
 		lazy = true,

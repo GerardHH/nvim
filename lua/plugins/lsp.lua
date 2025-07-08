@@ -41,15 +41,8 @@ return {
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
 		},
 		config = function()
-			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-			for type, icon in pairs(signs) do
-				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-			end
-
 			-- used to enable autocompletion (assign to every lsp server config)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 			local on_attach = function(client, bufnr)
 				if client.server_capabilities["documentSymbolProvider"] then
 					require("nvim-navic").attach(client, bufnr)
@@ -162,7 +155,7 @@ return {
 					null_ls.builtins.formatting.stylua, -- lua
 				},
 				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
+					if client:supports_method("textDocument/formatting") then
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,

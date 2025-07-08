@@ -44,3 +44,15 @@ opt.showcmd = false -- don't show command in the last line of the screen
 -- Scrolling
 opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor.
 opt.sidescrolloff = 8 -- minimal number of screen lines to keep left and right of the cursor.
+
+-- Diagnostics
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
+})

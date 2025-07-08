@@ -7,7 +7,7 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "TextYankPost" }, {
 	group = group,
 	pattern = "*",
-	callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 }) end,
+	callback = function() vim.hl.on_yank({ higroup = "IncSearch", timeout = 300 }) end,
 })
 
 -- Keep cursor in the middle of the screen

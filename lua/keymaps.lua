@@ -25,10 +25,13 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", { desc = "Shrink current vie
 keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- leader maps
+-- Split
 keymap("n", "<leader>S-", "<C-w>s", { desc = "Split window horizontally" })
 keymap("n", "<leader>S/", "<C-w>v", { desc = "Split window vertically" })
 keymap("n", "<leader>S=", "<C-w>=", { desc = "Split equal size" })
 keymap("n", "<leader>Sc", "<CMD>close<CR>", { desc = "Split close" })
+keymap("n", "<leader>Sq", "<CMD>bd<CR>", { desc = "Split quit" })
+-- View
 keymap("n", "<leader>vh", "<CMD>checkhealth<CR>", { desc = "View health" })
 keymap("n", "<leader>vl", "<CMD>Lazy<CR>", { desc = "View lazy" })
 keymap("n", "<leader>vm", "<CMD>messages<CR>", { desc = "View messages" })

@@ -14,8 +14,18 @@ return {
 	opts = {
 		spec = {
 			{ "<leader>C", group = "Quickfix", mode = { "n", "o", "v", "x" } },
-			{ "<leader>S", group = "Split", mode = { "n", "o", "v", "x" } },
-			{ "<leader>b", group = "Buffer", mode = { "n", "o", "v", "x" } },
+			{
+				"<leader>S",
+				group = "Split",
+				mode = { "n", "o", "v", "x" },
+				expand = function() return require("which-key.extras").expand.win() end,
+			},
+			{
+				"<leader>b",
+				group = "Buffer",
+				mode = { "n", "o", "v", "x" },
+				expand = function() return require("which-key.extras").expand.buf() end,
+			},
 			{ "<leader>f", group = "FZF", mode = { "n", "o", "v", "x" } },
 			{ "<leader>g", group = "Git", mode = { "n", "o", "v", "x" } },
 			{ "<leader>gc", group = "Git Conflict", mode = { "n", "o", "v", "x" } },

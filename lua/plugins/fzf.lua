@@ -8,7 +8,7 @@ return {
 	event = "LspAttach",
 	keys = {
 		-- Buffer
-		{ "<leader>b", "<CMD>FzfLua buffers<CR>", desc = "FZF buffers" },
+		{ "<leader>bb", "<CMD>FzfLua buffers<CR>", desc = "FZF buffers" },
 		-- FZF
 		{ "<leader>fB", "<CMD>FzfLua builtin<CR>", desc = "FZF builtin commands" },
 		{ "<leader>fC", "<CMD>FzfLua commands<CR>", desc = "FZF plugin/user commands" },

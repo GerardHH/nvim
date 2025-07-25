@@ -4,21 +4,8 @@ return {
 		"neovim/nvim-lspconfig",
 		version = "*",
 		dependencies = {
-			-- "hrsh7th/cmp-nvim-lsp",
 			"saghen/blink.cmp",
-
-			{
-				"mrcjkb/rustaceanvim",
-				version = "^6", -- Recommended
-				lazy = false, -- This plugin is already lazy
-			},
-
-			-- Breadcrumps, but barbecue does the showing
 			"SmiteshP/nvim-navic",
-
-			-- Language specific LSP extentions
-			{ "folke/neodev.nvim", version = "*", opts = {} }, -- nvim lua
-			{ "p00f/clangd_extensions.nvim", version = "*", opts = {} }, -- c/cpp
 		},
 		lazy = true,
 		ft = {
@@ -29,7 +16,6 @@ return {
 			"lua",
 			"markdown",
 			"python",
-			"rust",
 			"sh",
 		},
 		keys = {
@@ -41,88 +27,86 @@ return {
 			-- View
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
 		},
-		config = function()
-			-- used to enable autocompletion (assign to every lsp server config)
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			local on_attach = function(client, bufnr)
-				if client.server_capabilities["documentSymbolProvider"] then
-					require("nvim-navic").attach(client, bufnr)
-				end
-			end
-
-			local lspconfig = require("lspconfig")
-			lspconfig["lua_ls"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = {
-					Lua = {
-						completion = {
-							callSnipper = "Replace",
+		opts = {
+			servers = {
+				bashls = {},
+				clangd = {
+					capabilities = {
+						offsetEncoding = { "utf-16" },
+					},
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--header-insertion=iwyu",
+						"--completion-style=detailed",
+						"--function-arg-placeholders",
+						"--fallback-style=llvm",
+					},
+				},
+				cmake = {},
+				lua_ls = {
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+								path = vim.split(package.path, ";"),
+							},
+							completion = {
+								callSnippet = "Replace",
+							},
+							workspace = {
+								checkThirdParty = false,
+								library = {
+									vim.env.VIMRUNTIME,
+									"${3rd}/luv/library",
+									"${3rd}/busted/library",
+								},
+							},
 						},
 					},
 				},
-			})
-			lspconfig["bashls"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig["clangd"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				cmd = {
-					"clangd",
-					"--offset-encoding=utf-16",
-					"--background-index",
-					"--clang-tidy",
-					"--clang-tidy-checks=*",
-					"--all-scopes-completion",
-					"--cross-file-rename",
-					"--completion-style=detailed",
-					"--header-insertion-decorators",
-					"--header-insertion=iwyu",
-				},
-			})
-			lspconfig["cmake"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig["marksman"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig["pyright"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				filetypes = { "python" },
-			})
-			lspconfig["ruff"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			-- lspconfig["rust_analyzer"].setup({
-			-- 	capabilities = capabilities,
-			-- 	-- Format on save
-			-- 	on_attach = function(client, bufnr)
-			-- 		local augroup = vim.api.nvim_create_augroup("RustFormatting", {})
-			-- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			-- 		vim.api.nvim_create_autocmd("BufWritePre", {
-			-- 			group = augroup,
-			-- 			buffer = bufnr,
-			-- 			command = "RustFmt",
-			-- 		})
-			-- 		on_attach(client, bufnr)
-			-- 	end,
-			-- 	settings = {
-			-- 		["rust-analyzer"] = {
-			-- 			cargo = {
-			-- 				features = { "all" },
-			-- 			},
-			-- 		},
-			-- 	},
-			-- })
+				marksman = {},
+				pyright = {},
+				ruff = {},
+			},
+		},
+		config = function(_, opts)
+			local function register_lspconfig_commands(bufnr, commands)
+				for name, def in pairs(commands or {}) do
+					vim.api.nvim_buf_create_user_command(bufnr, name, function(args)
+						def[1](args) -- def[1] is the function, def[2] is description
+					end, def[2] or {})
+				end
+			end
+
+			for name, extending_config in pairs(opts.servers) do
+				local capabilities = require("blink.cmp").get_lsp_capabilities()
+				local on_attach = function(client, bufnr)
+					if client.server_capabilities["documentSymbolProvider"] then
+						require("nvim-navic").attach(client, bufnr)
+					end
+					-- This work around is needed to keep the ClangdSwitchSourceHeader working when in a *.h file.
+					-- Otherwise the `commands` should be merged in the table bellow as `commands`.
+					register_lspconfig_commands(bufnr, require("lspconfig")[name].document_config.commands)
+				end
+
+				extending_config = vim.tbl_deep_extend("force", extending_config, {
+					capabilities = capabilities,
+					on_attach = on_attach,
+				})
+
+				-- lspconfig already setup the LS config defaults, so we only need to add our specifics
+				vim.lsp.config(name, extending_config)
+				vim.lsp.enable(name)
+			end
 		end,
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "*",
+		lazy = true,
+		ft = "rust",
 	},
 	-- Linting & Formatting
 	{

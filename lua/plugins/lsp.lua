@@ -3,35 +3,8 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		version = "*",
-		dependencies = {
-			-- "hrsh7th/cmp-nvim-lsp",
-			"saghen/blink.cmp",
-
-			{
-				"mrcjkb/rustaceanvim",
-				version = "^6", -- Recommended
-				lazy = false, -- This plugin is already lazy
-			},
-
-			-- Breadcrumps, but barbecue does the showing
-			"SmiteshP/nvim-navic",
-
-			-- Language specific LSP extentions
-			{ "folke/neodev.nvim", version = "*", opts = {} }, -- nvim lua
-			{ "p00f/clangd_extensions.nvim", version = "*", opts = {} }, -- c/cpp
-		},
+		dependencies = {},
 		lazy = true,
-		ft = {
-			"bash",
-			"c",
-			"cmake",
-			"cpp",
-			"lua",
-			"markdown",
-			"python",
-			"rust",
-			"sh",
-		},
 		keys = {
 			-- lsp
 			{ "<leader>lG", vim.lsp.buf.type_definition, desc = "LSP Go to type definition" },
@@ -41,88 +14,11 @@ return {
 			-- View
 			{ "<leader>vL", "<CMD>LspInfo<CR>", desc = "View connected LS's" },
 		},
-		config = function()
-			-- used to enable autocompletion (assign to every lsp server config)
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			local on_attach = function(client, bufnr)
-				if client.server_capabilities["documentSymbolProvider"] then
-					require("nvim-navic").attach(client, bufnr)
-				end
-			end
-
-			local lspconfig = require("lspconfig")
-			lspconfig["lua_ls"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = {
-					Lua = {
-						completion = {
-							callSnipper = "Replace",
-						},
-					},
-				},
-			})
-			lspconfig["bashls"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig["clangd"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				cmd = {
-					"clangd",
-					"--offset-encoding=utf-16",
-					"--background-index",
-					"--clang-tidy",
-					"--clang-tidy-checks=*",
-					"--all-scopes-completion",
-					"--cross-file-rename",
-					"--completion-style=detailed",
-					"--header-insertion-decorators",
-					"--header-insertion=iwyu",
-				},
-			})
-			lspconfig["cmake"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig["marksman"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig["pyright"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				filetypes = { "python" },
-			})
-			lspconfig["ruff"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			-- lspconfig["rust_analyzer"].setup({
-			-- 	capabilities = capabilities,
-			-- 	-- Format on save
-			-- 	on_attach = function(client, bufnr)
-			-- 		local augroup = vim.api.nvim_create_augroup("RustFormatting", {})
-			-- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			-- 		vim.api.nvim_create_autocmd("BufWritePre", {
-			-- 			group = augroup,
-			-- 			buffer = bufnr,
-			-- 			command = "RustFmt",
-			-- 		})
-			-- 		on_attach(client, bufnr)
-			-- 	end,
-			-- 	settings = {
-			-- 		["rust-analyzer"] = {
-			-- 			cargo = {
-			-- 				features = { "all" },
-			-- 			},
-			-- 		},
-			-- 	},
-			-- })
-		end,
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^6", -- Recommended
+		lazy = false, -- This plugin is already lazy
 	},
 	-- Linting & Formatting
 	{

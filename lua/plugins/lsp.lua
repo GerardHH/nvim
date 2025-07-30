@@ -100,6 +100,8 @@ return {
 				vim.lsp.config(name, extending_config)
 				vim.lsp.enable(name)
 			end
+
+			vim.lsp.inlay_hint.enable()
 		end,
 	},
 	{
@@ -107,6 +109,7 @@ return {
 		version = "*",
 		lazy = true,
 		ft = "rust",
+		config = function() vim.lsp.inlay_hint.enable() end,
 	},
 	-- Linting & Formatting
 	{

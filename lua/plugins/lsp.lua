@@ -109,7 +109,18 @@ return {
 		version = "*",
 		lazy = true,
 		ft = "rust",
-		config = function() vim.lsp.inlay_hint.enable() end,
+		config = function()
+			vim.lsp.inlay_hint.enable()
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*.rs",
+				callback = function(args)
+					vim.lsp.buf.format({
+						bufnr = args.buf,
+						async = false,
+					})
+				end,
+			})
+		end,
 	},
 	-- Linting & Formatting
 	{

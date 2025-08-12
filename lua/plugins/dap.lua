@@ -141,7 +141,7 @@ return {
 	{
 		"nvim-neotest/neotest",
 		version = "*",
-		ft = { "rust" },
+		ft = { "rust", "cpp" },
 		cmd = { "Neotest", "NeotestRun", "NeotestSummary", "NeotestOutput" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -150,7 +150,8 @@ return {
 			-- Rust
 			"mrcjkb/rustaceanvim",
 			-- Cpp
-			"nvim-neotest/neotest-vim-test",
+			-- "nvim-neotest/neotest-vim-test",
+			"orjangj/neotest-ctest",
 		},
 		opts = function()
 			-- vim.g["test#cpp#runner"] = "ctest"
@@ -159,8 +160,12 @@ return {
 			return {
 				adapters = {
 					require("rustaceanvim.neotest"),
-					require("neotest-vim-test")({
-						allow_file_ypes = { "cpp", "c" },
+					-- require("neotest-vim-test")({
+					-- 	allow_file_ypes = { "cpp", "c" },
+					-- }),
+					require("neotest-ctest").setup({
+						build_dir = "build/unittest/build",
+						frameworks = { "catch2", "gtest" },
 					}),
 				},
 				diagnostic = {

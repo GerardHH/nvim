@@ -20,6 +20,11 @@ return {
 			end,
 			desc = "Qf toggle",
 		},
+		{
+			"<leader>Cd",
+			function() vim.diagnostic.setqflist() end,
+			desc = "Qf fill with diagnostics",
+		},
 	},
 	opts = {},
 }
